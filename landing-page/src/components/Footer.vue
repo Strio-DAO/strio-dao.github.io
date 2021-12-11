@@ -90,7 +90,7 @@
 
 <style>
   .fieldRow {
-    margin: 20px;
+    margin: 30px;
   }
 
 </style>

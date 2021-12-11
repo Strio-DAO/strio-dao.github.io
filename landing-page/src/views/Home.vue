@@ -6,7 +6,7 @@
               <div style="color:white; font-size:70px; font-weight: 800">VIDEO STORIES</div>
             </v-row>
             <v-row style="margin-top: 0px" justify="center" align="center">
-              <h2 style="color:white; font-weight: 270">Owned by creators and community</h2>
+              <h2 style="color:white; font-weight: 270">Owned by you and the community</h2>
             </v-row>
             <v-row style="color: white;" justify="center" align="center">
               <v-col justify="center" align="center">
@@ -126,7 +126,7 @@
         <v-row style="min-height: 1000px;">
           <v-col id="page3">
             <v-row justify="center" align="center">
-              <div style="color:gray; font-size: 70px; font-weight: 600; margin-top: 20px;">BE PART OF IT</div>
+              <div style="color:white; font-size: 70px; font-weight: 600; margin-top: 20px;">BE PART OF IT</div>
             </v-row>
             <v-row justify="center" align="center">
               <div style="display: inline; margin-top: 60px;">
@@ -137,7 +137,7 @@
               </div>
             </v-row>
             <v-row justify="center" align="center">
-              <div style="color:gray; font-size: 40px; font-weight: 500; margin-top: 100px;">A video streaming platform that you own</div>
+              <div style="color:white; font-size: 40px; font-weight: 500; margin-top: 100px;">A video streaming platform that you own</div>
             </v-row>
           </v-col>
         </v-row>
@@ -167,8 +167,9 @@
                     <v-col>
                       <span style="float:left; margin-left: 10px;">
                         Creators issue their own <br>
-                        token and content as <br>
-                        NFTs
+                        ERC-20 tokens and<br>
+                        upload their video<br>
+                        content as NFTs.
                       </span>
                     </v-col>
                   </v-row>
@@ -188,11 +189,10 @@
                     </v-col>
                     <v-col>
                       <span style="float:left; margin-left: 10px;">
-                        Supporters buy <br>
-                        Creators tokens to own<br>
-                        a share off all their <br>
-                        content NFTs or mist individual <br>
-                        NFTs
+                        Supporters invest in <br>
+                        their favourite creators<br>
+                        by buying their<br>
+                        personal tokens or NFTs.
                       </span>
                     </v-col>
                   </v-row>
@@ -212,10 +212,10 @@
                     </v-col>
                     <v-col>
                       <span style="float:left; margin-left: 10px;">
-                        NFT holders will own a <br>
-                        share of IP of the content <br>
-                        and will be able to sell it on the <br>
-                        secondary market
+                        NFT holders keep a share <br>
+                        of their content IP, profiting <br>
+                        from market success and <br>
+                        secondary market sales.
                       </span>
                     </v-col>
                   </v-row>
@@ -235,10 +235,9 @@
                     </v-col>
                     <v-col>
                       <span style="float:left; margin-left: 10px;">
-                        Viewers will enjoy the content <br>
-                        freely on the platform and their <br>
-                        interaction will determine <br>
-                        content success
+                        Viewers access videos <br>
+                        for free through Strio <br>
+                        platform.
                       </span>
                     </v-col>
                   </v-row>
@@ -258,11 +257,9 @@
                     </v-col>
                     <v-col>
                       <span style="float:left; margin-left: 10px;">
-                        Strio DAO's treasury collects a <br>
-                        fee over Creator token<br>
+                        Strio DAO Treasury collects <br>
+                        a fee over Creator Token<br>
                         transactions and NFT mints<br>
-                        and other content success <br>
-                        related metrics
                       </span>
                     </v-col>
                   </v-row>
@@ -282,11 +279,10 @@
                     </v-col>
                     <v-col>
                       <span style="float:left; margin-left: 10px;">
-                        Supporters and Creators are <br>
-                        rewarded by Strio DAO's <br>
-                        treasury every month according <br>
-                        to content success and NFT <br>
-                        ownership
+                        Supporters and Creators <br>
+                        are rewarded by Strio DAO <br>
+                        according to content success <br>
+                        and NFT ownership.
                       </span>
                     </v-col>
                   </v-row>
@@ -312,11 +308,11 @@
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 20px;">
               <v-btn style="background: #EF4423; color: white; margin-right: 20px;">
-                Become a member of the DAO
+                Strio DAO Governance
               </v-btn>
               <v-btn dark href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px;">
-                <span style="margin-right:10px;">Strio Wiki</span>
-                <v-icon style="height:5px;">mdi-arrow-right</v-icon>
+                <span style="margin-right:10px;">Get on the whitelist</span>
+                <!-- <v-icon style="height:5px;">mdi-arrow-right</v-icon> -->
               </v-btn>
             </v-row>
           </v-col>
@@ -330,7 +326,7 @@
               </h1>
             </v-row>
             <v-row justify="center" align="center" style="color: white">
-              <h3 style="margin-top: 20px;">What's on the wiki</h3>
+              <h2 style="margin-top: 30px; color: gray">What's on the wiki:</h2>
             </v-row>
             <v-row>
               <v-col>
