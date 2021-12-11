@@ -2,32 +2,48 @@
     <v-col>
         <v-row class="bg">
           <v-col>
-            <v-row style="margin-top:22%" justify="center" align="center">
+            <v-row style="margin-top:5%" justify="center" align="center">
               <div style="color:white; font-size:70px; font-weight: 800">VIDEO STORIES</div>
             </v-row>
             <v-row style="margin-top: 0px" justify="center" align="center">
               <h2 style="color:white; font-weight: 270">Owned by creators and community</h2>
             </v-row>
-            <v-row style="margin-top: 50px;" justify="center" align="center">
-              <v-col style="color: white" cols="3">
-                
+            <v-row style="color: white;" justify="center" align="center">
+              <v-col justify="center" align="center">
+                <h1>
+                  Launch your Creator Token and issue<br>
+                  your video content as NFTs to grow together<br>
+                  with your supporters.
+                </h1>
               </v-col>
-              <v-col style="color: white;" cols="6" align="center">
-                <v-row style="background: grey; opacity: 0.6; border-radius: 30px; padding: 0px;">
-                  <v-col cols="9" style="margin: 0px; padding: 0px;">
+            </v-row>
+            <v-row style="margin-top: 50px;" justify="center" align="center">
+              <v-col style="color: white;" align="center" justify="center">
+                <v-row style="background: grey; width: 20%; opacity: 0.6; border-radius: 30px; padding: 0px; margin-right: 4%">
+                  <v-col cols="10" style="margin: 0px; padding: 0px;">
                     <input placeholder="Insert your mail" type="text" style="height:50px; margin:0px; margin-left: 20px; width:90%; color: white">
                   </v-col>
-                  
-                  <v-col cols="3" style="margin: 0px; padding: 0px;" align="right">
-                    <v-btn class="button1" style="background-color: #EF4423; color: white; height: 50px; font-size: 15px; font-family: Aileron; margin: 0px; border-radius: 30px;">
+                  <v-col cols="2" style="margin: 0px; padding: 0px;" align="right">
+                    <v-btn class="button1" style="background-color: #EF4423; color: white; width:130px; height: 50px; font-size: 14px; font-family: Aileron; margin: 0px; border-radius: 30px;">
                       Join waitlist
                     </v-btn>
                   </v-col>
                 </v-row>
               </v-col>
-              <v-col style="color: white" cols="3"></v-col>
             </v-row>
-            <v-row justify="center" align="center" style="margin-top: 200px;">
+            <v-row justify="center" align="center" style="margin-top: 100px;">
+              <v-col justify="center" align="center">
+                <span style="color: white;">
+                  We are creating a new way for Video Creators to strive. <br>
+                  By enabling them to issue their own tokens, <br>
+                  they become able to monetize their careers and build <br>
+                  an index pool for their content NFT <br>
+                  Throug Strio, Creators can deploy  content as NFTs, sharing fractions of the <br>
+                  Intellectual Property (IP) with their supporters. <br>
+                </span>
+              </v-col>
+            </v-row>
+            <v-row justify="center" align="center" style="margin-top: 100px;">
               <v-btn style="background: none; outline: none; border:none;">
                 <v-img
                   alt="arrow"
@@ -38,24 +54,26 @@
               </v-btn>
             </v-row>
             <v-row id="cardPanel" ref="cardPanel" justify="center" align="center" style="margin-top: 100px; padding-top: 200px;">
-              
-              <v-col></v-col>
-              <v-col>
-                <iframe width="500" height="300" src="https://www.youtube.com/embed?v=ujGSt-93qZo"></iframe>
+              <v-col cols="2"></v-col>
+              <v-col cols="4">
+                <!-- <iframe width="500" height="300" src="https://www.youtube.com/embed?v=ujGSt-93qZo"></iframe> -->
+                <v-img
+                  src="../assets/images/girlImage.png"
+                  alt="image loading..."
+                ></v-img>
               </v-col>
-              <v-col style="color: white; margin-left: 100px;">
-                <v-row>
-                  <v-col>
-
-                  </v-col>
+              <v-col style="color: white;" cols="4">
+                <v-row justify="center" align="right">
+                  <v-col cols="4"></v-col>
                   <v-col style="margin-right: 10px;">
                       <v-row style="margin-bottom: 10px;">
-                        <h1>For creators</h1>
+                        <h1>For Video Creators</h1>
                       </v-row>
                       <v-row style="margin-bottom: 10px;">
-                        Issue Creator tokens and let your <br>
-                        supporters fund and profit from <br>
-                        your work
+                        Issue your own Creator tokens and let <br>
+                        the community invest in you. As<br>
+                        you succeed, so do your<br>
+                        supporters.
                       </v-row>
                       <v-row style="margin-bottom: 30px;">
                         Upload content as NFTs and <br>
@@ -69,26 +87,24 @@
                       </v-row>
                   </v-col>
                 </v-row>
-               
               </v-col>
-              <v-col></v-col>
-
+              <v-col cols="2"></v-col>
             </v-row>
-            <v-row justify="center" align="center" style="margin-bottom: 200px; margin-top: 80px;">
-              
-              <v-col></v-col>
-              <v-col style="color: white; margin-right: 50px;" >
+            <v-row justify="center" align="center" style="margin-bottom: 200px; margin-top: 100px;">
+              <v-col cols="2"></v-col>
+              <v-col style="color: white;" cols="4">
                 <v-row style="margin-bottom: 10px;">
                   <h1>For the community</h1>
                 </v-row>
                 <v-row style="margin-bottom: 10px;">
-                  Invest in your favourite creator tokens <br>
-                  and profit from their shinny careers <br>
+                  Invest in your favourite Creator by <br>
+                  buying their personal tokens and profit<br>
+                  from their shinny careers<br>
                 </v-row>
                 <v-row style="margin-bottom: 30px;">
-                  Get a share of their work's IP as NFTs <br>
-                  and be rewarded by their content <br>
-                  success
+                  Get a share of their creations' IP by <br>
+                  holding their NFTs and be rewarded by <br>
+                  their content success.
                 </v-row>
                 <v-row>
                   <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 15px; font-family: Aileron; padding: 20px;">
@@ -96,10 +112,13 @@
                   </v-btn>
                 </v-row>
               </v-col>
-              <v-col>
-                <iframe width="500" height="300" src="https://www.youtube.com/embed?v=ujGSt-93qZo"></iframe>
+              <v-col cols="4">
+                <v-img
+                  src="../assets/images/people.png"
+                  alt="image loading..."
+                ></v-img>
               </v-col>
-              <v-col></v-col>
+              <v-col cols="2"></v-col>
 
             </v-row>
           </v-col>
@@ -311,7 +330,7 @@
               </h1>
             </v-row>
             <v-row justify="center" align="center" style="color: white">
-              <h3 style="margin-top: 20px;">Here's a sneak peak into our first miles ahead</h3>
+              <h3 style="margin-top: 20px;">What's on the wiki</h3>
             </v-row>
             <v-row>
               <v-col>
@@ -325,55 +344,76 @@
               </v-col>
             </v-row>
             <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
-              <h1>Who's joining the movement</h1>
-            </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
-              <v-col></v-col>
-              <v-col style="margin-left: 5%;">
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
-              </v-col>
-              <v-col></v-col>
-            </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
               <h1>Strio core team</h1>
             </v-row>
             <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
               <v-col></v-col>
               <v-col style="margin-left: 5%;">
                 <v-avatar color="#1B1811" size="130">
-                  Picture
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/S3mz.png"
+                  />
                 </v-avatar>
               </v-col>
               <v-col>
                 <v-avatar color="#1B1811" size="130">
-                  Picture
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/drBrown.png"
+                  />
                 </v-avatar>
               </v-col>
               <v-col>
                 <v-avatar color="#1B1811" size="130">
-                  Picture
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/Sara.png"
+                  />
                 </v-avatar>
               </v-col>
               <v-col>
                 <v-avatar color="#1B1811" size="130">
-                  Picture
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/godinMaking.png"
+                  />
+                </v-avatar>
+              </v-col>
+              <v-col></v-col>
+            </v-row>
+            <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
+              <v-col></v-col>
+              <v-col style="margin-left: 5%;">
+                <v-avatar color="#1B1811" size="130">
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/SalvadorBarros.png"
+                  />
+                </v-avatar>
+              </v-col>
+              <v-col>
+                <v-avatar color="#1B1811" size="130">
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/hadzija.png"
+                  />
+                </v-avatar>
+              </v-col>
+              <v-col>
+                <v-avatar color="#1B1811" size="130">
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/IsraelRex.png"
+                  />
+                </v-avatar>
+              </v-col>
+              <v-col>
+                <v-avatar color="#1B1811" size="130">
+                  <v-img
+                    alt="S3mz"
+                    src="../assets/images/coreTeamPics/Fiyin.png"
+                  />
                 </v-avatar>
               </v-col>
               <v-col></v-col>
@@ -432,34 +472,29 @@ import RoadmapCard from '../components/RoadmapCard.vue';
       preSeasonCard: {
         title: "Pre Season",
         items: [
-          "Constitution",
-          "Core team definition",
-          "Business model validation",
-          "Creators onboarding",
-          "White paper & tokenomics",
-          "1st grants application",
-          "Pre-DAO token launch",
-          "Platform V1 preview"
+          "Launch Strio DAO",
+          "Launch Creator cohort #1",
+          "Launch Strio dAPP V1",
+          "Fund Treasury",
         ]
       },
       launchpadSeasonCard: {
         title: "Launchpad Season",
         items: [
-          "Platform V1 launch",
-          "Creators token launch",
-          "Exclusive video",
-          "Content preview",
-          "NFT minting",
+          "Cohort #1 Creator tokens launch",
+          "Cohort #1 Content NFTs launch",
+          "Launch Creator cohort #2",
+          "Launch Strio dAPP V2",
+          "IDO announcement",
         ]
       },
       streamingSeasonCard: {
         title: "Streaming Season",
         items: [
-          "Platform V2 launch",
-          "Creator market place",
-          "Video streaming",
-          "IDO and STRIO token",
-          "launch",
+          "Content streamed on the platform",
+          "Creator tokens + NFT",
+          "Marketplace",
+          "IDO",
         ]
       }
 
@@ -521,7 +556,7 @@ import RoadmapCard from '../components/RoadmapCard.vue';
   }
 
   #page3 {
-    background: url("../assets/images/pageWithElipse.png") no-repeat center center fixed;
+    background: url("../assets/images/blackBackgroundCircle.png") no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
