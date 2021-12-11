@@ -4,7 +4,7 @@
         max-width="300"
         dark
         height="400"
-        style="background-color: #404040; opacity: 0.9; border: 1px solid #EF4423; border-radius: 15px;"
+        style="background-color: #404040; opacity: 0.9; border-radius: 15px;"
     >
 
         <div>

@@ -301,16 +301,13 @@
                 Strio is a full-blown DAO from day one, governed, managed <br>
                 and built by a group of distributed contributors and core team <br>
                 members pledged under Strio’s contribution. <br>
-                Strio will launch it’s own STR token on upcoming IDO, allowing <br>
-                everyone to take part in the cap table, vote for the DAO <br>
-                governance and be rewarded by contributions on the project. <br>
               </span>
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 20px;">
               <v-btn style="background: #EF4423; color: white; margin-right: 20px;">
                 Strio DAO Governance
               </v-btn>
-              <v-btn dark href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px;">
+              <v-btn dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px;">
                 <span style="margin-right:10px;">Get on the whitelist</span>
                 <!-- <v-icon style="height:5px;">mdi-arrow-right</v-icon> -->
               </v-btn>
@@ -320,7 +317,7 @@
         <v-row id="page5" ref="roadmap">
           <v-col>
             <v-row justify="center" align="center" style="color: white">
-              <h1 justify="center" align="center" style="margin-top: 20px;">
+              <h1 justify="center" align="center" style="margin-top: 50px;">
                 Turning video content into distributed IP <br>
                 is a long term journey
               </h1>
@@ -330,7 +327,7 @@
             </v-row>
             <v-row>
               <v-col>
-                <roadmap-card :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
+                <roadmap-card style="border: 3px solid #EF4423;" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
               </v-col>
               <v-col>
                 <roadmap-card :items="launchpadSeasonCard.items" :title="launchpadSeasonCard.title"></roadmap-card>
@@ -339,7 +336,7 @@
                 <roadmap-card :items="streamingSeasonCard.items" :title="streamingSeasonCard.title"></roadmap-card>
               </v-col>
             </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
+            <v-row justify="center" align="center" style="color:white; margin-top: 150px;">
               <h1>Strio core team</h1>
             </v-row>
             <v-row justify="center" align="center" style="color:white; margin-top: 50px;">

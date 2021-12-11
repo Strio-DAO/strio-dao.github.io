@@ -68,7 +68,7 @@
         </v-col>
         <v-col></v-col>
       </v-row>
-      <v-divider></v-divider>
+      <v-divider style="margin-top: 30px;"></v-divider>
       <v-row style="margin-top: 20px; margin-bottom: 10px;">
         <v-col></v-col>
         <v-col><span style="color: gray">Strio 2021</span></v-col>
@@ -90,7 +90,7 @@
 
 <style>
   .fieldRow {
-    margin: 30px;
+    padding: 8px;
   }
 
 </style>
