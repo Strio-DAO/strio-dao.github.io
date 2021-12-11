@@ -2,6 +2,7 @@
   <v-footer
     dark
     padless
+    style="background: black;"
   >
     <v-col>
       <v-row id="mainRow" style="margin-top: 30px;">

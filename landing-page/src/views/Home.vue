@@ -348,107 +348,38 @@
             </v-row>
             <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
               <v-col></v-col>
-              <v-col style="margin-left: 5%;">
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/S3mz.png"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/drBrown.png"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/Sara.png"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/godinMaking.png"
-                  />
-                </v-avatar>
-              </v-col>
+              <Avatar :data="avatarItems.s3mz"/>
+              <Avatar :data="avatarItems.drBrown"/>
+              <Avatar :data="avatarItems.sara"/>
+              <Avatar :data="avatarItems.godinMaking"/>
               <v-col></v-col>
             </v-row>
             <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
               <v-col></v-col>
-              <v-col style="margin-left: 5%;">
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/SalvadorBarros.png"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/hadzija.png"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/IsraelRex.png"
-                  />
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  <v-img
-                    alt="S3mz"
-                    src="../assets/images/coreTeamPics/Fiyin.png"
-                  />
-                </v-avatar>
-              </v-col>
+              <Avatar :data="avatarItems.salvador"/>
+              <Avatar :data="avatarItems.hadzija"/>
+              <Avatar :data="avatarItems.israel"/>
+              <Avatar :data="avatarItems.fiyin"/>
               <v-col></v-col>
             </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
-              <h1>Strio partners</h1>
-            </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 50px; margin-bottom: 100px;">
-              <v-col></v-col>
-              <v-col style="margin-left: 5%;">
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
+            <v-row style="color: white; margin-top: 100px; margin-bottom: 150px;" justify="center" align="center">
+              <v-col justify="center" align="center">
+                <div style="display: inline-block;">
+                  <span style="font-size: 20px; margin-right: 40px; color: gray;">Built on</span>
+                </div>
+                <img
+                  style="margin-top: 20px;"
+                  contain
+                  src="@/assets/images/polygon-logo.png"
+                  width="160px"
+                />
               </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
-              </v-col>
-              <v-col>
-                <v-avatar color="#1B1811" size="130">
-                  Picture
-                </v-avatar>
-              </v-col>
-              <v-col></v-col>
             </v-row>
           </v-col>
         </v-row>
-        <v-row id="page7">
-          <v-col>
+        <v-row id="page7" style="background: black; color: white">
+          <v-col></v-col>
+          <v-col cols="4">
             <v-row justify="center" align="center">
               <h1 style="margin-top: 70px; margin-bottom: 30px;">Know more about Strio</h1>
             </v-row>
@@ -459,12 +390,21 @@
               </v-btn>
             </v-row>
           </v-col>
+          <v-col cols="4" align="center">
+            <v-img
+            style="margin-top: 40px;"
+            src="@/assets/images/StrioS.png"
+            width="200px"
+            />
+          </v-col>
+          <v-col></v-col>
         </v-row>
       </v-col>
 </template>
 
 <script>
 import RoadmapCard from '../components/RoadmapCard.vue';
+import Avatar from '../components/Avatar.vue';
   export default {
     name: 'Home',
 
@@ -496,12 +436,71 @@ import RoadmapCard from '../components/RoadmapCard.vue';
           "Marketplace",
           "IDO",
         ]
+      },
+      avatarItems: {
+        s3mz: {
+          picture: "S3mz.png",
+          name: "S3mz",
+          role: "Business Developer",
+          twitter: "https://twitter.com/unrealS3mz",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
+        drBrown: {
+          picture: "drBrown.png",
+          name: "Dr Brown",
+          role: "Head of Blockchain",
+          twitter: "https://twitter.com/EmmetBr01669163",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
+        sara: {
+          picture: "Sara.png",
+          name: "Sara Karim",
+          role: "Head of Marketing",
+          twitter: "https://twitter.com/saraikarim",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
+        godinMaking: {
+          picture: "godinMaking.png",
+          name: "GodinMaking",
+          role: "Business Developer",
+          twitter: "https://twitter.com/DogInMaking",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
+        salvador: {
+          picture: "SalvadorBarros.png",
+          name: "Salvador Barros",
+          role: "Builder",
+          twitter: "https://twitter.com/SalvadorBBarros",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
+        hadzija: {
+          picture: "hadzija.png",
+          name: "Hadzija",
+          role: "Front-end Developer",
+          twitter: "https://twitter.com/SremacCrypto",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
+        israel: {
+          picture: "IsraelRex.png",
+          name: "Israel Rex",
+          role: "UI/UX Lead",
+          twitter: "https://twitter.com/israelrex9",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
+        fiyin: {
+          picture: "Fiyin.png",
+          name: "Fiyin Odebunmi",
+          role: "Builder",
+          twitter: "https://twitter.com/FiyinOdebunmi",
+          discord: "https://discord.gg/ysqDFzzT",
+        },
       }
 
     }),
 
     components: {
-      RoadmapCard
+      RoadmapCard,
+      Avatar,
     },
 
     methods: {

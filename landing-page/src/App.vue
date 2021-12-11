@@ -42,6 +42,8 @@
       <router-view ref="home"/>
     </v-main>
 
+    <v-divider color="gray"></v-divider>
+
     <Footer ref="porto"></Footer>
     
   </v-app>
