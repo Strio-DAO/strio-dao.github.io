@@ -62,7 +62,6 @@ export default {
   li {
     font-size: 1.3em;
     font-weight: 300;
-    font-family: aileronregular;
     margin-bottom: 10px;
   }
 </style>

@@ -5,7 +5,7 @@
     style="background: black;"
   >
     <v-col>
-      <v-row id="mainRow" style="margin-top: 30px;">
+      <v-row id="mainRow" style="margin-top: 30px; margin-bottom: 50px;">
         <v-col></v-col>
         <v-col>
           <v-row>
@@ -68,7 +68,7 @@
         </v-col>
         <v-col></v-col>
       </v-row>
-      <v-divider style="margin-top: 30px;"></v-divider>
+      <!-- <v-divider style="margin-top: 30px;"></v-divider>
       <v-row style="margin-top: 20px; margin-bottom: 10px;">
         <v-col></v-col>
         <v-col><span style="color: gray">Strio 2021</span></v-col>
@@ -76,7 +76,7 @@
         <v-col></v-col>
         <v-col></v-col>
         <v-col></v-col>
-      </v-row>
+      </v-row> -->
     </v-col>
   </v-footer>
 </template>

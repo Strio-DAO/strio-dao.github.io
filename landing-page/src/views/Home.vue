@@ -5,26 +5,26 @@
             <v-row style="margin-top:5%" justify="center" align="center">
               <div class="title1" style="color: white">VIDEO STORIES</div>
             </v-row>
-            <v-row style="margin-top: 0px" justify="center" align="center">
+            <v-row style="margin-top: 0px; margin-bottom: 30px;" justify="center" align="center">
               <h2 style="color:gray;">Owned by you and the community</h2>
             </v-row>
             <v-row style="color: white;" justify="center" align="center">
               <v-col justify="center" align="center">
-                <h1>
+                <h2>
                   Launch your Creator Token and issue<br>
                   your video content as NFTs to grow together<br>
                   with your supporters.
-                </h1>
+                </h2>
               </v-col>
             </v-row>
             <v-row style="margin-top: 50px;" justify="center" align="center">
               <v-col style="color: white;" align="center" justify="center">
-                <v-row style="background: grey; width: 20%; opacity: 0.6; border-radius: 30px; padding: 0px; margin-right: 4%">
+                <v-row style="background: grey; width: 20%; border-radius: 30px; padding: 0px; margin-right: 4%">
                   <v-col cols="10" style="margin: 0px; padding: 0px;">
                     <input placeholder="Insert your mail" type="text" style="height:50px; margin:0px; margin-left: 20px; width:90%; color: white">
                   </v-col>
                   <v-col cols="2" style="margin: 0px; padding: 0px;" align="right">
-                    <v-btn class="button1" style="background-color: #EF4423; color: white; width:130px; height: 50px; font-size: 14px; font-family: Aileron; margin: 0px; border-radius: 30px;">
+                    <v-btn style="color: white; width:130px; height: 50px; font-size: 0.8em; margin: 0px; border-radius: 30px; background-color: #EF4423;">
                       Join waitlist
                     </v-btn>
                   </v-col>
@@ -81,7 +81,7 @@
                         community
                       </v-row>
                       <v-row>
-                        <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 15px; font-family: Aileron; padding: 20px;">
+                        <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
                           Join creator waitlist
                         </v-btn>
                       </v-row>
@@ -107,7 +107,7 @@
                   their content success.
                 </v-row>
                 <v-row>
-                  <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 15px; font-family: Aileron; padding: 20px;">
+                  <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
                     Join the community
                   </v-btn>
                 </v-row>
@@ -144,6 +144,16 @@
         <v-row ref="strioDAO">
           <v-col id="page4">
             <v-row justify="center" align="center">
+              <div>
+
+              <v-img
+                contain
+                src="../assets/images/CirclePageImage.png"
+                width="500px;"
+              ></v-img>
+              </div>
+            </v-row>
+            <!-- <v-row justify="center" align="center">
               <div style="width: 650px;">
                 <v-img
                   id="img1"
@@ -288,13 +298,20 @@
                   </v-row>
                 </v-sheet>
               </div>
-            </v-row>
-            <v-row justify="center" align="center" style="margin-top:-600px;">
-              <v-btn dark style="padding:50px;" class="rounded-pill">
+            </v-row> -->
+            <!-- style="margin-top:-600px;" -->
+            <v-row justify="center" align="center" style="margin-top: 100px;">  
+              <div>
+                <v-img
+                  contain
+                  src="../assets/images/strioCrafted.png"
+                ></v-img>
+              </div>
+              <!-- <v-btn dark style="padding:50px;" class="rounded-pill">
                 <v-img
                   src="../assets/images/StrioDaoLogo1.png"
                 ></v-img>
-              </v-btn>
+              </v-btn> -->
             </v-row>
             <v-row justify="center" align="center">
               <span style="color:white; margin-top:60px;" justify="center" align="center">
@@ -303,11 +320,11 @@
                 members pledged under Strio’s contribution. <br>
               </span>
             </v-row>
-            <v-row justify="center" align="center" style="margin-bottom: 20px;">
-              <v-btn style="background: #EF4423; color: white; margin-right: 20px;">
+            <v-row justify="center" align="center" style="margin-bottom: 50px; margin-top: 50px;">
+              <v-btn style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; margin-right: 10px;">
                 Strio DAO Governance
               </v-btn>
-              <v-btn dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px;">
+              <v-btn dark style="border: 1px solid #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; ">
                 <span style="margin-right:10px;">Get on the whitelist</span>
                 <!-- <v-icon style="height:5px;">mdi-arrow-right</v-icon> -->
               </v-btn>
@@ -326,6 +343,7 @@
               <h2 style="margin-top: 30px; color: gray">What's on the wiki:</h2>
             </v-row>
             <v-row>
+              <v-col></v-col>
               <v-col>
                 <roadmap-card style="border: 3px solid #EF4423;" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
               </v-col>
@@ -335,11 +353,12 @@
               <v-col>
                 <roadmap-card :items="streamingSeasonCard.items" :title="streamingSeasonCard.title"></roadmap-card>
               </v-col>
+              <v-col></v-col>
             </v-row>
             <v-row justify="center" align="center" style="color:white; margin-top: 150px;">
               <h1>Strio core team</h1>
             </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
+            <v-row justify="center" align="center" style="color:white; margin-top: 70px;">
               <v-col></v-col>
               <Avatar :data="avatarItems.s3mz"/>
               <Avatar :data="avatarItems.drBrown"/>
@@ -355,16 +374,16 @@
               <Avatar :data="avatarItems.fiyin"/>
               <v-col></v-col>
             </v-row>
-            <v-row style="color: white; margin-top: 100px; margin-bottom: 150px;" justify="center" align="center">
+            <v-row style="color: white; margin-top: 120px; margin-bottom: 150px;" justify="center" align="center">
               <v-col justify="center" align="center">
-                <div style="display: inline-block;">
-                  <span style="font-size: 20px; margin-right: 40px; color: gray;">Built on</span>
-                </div>
+                <!-- <div style="display: inline-block;">
+                  <h2 style="margin-right: 40px; color: gray;">Built on</h2>
+                </div> -->
                 <img
                   style="margin-top: 20px;"
                   contain
-                  src="@/assets/images/polygon-logo.png"
-                  width="160px"
+                  src="@/assets/images/polygon-logo2.png"
+                  width="300px"
                 />
               </v-col>
             </v-row>
@@ -377,9 +396,9 @@
               <h1 style="margin-top: 70px; margin-bottom: 30px;">Know more about Strio</h1>
             </v-row>
             <v-row justify="center" align="center">
-              <v-btn href="https://medium.com/strio-dao" target="_blank" class="mr-4 button1" style="background-color: #EF4423; color: white; height: 50px; font-size: 15px; font-family: Aileron; margin-bottom: 100px;">
+              <v-btn href="https://medium.com/strio-dao" target="_blank" class="mr-4 button1" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; margin-bottom: 100px;">
                 <span style="margin-right:10px;">Medium page</span>
-                <v-icon style="height:5px;">mdi-arrow-right</v-icon>
+                <v-icon small>mdi-arrow-right</v-icon>
               </v-btn>
             </v-row>
           </v-col>
@@ -542,11 +561,6 @@ import Avatar from '../components/Avatar.vue';
     -o-background-size: cover;
   }
 
-  .button1 {
-    width: 200px;
-    border: 0;
-  }
-
   #page3 {
     background: url("../assets/images/blackBackgroundCircle.png") no-repeat center center fixed;
     background-size: cover;
@@ -577,40 +591,55 @@ import Avatar from '../components/Avatar.vue';
     opacity: 1; /* Firefox */
   }
 
+/*font styles*/
   body {
     font-size: 110%;
     font-weight: 300;
-    font-family: aileronregular;
+    /* font-family: AileronBold; */
   }
   
   .title1 {
     font-size: 70px;
     font-weight: 800;
-    font-family: aileronregular;
+    /* font-family: AileronBold; */
   }
 
   .title2 {
     font-size: 60px;
     font-weight: 600;
-    font-family: aileronregular;
+    /* font-family: AileronBold; */
   }
 
   h1 {
     font-size: 40px;
     font-weight: 500;
-    font-family: aileronregular;
+    /* font-family: AileronBold; */
   }
 
   h2 {
     font-size: 30px;
     font-weight: 300;
-    font-family: aileronregular;
+    /* font-family: AileronBold; */
   }
 
   h3 {
     font-size: 20px;
     font-weight: 500;
-    font-family: aileronregular;
+    /* font-family: AileronBold; */
   }
+
+/*button styles*/
+  .orangeButton {
+    color: white;
+    height: 50px;
+    background-color: #EF4423;
+    font-size: 0.8em;
+    /* font-family: AileronRegular; */
+    padding: 20px;
+  }
+
+/**style="background-color: #EF4423; color: white; height: 50px; font-size: 15px; font-family: Aileron; padding: 20px;" */
+
+/* style="color: white; width:130px; height: 50px; font-size: 14px; font-family: Aileron; margin: 0px; border-radius: 30px;" */
 
 </style>

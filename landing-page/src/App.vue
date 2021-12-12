@@ -4,7 +4,7 @@
       app
       color="dark"
       dark
-      style="position:fixed"
+      style="position:fixed;"
     >
       <v-col>
         <div class="d-flex align-center">
@@ -30,9 +30,9 @@
       </v-col>
       <v-col>
         <div align="right">
-          <v-btn href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px;">
+          <v-btn href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px; 0.8em;">
             <span style="margin-right:10px;">Strio Wiki</span>
-            <v-icon style="height:5px;">mdi-arrow-right</v-icon>
+            <v-icon small>mdi-arrow-right</v-icon>
           </v-btn>
         </div>
       </v-col>
