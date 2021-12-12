@@ -54,8 +54,15 @@ export default {
   li::before {
     content: "•";
     color: #EF4423;
-    font-size: 20px;
+    font-size: 1.3em;
     display: inline-block; width: 1em;
     margin-left: -1em
+  }
+
+  li {
+    font-size: 1.3em;
+    font-weight: 300;
+    font-family: aileronregular;
+    margin-bottom: 10px;
   }
 </style>

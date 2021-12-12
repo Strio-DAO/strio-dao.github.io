@@ -9,10 +9,10 @@
             </v-avatar>
         </v-row>
         <v-row justify="center" align="center">
-            <h2>{{data.name}}</h2>
+            <h3>{{data.name}}</h3>
         </v-row>
         <v-row justify="center" align="center">
-            <h3>{{data.role}}</h3>
+            <p>{{data.role}}</p>
         </v-row>
         <v-row style="color:white;" justify="center" align="center">
             <v-btn

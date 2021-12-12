@@ -3,10 +3,10 @@
         <v-row class="bg">
           <v-col>
             <v-row style="margin-top:5%" justify="center" align="center">
-              <div style="color:white; font-size:70px; font-weight: 800">VIDEO STORIES</div>
+              <div class="title1" style="color: white">VIDEO STORIES</div>
             </v-row>
             <v-row style="margin-top: 0px" justify="center" align="center">
-              <h2 style="color:white; font-weight: 270">Owned by you and the community</h2>
+              <h2 style="color:gray;">Owned by you and the community</h2>
             </v-row>
             <v-row style="color: white;" justify="center" align="center">
               <v-col justify="center" align="center">
@@ -126,7 +126,7 @@
         <v-row style="min-height: 1000px;">
           <v-col id="page3">
             <v-row justify="center" align="center">
-              <div style="color:white; font-size: 70px; font-weight: 600; margin-top: 20px;">BE PART OF IT</div>
+              <div class="title2" style="color:white; margin-top: 20px;">BE PART OF IT</div>
             </v-row>
             <v-row justify="center" align="center">
               <div style="display: inline; margin-top: 60px;">
@@ -137,7 +137,7 @@
               </div>
             </v-row>
             <v-row justify="center" align="center">
-              <div style="color:white; font-size: 40px; font-weight: 500; margin-top: 100px;">A video streaming platform that you own</div>
+              <h1 style="color:white; margin-top: 100px;">A video streaming platform that you own</h1>
             </v-row>
           </v-col>
         </v-row>
@@ -150,7 +150,7 @@
                   contain
                   src="../assets/images/page4circle.png"
                 ></v-img>
-                <label for="img1" style="color:white; position: relative; top:-350px; left: 33%; font-size: 40px; font-weight: 500;">How it works</label>
+                <label for="img1" style="color:white; position: relative; top:-350px; left: 33%; font-size: 40px; font-weight: 500; font-family: aileronregular ">How it works</label>
                 <v-sheet
                   max-width="350"
                   class="rounded-pill mx-auto transition-swing secondary"
@@ -576,4 +576,41 @@ import Avatar from '../components/Avatar.vue';
     color: white;
     opacity: 1; /* Firefox */
   }
+
+  body {
+    font-size: 110%;
+    font-weight: 300;
+    font-family: aileronregular;
+  }
+  
+  .title1 {
+    font-size: 70px;
+    font-weight: 800;
+    font-family: aileronregular;
+  }
+
+  .title2 {
+    font-size: 60px;
+    font-weight: 600;
+    font-family: aileronregular;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 500;
+    font-family: aileronregular;
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 300;
+    font-family: aileronregular;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: aileronregular;
+  }
+
 </style>
