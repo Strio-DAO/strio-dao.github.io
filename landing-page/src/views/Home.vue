@@ -343,7 +343,7 @@
               <h2 style="margin-top: 30px; color: gray">What's on the wiki:</h2>
             </v-row>
             <v-row>
-              <v-col></v-col>
+              <v-col cols="2"></v-col>
               <v-col>
                 <roadmap-card style="border: 3px solid #EF4423;" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
               </v-col>
@@ -353,7 +353,7 @@
               <v-col>
                 <roadmap-card :items="streamingSeasonCard.items" :title="streamingSeasonCard.title"></roadmap-card>
               </v-col>
-              <v-col></v-col>
+              <v-col cols="2"></v-col>
             </v-row>
             <v-row justify="center" align="center" style="color:white; margin-top: 150px;">
               <h1>Strio core team</h1>

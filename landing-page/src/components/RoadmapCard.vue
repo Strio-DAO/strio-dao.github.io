@@ -1,9 +1,9 @@
 <template>
     <v-card
         class="mx-auto my-12"
-        max-width="300"
         dark
-        height="400"
+        height="450"
+        max-width="350"
         style="background-color: #404040; opacity: 0.9; border-radius: 15px;"
     >
 
