@@ -1,6 +1,6 @@
 <template>
     <v-col>
-        <v-row class="bg">
+        <v-row ref="topPage" class="bg">
           <v-col>
             <v-row style="margin-top:5%" justify="center" align="center">
               <div class="title1" style="color: white">VIDEO STORIES</div>

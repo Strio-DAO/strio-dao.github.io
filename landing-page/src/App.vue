@@ -8,7 +8,7 @@
     >
       <v-col>
         <div class="d-flex align-center">
-          <router-link style="color:white; text-decoration:none !important; margin-right: 50px" to="/">
+          <a style="color:white; text-decoration:none !important; margin-right: 50px" @click="scrollMeTo('topPage')">
             <v-img
               alt="Strio Logo"
               class="shrink mr-2"
@@ -17,7 +17,7 @@
               transition="scale-transition"
               width="100"
             />
-          </router-link>
+          </a>
         </div>
       </v-col>
       <v-col>
