@@ -1,4 +1,17 @@
 # strio-dao.github.io
 
 
-## last build
+## Commands
+
+### Install 
+
+npm install
+
+### Run locally
+
+npm run serve
+
+### Deploy
+
+npm run deploy
+
