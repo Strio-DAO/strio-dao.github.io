@@ -9,7 +9,7 @@ git checkout --orphan gh-pages
 
 npm run build
 
-mv dist/ docs/
+mv CNAME dist/
 
 git --work-tree $build_folder add --all
 git --work-tree $build_folder commit -m gh-pages
