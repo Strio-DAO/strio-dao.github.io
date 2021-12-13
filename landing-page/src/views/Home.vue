@@ -177,7 +177,7 @@
               their content success.
             </v-row>
             <v-row class="d-flex d-sm-none" style="color: white" justify="center" align="center">
-              <v-btn href="https://discord.gg/qZwwVuzB" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+              <v-btn href="https://discord.gg/VFZ54rNkav" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
                 Join our discord
               </v-btn>
             </v-row>
@@ -185,8 +185,8 @@
             
           </v-col>
         </v-row>
-        <!-- Desktop -->
-        <v-row style="min-height: 1000px ? xs;">
+        
+        <v-row >
           <v-col id="page3">
             <v-row justify="center" align="center">
               <div class="title2" style="color:white; margin-top: 20px;">BE PART OF IT</div>
@@ -217,7 +217,7 @@
         </v-row>
         <v-row ref="strioDAO">
           <v-col id="page4">
-            <v-row justify="center" align="center">
+            <v-row class="d-none d-sm-flex" justify="center" align="center">
               <div>
 
               <v-img
@@ -227,6 +227,15 @@
               ></v-img>
               </div>
             </v-row>
+            <v-row class="d-flex d-sm-none" justify="center" align="center">
+              <v-col>
+                <v-img
+                  contain
+                  src="../assets/images/CirclePageImage.png"
+                ></v-img>
+              </v-col>
+            </v-row>
+            <!-- Piece of code if we are not using image -->
             <!-- <v-row justify="center" align="center">
               <div style="width: 650px;">
                 <v-img
@@ -374,18 +383,21 @@
               </div>
             </v-row> -->
             <!-- style="margin-top:-600px;" -->
-            <v-row justify="center" align="center" style="margin-top: 100px;">  
+            <v-row class="d-none d-sm-flex" justify="center" align="center" style="margin-top: 100px;">  
               <div>
                 <v-img
                   contain
                   src="../assets/images/strioCrafted.png"
                 ></v-img>
               </div>
-              <!-- <v-btn dark style="padding:50px;" class="rounded-pill">
+            </v-row>
+            <v-row class="d-flex d-sm-none" justify="center" align="center">  
+              <v-col style="padding-left: 25%; padding-right: 25%; padding-top:5%;">
                 <v-img
-                  src="../assets/images/StrioDaoLogo1.png"
+                  contain
+                  src="../assets/images/strioCrafted.png"
                 ></v-img>
-              </v-btn> -->
+              </v-col>
             </v-row>
             <v-row justify="center" align="center">
               <span style="color:white; margin-top:60px;" justify="center" align="center">
@@ -415,7 +427,7 @@
             <v-row justify="center" align="center" style="color: white">
               <h2 style="margin-top: 30px; color: gray">Here is a sneak peak into our roadmap ahead</h2>
             </v-row>
-            <v-row>
+            <v-row class="d-none d-sm-flex">
               <v-col cols="2"></v-col>
               <v-col>
                 <roadmap-card style="border: 3px solid #EF4423;" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
@@ -428,10 +440,29 @@
               </v-col>
               <v-col cols="2"></v-col>
             </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 150px;">
+            <!-- Mobile -->
+            <v-row class="d-flex d-sm-none">
+              <v-col style="padding-left: 10%; padding-right: 10%;">
+                <roadmap-card style="border: 3px solid #EF4423; height: 350px;" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
+              </v-col>
+            </v-row>
+            <v-row class="d-flex d-sm-none">
+              <v-col style="padding-left: 10%; padding-right: 10%; margin-top: -20%">
+                <roadmap-card style="height: 350px;" :items="streamingSeasonCard.items" :title="streamingSeasonCard.title"></roadmap-card>
+              </v-col>
+            </v-row>
+            <v-row class="d-flex d-sm-none">
+              <v-col style="padding-left: 10%; padding-right: 10%; margin-top: -20%">
+                <roadmap-card style="height: 350px;" :items="streamingSeasonCard.items" :title="streamingSeasonCard.title"></roadmap-card>
+              </v-col>
+            </v-row>
+            <v-row class="d-none d-sm-flex" justify="center" align="center" style="color:white; margin-top: 150px;">
               <h1>Strio core team</h1>
             </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 70px;">
+            <v-row class="d-flex d-sm-none" justify="center" align="center" style="color:white; margin-top: 40px;">
+              <h1>Strio core team</h1>
+            </v-row>
+            <v-row class="d-none d-sm-flex" justify="center" align="center" style="color:white; margin-top: 70px;">
               <v-col></v-col>
               <Avatar :data="avatarItems.s3mz"/>
               <Avatar :data="avatarItems.drBrown"/>
@@ -439,13 +470,37 @@
               <Avatar :data="avatarItems.godinMaking"/>
               <v-col></v-col>
             </v-row>
-            <v-row justify="center" align="center" style="color:white; margin-top: 50px;">
+            <v-row class="d-none d-sm-flex" justify="center" align="center" style="color:white; margin-top: 50px;">
               <v-col></v-col>
               <Avatar :data="avatarItems.salvador"/>
               <Avatar :data="avatarItems.hadzija"/>
               <Avatar :data="avatarItems.israel"/>
               <Avatar :data="avatarItems.fiyin"/>
               <v-col></v-col>
+            </v-row>
+            <v-row class="d-flex d-sm-none" justify="center" align="center" style="color:white; margin-top: 70px;">
+              <v-col>
+                <v-row>
+                  <Avatar :data="avatarItems.s3mz"/>
+                  <Avatar :data="avatarItems.drBrown"/>
+                </v-row>
+                <v-row>
+                  <Avatar :data="avatarItems.sara"/>
+                  <Avatar :data="avatarItems.godinMaking"/>
+                </v-row>
+              </v-col>
+            </v-row>
+            <v-row class="d-flex d-sm-none" justify="center" align="center" style="color:white; margin-top: 50px;">
+              <v-col>
+                <v-row>
+                  <Avatar :data="avatarItems.salvador"/>
+                  <Avatar :data="avatarItems.hadzija"/>
+                </v-row>
+                <v-row>
+                  <Avatar :data="avatarItems.israel"/>
+                  <Avatar :data="avatarItems.fiyin"/>
+                </v-row>
+              </v-col>
             </v-row>
             <v-row style="color: white; margin-top: 120px; margin-bottom: 150px;" justify="center" align="center">
               <v-col justify="center" align="center">

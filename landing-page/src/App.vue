@@ -90,8 +90,8 @@
       <router-view ref="home"/>
     </v-main>
 
-    <!-- <v-divider color="gray" style="margin-right:10%; margin-left: 10%; height:3px;"></v-divider> -->
-    <div id="divider" style="background-color:#404040; height: 0.02px; margin-right:10%; margin-left: 10%"></div>
+    <v-divider color="gray" style="margin-right:10%; margin-left: 10%; height:3px;"></v-divider>
+    <!-- <div id="divider" style="background-color:#404040; height: 0.02px; margin-right:10%; margin-left: 10%"></div> -->
     <Footer ref="porto"></Footer>
     
   </v-app>
