@@ -8,16 +8,23 @@
             <v-row style="margin-top: 0px; margin-bottom: 30px;" justify="center" align="center">
               <h2 style="color:gray;">Owned by you and the community</h2>
             </v-row>
-            <v-row style="color: white;" justify="center" align="center">
+            <v-row justify="center" align="center">
+              <v-col cols="2" style="margin: 0px; padding: 0px;" align="center">
+                <v-btn style="color: white; width:130px; height: 50px; font-size: 0.8em; background-color: #EF4423;">
+                  Apply
+                </v-btn>
+              </v-col>
+            </v-row>
+            <v-row style="color: white; margin-top: 7%" justify="center" align="center">
               <v-col justify="center" align="center">
                 <h2>
-                  Launch your Creator Token and issue<br>
-                  your video content as NFTs to grow together<br>
+                  Launch Creator Token and issue<br>
+                  video content as NFTs to grow together<br>
                   with your supporters.
                 </h2>
               </v-col>
             </v-row>
-            <v-row style="margin-top: 50px;" justify="center" align="center">
+            <!-- <v-row style="margin-top: 50px;" justify="center" align="center">
               <v-col style="color: white;" align="center" justify="center">
                 <v-row style="background: grey; width: 20%; border-radius: 30px; padding: 0px; margin-right: 4%">
                   <v-col cols="10" style="margin: 0px; padding: 0px;">
@@ -30,8 +37,8 @@
                   </v-col>
                 </v-row>
               </v-col>
-            </v-row>
-            <v-row justify="center" align="center" style="margin-top: 100px;">
+            </v-row> -->
+            <!-- <v-row justify="center" align="center" style="margin-top: 100px;">
               <v-col justify="center" align="center">
                 <span style="color: white;">
                   We are creating a new way for Video Creators to strive. <br>
@@ -42,7 +49,7 @@
                   Intellectual Property (IP) with their supporters. <br>
                 </span>
               </v-col>
-            </v-row>
+            </v-row> -->
             <v-row justify="center" align="center" style="margin-top: 100px;">
               <v-btn style="background: none; outline: none; border:none;">
                 <v-img
@@ -54,7 +61,7 @@
               </v-btn>
             </v-row>
             <v-row id="cardPanel" ref="cardPanel" justify="center" align="center" style="margin-top: 100px; padding-top: 200px;">
-              <v-col cols="2"></v-col>
+              <v-col cols="1"></v-col>
               <v-col cols="4">
                 <!-- <iframe width="500" height="300" src="https://www.youtube.com/embed?v=ujGSt-93qZo"></iframe> -->
                 <v-img
@@ -62,7 +69,7 @@
                   alt="image loading..."
                 ></v-img>
               </v-col>
-              <v-col style="color: white;" cols="4">
+              <v-col style="color: white;" cols="5">
                 <v-row justify="center" align="right">
                   <v-col cols="4"></v-col>
                   <v-col style="margin-right: 10px;">
@@ -82,17 +89,17 @@
                       </v-row>
                       <v-row>
                         <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
-                          Join creator waitlist
+                          Apply for season one
                         </v-btn>
                       </v-row>
                   </v-col>
                 </v-row>
               </v-col>
-              <v-col cols="2"></v-col>
+              <v-col cols="1"></v-col>
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 200px; margin-top: 100px;">
-              <v-col cols="2"></v-col>
-              <v-col style="color: white;" cols="4">
+              <v-col cols="1"></v-col>
+              <v-col style="color: white;" cols="5">
                 <v-row style="margin-bottom: 10px;">
                   <h1>For the community</h1>
                 </v-row>
@@ -107,8 +114,8 @@
                   their content success.
                 </v-row>
                 <v-row>
-                  <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
-                    Join the community
+                  <v-btn href="https://discord.gg/qZwwVuzB" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+                    Join our discord
                   </v-btn>
                 </v-row>
               </v-col>
@@ -118,7 +125,7 @@
                   alt="image loading..."
                 ></v-img>
               </v-col>
-              <v-col cols="2"></v-col>
+              <v-col cols="1"></v-col>
 
             </v-row>
           </v-col>
@@ -321,13 +328,12 @@
               </span>
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 50px; margin-top: 50px;">
-              <v-btn style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; margin-right: 10px;">
+              <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; margin-right: 10px;">
                 Strio DAO Governance
               </v-btn>
-              <v-btn dark style="border: 1px solid #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; ">
+              <!-- <v-btn dark style="border: 1px solid #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; ">
                 <span style="margin-right:10px;">Get on the whitelist</span>
-                <!-- <v-icon style="height:5px;">mdi-arrow-right</v-icon> -->
-              </v-btn>
+              </v-btn> -->
             </v-row>
           </v-col>
         </v-row>
@@ -340,7 +346,7 @@
               </h1>
             </v-row>
             <v-row justify="center" align="center" style="color: white">
-              <h2 style="margin-top: 30px; color: gray">What's on the wiki:</h2>
+              <h2 style="margin-top: 30px; color: gray">Here is a sneak peak into our roadmap ahead</h2>
             </v-row>
             <v-row>
               <v-col cols="2"></v-col>

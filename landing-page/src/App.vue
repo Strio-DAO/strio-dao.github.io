@@ -20,11 +20,12 @@
           </a>
         </div>
       </v-col>
-      <v-col>
+      <v-col cols="7">
         <div align="center">
           <!-- <router-link style="color:white; text-decoration:none !important; margin-right: 50px" to="/about">About</router-link> -->
           <!-- <router-link style="color:white; text-decoration:none !important; margin-right: 50px" to="/roadmap">Roadmap</router-link> -->
           <a style="color:white; text-decoration:none !important; margin-right: 50px" @click="scrollMeTo('roadmap')">Roadmap</a>
+          <a style="color:white; text-decoration:none !important; margin-right: 50px">Become a member</a>
           <a style="color:white; text-decoration:none !important; margin-right: 50px" @click="scrollMeTo('strioDAO')">DAO</a>
         </div>
       </v-col>
