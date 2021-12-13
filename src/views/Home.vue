@@ -8,9 +8,16 @@
             <v-row style="margin-top: 0px; margin-bottom: 30px;" justify="center" align="center">
               <h2 style="color:gray;">Owned by you and the community</h2>
             </v-row>
-            <v-row justify="center" align="center">
+            <v-row class="d-none d-sm-flex" justify="center" align="center">
               <v-col cols="2" style="margin: 0px; padding: 0px;" align="center">
                 <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="color: white; width:130px; height: 50px; font-size: 0.8em; background-color: #EF4423;">
+                  Apply
+                </v-btn>
+              </v-col>
+            </v-row>
+            <v-row class="d-flex d-sm-none" justify="center" align="center">
+              <v-col align="center">
+                <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="color: white; width:100px; height: 35px; font-size: 1em; background-color: #EF4423;">
                   Apply
                 </v-btn>
               </v-col>
@@ -51,12 +58,20 @@
               </v-col>
             </v-row> -->
             <v-row justify="center" align="center" style="margin-top: 100px;">
-              <v-btn style="background: none; outline: none; border:none;">
+              <v-btn class="d-none d-sm-flex" style="background: none; outline: none; border:none;">
                 <v-img
                   alt="arrow"
                   src="../assets/images/ArrowDown.png"
                   width="10"
                   @click="scroll($refs.cardPanel)"
+                />
+              </v-btn>
+              <v-btn class="d-flex d-sm-none" style="background: none; outline: none; border:none;">
+                <v-img
+                  alt="arrow"
+                  src="../assets/images/ArrowDown.png"
+                  width="10"
+                  @click="scroll($refs.cardPanelBig)"
                 />
               </v-btn>
             </v-row>
@@ -88,7 +103,7 @@
                         community
                       </v-row>
                       <v-row>
-                        <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+                        <v-btn class="mr-4" href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
                           Apply for season one
                         </v-btn>
                       </v-row>
@@ -114,7 +129,7 @@
                   their content success.
                 </v-row>
                 <v-row>
-                  <v-btn href="https://discord.gg/qZwwVuzB" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+                  <v-btn href="https://discord.gg/BCPgjK5C7q" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
                     Join our discord
                   </v-btn>
                 </v-row>
@@ -128,7 +143,7 @@
               <v-col cols="1"></v-col>
             </v-row>
             <!-- Mobile version -->
-            <v-row class="d-flex d-sm-none" id="cardPanel" ref="cardPanel" justify="center" align="center" style="margin-top: 100px; padding-top: 50px;">
+            <v-row class="d-flex d-sm-none" id="cardPanel" ref="cardPanelBig" justify="center" align="center" style="margin-top: 100px; padding-top: 50px;">
               <v-col style="padding:10%">
                 <v-img
                   src="../assets/images/girlImage.png"
@@ -149,7 +164,7 @@
               distribute IP amongst your community.
             </v-row>
             <v-row class="d-flex d-sm-none" justify="center" align="center">
-              <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+              <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; margin-top: 10px; padding: 20px;">
                 Apply for season one
               </v-btn>
             </v-row>
@@ -177,7 +192,7 @@
               their content success.
             </v-row>
             <v-row class="d-flex d-sm-none" style="color: white" justify="center" align="center">
-              <v-btn href="https://discord.gg/VFZ54rNkav" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+              <v-btn href="https://discord.gg/VFZ54rNkav" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 20px; margin-top: -5px; margin-bottom: 30px;">
                 Join our discord
               </v-btn>
             </v-row>
@@ -407,7 +422,7 @@
               </span>
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 50px; margin-top: 50px;">
-              <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; margin-right: 10px;">
+              <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 20px; margin-right: 10px;">
                 Strio DAO Governance
               </v-btn>
               <!-- <v-btn dark style="border: 1px solid #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; ">
@@ -681,6 +696,8 @@ import Avatar from '../components/Avatar.vue';
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Aileron');
+
   .bg {
     background: url("../assets/images/Rectangle18.png") no-repeat center center fixed;
     background-size: cover;
@@ -723,18 +740,21 @@ import Avatar from '../components/Avatar.vue';
   body {
     font-size: calc(10px + 0.6vw);
     font-weight: 300;
+    font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
   }
   
   .title1 {
     font-size: calc(15px + 4vw);
     font-weight: 700;
+    font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
   }
 
   .title2 {
     font-size: 5vw;
     font-weight: 600;
+    font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
   }
 
@@ -742,18 +762,21 @@ import Avatar from '../components/Avatar.vue';
     font-size: calc(12px + 1.5vw);
 
     font-weight: 500;
+    font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
   }
 
   h2 {
     font-size: calc(12px + 1.5vw);
     font-weight: 300;
+    font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
   }
 
   h3 {
     font-size: 20px;
     font-weight: 500;
+    font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
   }
 
