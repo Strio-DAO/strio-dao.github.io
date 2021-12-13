@@ -10,7 +10,7 @@
             </v-row>
             <v-row justify="center" align="center">
               <v-col cols="2" style="margin: 0px; padding: 0px;" align="center">
-                <v-btn style="color: white; width:130px; height: 50px; font-size: 0.8em; background-color: #EF4423;">
+                <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="color: white; width:130px; height: 50px; font-size: 0.8em; background-color: #EF4423;">
                   Apply
                 </v-btn>
               </v-col>
@@ -82,13 +82,13 @@
                         you succeed, so do your<br>
                         supporters.
                       </v-row>
-                      <v-row style="margin-bottom: 30px;">
+                      <v-row ref="becomeMember" style="margin-bottom: 30px;">
                         Upload content as NFTs and <br>
                         distribute IP amongst your <br>
                         community
                       </v-row>
                       <v-row>
-                        <v-btn class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+                        <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
                           Apply for season one
                         </v-btn>
                       </v-row>
@@ -461,56 +461,56 @@ import Avatar from '../components/Avatar.vue';
           name: "S3mz",
           role: "Business Developer",
           twitter: "https://twitter.com/unrealS3mz",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/895329158454968360/",
         },
         drBrown: {
           picture: "drBrown.png",
           name: "Dr Brown",
           role: "Head of Blockchain",
           twitter: "https://twitter.com/EmmetBr01669163",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/895428109682217052/",
         },
         sara: {
           picture: "Sara.png",
           name: "Sara Karim",
           role: "Head of Marketing",
           twitter: "https://twitter.com/saraikarim",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/815665228187566080/",
         },
         godinMaking: {
           picture: "godinMaking.png",
           name: "GodinMaking",
           role: "Business Developer",
           twitter: "https://twitter.com/DogInMaking",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/376837675040374811/",
         },
         salvador: {
           picture: "SalvadorBarros.png",
           name: "Salvador Barros",
           role: "Builder",
           twitter: "https://twitter.com/SalvadorBBarros",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/785846322783584266/",
         },
         hadzija: {
           picture: "hadzija.png",
           name: "Hadzija",
           role: "Front-end Developer",
           twitter: "https://twitter.com/SremacCrypto",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/462281828657528844/",
         },
         israel: {
           picture: "IsraelRex.png",
           name: "Israel Rex",
           role: "UI/UX Lead",
           twitter: "https://twitter.com/israelrex9",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/699363724472877157/",
         },
         fiyin: {
           picture: "Fiyin.png",
           name: "Fiyin Odebunmi",
           role: "Builder",
           twitter: "https://twitter.com/FiyinOdebunmi",
-          discord: "https://discord.gg/ysqDFzzT",
+          discord: "https://discordapp.com/users/871844643665506395/",
         },
       }
 

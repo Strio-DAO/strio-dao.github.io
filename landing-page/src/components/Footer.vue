@@ -34,13 +34,13 @@
           <v-row class="fieldRow">
             <a href="https://github.com/Strio-DAO" style="text-decoration:none !important; color: white;" target="_blank">Github</a>
           </v-row>
-          <v-row class="fieldRow">
+          <!-- <v-row class="fieldRow">
             API Reference
-          </v-row>
+          </v-row> -->
         </v-col>
         <v-col>
           <v-row class="fieldRow">
-            <a href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" style="text-decoration:none !important; color: gray;" target="_blank">Governance</a>
+            <span style="text-decoration:none !important; color: gray;">Governance</span>
           </v-row>
           <v-row class="fieldRow">
             <a href="https://snapshot.org/#/test6.shot.eth" style="text-decoration:none !important; color: white;" target="_blank">Snapshot</a>
