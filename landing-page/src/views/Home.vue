@@ -60,7 +60,7 @@
                 />
               </v-btn>
             </v-row>
-            <v-row id="cardPanel" ref="cardPanel" justify="center" align="center" style="margin-top: 100px; padding-top: 200px;">
+            <v-row class="d-none d-sm-flex" id="cardPanel" ref="cardPanel" justify="center" align="center" style="margin-top: 100px; padding-top: 200px;">
               <v-col cols="1"></v-col>
               <v-col cols="4">
                 <!-- <iframe width="500" height="300" src="https://www.youtube.com/embed?v=ujGSt-93qZo"></iframe> -->
@@ -97,7 +97,7 @@
               </v-col>
               <v-col cols="1"></v-col>
             </v-row>
-            <v-row justify="center" align="center" style="margin-bottom: 200px; margin-top: 100px;">
+            <v-row class="d-none d-sm-flex" justify="center" align="center" style="margin-bottom: 200px; margin-top: 100px;">
               <v-col cols="1"></v-col>
               <v-col style="color: white;" cols="5">
                 <v-row style="margin-bottom: 10px;">
@@ -126,16 +126,72 @@
                 ></v-img>
               </v-col>
               <v-col cols="1"></v-col>
-
             </v-row>
+            <!-- Mobile version -->
+            <v-row class="d-flex d-sm-none" id="cardPanel" ref="cardPanel" justify="center" align="center" style="margin-top: 100px; padding-top: 50px;">
+              <v-col style="padding:10%">
+                <v-img
+                  src="../assets/images/girlImage.png"
+                  alt="image loading..."
+                ></v-img>
+              </v-col>
+            </v-row>
+            <v-row class="d-flex d-sm-none" style="margin-bottom: 10px; color: white" justify="center" align="center">
+              <h1>For Video Creators</h1>
+            </v-row>
+            <v-row class="d-flex d-sm-none" style="margin-bottom: 10px; color: white" justify="center" align="center">
+              Issue your own Creator tokens and let <br>
+              the community invest in you. As<br>
+              you succeed, so do your supporters.
+            </v-row>
+            <v-row class="d-flex d-sm-none" ref="becomeMember" style="margin-bottom: 10px; color: white" justify="center" align="center">
+              Upload content as NFTs and <br>
+              distribute IP amongst your community.
+            </v-row>
+            <v-row class="d-flex d-sm-none" justify="center" align="center">
+              <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+                Apply for season one
+              </v-btn>
+            </v-row>
+
+            <v-row class="d-flex d-sm-none">
+              <v-col style="padding:10%">
+                <v-img
+                  src="../assets/images/people.png"
+                  alt="image loading..."
+                ></v-img>
+              </v-col>
+            </v-row>
+            
+            <v-row class="d-flex d-sm-none" style="margin-bottom: 10px; color: white" justify="center" align="center">
+              <h1>For the community</h1>
+            </v-row>
+            <v-row class="d-flex d-sm-none" style="margin-bottom: 10px; color: white" justify="center" align="center">
+              Invest in your favourite Creator by <br>
+              buying their personal tokens and profit<br>
+              from their shinny careers<br>
+            </v-row>
+            <v-row class="d-flex d-sm-none" style="margin-bottom: 30px; color: white" justify="center" align="center">
+              Get a share of their creations' IP by <br>
+              holding their NFTs and be rewarded by <br>
+              their content success.
+            </v-row>
+            <v-row class="d-flex d-sm-none" style="color: white" justify="center" align="center">
+              <v-btn href="https://discord.gg/qZwwVuzB" target="_blank" class="mr-4" style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px;">
+                Join our discord
+              </v-btn>
+            </v-row>
+
+            
           </v-col>
         </v-row>
-        <v-row style="min-height: 1000px;">
+        <!-- Desktop -->
+        <v-row style="min-height: 1000px ? xs;">
           <v-col id="page3">
             <v-row justify="center" align="center">
               <div class="title2" style="color:white; margin-top: 20px;">BE PART OF IT</div>
             </v-row>
-            <v-row justify="center" align="center">
+            <v-row class="d-none d-sm-flex" justify="center" align="center">
               <div style="display: inline; margin-top: 60px;">
                 <v-img
                   width="300px;"
@@ -143,8 +199,19 @@
                 ></v-img>
               </div>
             </v-row>
-            <v-row justify="center" align="center">
-              <h1 style="color:white; margin-top: 100px;">A video streaming platform that you own</h1>
+            <v-row class="d-flex d-sm-none" justify="center" align="center">
+              <v-col style="padding:10%">
+                <v-img
+                  src="../assets/images/GroupImg.png"
+                  alt="image loading..."
+                ></v-img>
+              </v-col>
+            </v-row>
+            <v-row class="d-none d-sm-flex" justify="center" align="center">
+              <h1 style="color:white; margin-top: 60px; margin-bottom: 100px;">A video streaming platform that you own</h1>
+            </v-row>
+            <v-row class="d-flex d-sm-none" justify="center" align="center">
+              <h1 style="color:white; margin-top: 20px;">A video streaming platform that you own</h1>
             </v-row>
           </v-col>
         </v-row>
@@ -599,31 +666,32 @@ import Avatar from '../components/Avatar.vue';
 
 /*font styles*/
   body {
-    font-size: 110%;
+    font-size: calc(10px + 0.6vw);
     font-weight: 300;
     /* font-family: AileronBold; */
   }
   
   .title1 {
-    font-size: 70px;
-    font-weight: 800;
+    font-size: calc(15px + 4vw);
+    font-weight: 700;
     /* font-family: AileronBold; */
   }
 
   .title2 {
-    font-size: 60px;
+    font-size: 5vw;
     font-weight: 600;
     /* font-family: AileronBold; */
   }
 
   h1 {
-    font-size: 40px;
+    font-size: calc(12px + 1.5vw);
+
     font-weight: 500;
     /* font-family: AileronBold; */
   }
 
   h2 {
-    font-size: 30px;
+    font-size: calc(12px + 1.5vw);
     font-weight: 300;
     /* font-family: AileronBold; */
   }

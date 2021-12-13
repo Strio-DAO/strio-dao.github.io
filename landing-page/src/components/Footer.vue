@@ -21,22 +21,15 @@
             </div>
           </v-row>
           <v-row style="margin-top: 120px;">
-            <!-- <span style="color: gray">Certified by Certik</span> -->
           </v-row>
         </v-col>
         <v-col>
           <v-row class="fieldRow">
             <span style="color: gray">Developers</span>
           </v-row>
-          <!-- <v-row class="fieldRow">
-            Documentation
-          </v-row> -->
           <v-row class="fieldRow">
             <a href="https://github.com/Strio-DAO" style="text-decoration:none !important; color: white;" target="_blank">Github</a>
           </v-row>
-          <!-- <v-row class="fieldRow">
-            API Reference
-          </v-row> -->
         </v-col>
         <v-col>
           <v-row class="fieldRow">
@@ -45,15 +38,6 @@
           <v-row class="fieldRow">
             <a href="https://snapshot.org/#/test6.shot.eth" style="text-decoration:none !important; color: white;" target="_blank">Snapshot</a>
           </v-row>
-          <!-- <v-row class="fieldRow">
-            STRIO Token
-          </v-row>
-          <v-row class="fieldRow">
-            Forum
-          </v-row>
-          <v-row class="fieldRow">
-            Voting portal
-          </v-row> -->
         </v-col>
         <v-col>
           <v-row class="fieldRow">
@@ -71,15 +55,6 @@
         </v-col>
         <v-col></v-col>
       </v-row>
-      <!-- <v-divider style="margin-top: 30px;"></v-divider>
-      <v-row style="margin-top: 20px; margin-bottom: 10px;">
-        <v-col></v-col>
-        <v-col><span style="color: gray">Strio 2021</span></v-col>
-        <v-col></v-col>
-        <v-col></v-col>
-        <v-col></v-col>
-        <v-col></v-col>
-      </v-row> -->
     </v-col>
   </v-footer>
 </template>
