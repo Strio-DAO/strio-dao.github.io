@@ -25,7 +25,7 @@
             <v-row style="color: white; margin-top: 7%" justify="center" align="center">
               <v-col justify="center" align="center">
                 <h2>
-                  Launch Creator Token and issue<br>
+                  Launch a creator token and issue<br>
                   video content as NFTs to grow together<br>
                   with your supporters.
                 </h2>
@@ -243,7 +243,7 @@
               </span>
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 50px; margin-top: 50px;">
-              <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 20px; margin-right: 10px;">
+              <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 50px; font-size: 1em; padding: 20px; margin-right: 10px;">
                 Strio DAO Governance
               </v-btn>
             </v-row>
@@ -263,7 +263,7 @@
             <v-row class="d-none d-sm-flex">
               <v-col cols="2"></v-col>
               <v-col>
-                <roadmap-card style="border: 3px solid #EF4423;" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
+                <roadmap-card style="border: 3px solid #EF4423" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
               </v-col>
               <v-col>
                 <roadmap-card :items="launchpadSeasonCard.items" :title="launchpadSeasonCard.title"></roadmap-card>
@@ -567,7 +567,7 @@ import Avatar from '../components/Avatar.vue';
   }
 
   .title2 {
-    font-size: 5vw;
+    font-size: calc(15px + 3vw);;
     font-weight: 600;
     font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */

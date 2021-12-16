@@ -10,7 +10,7 @@
         <div>
         <v-card-title>
             <v-col style="margin-top:0px; padding:0px;" justify="top" align="center">
-            <h2>
+            <h2 class="cardTitle">
                {{title}} 
             </h2>
             </v-col>
@@ -63,5 +63,12 @@ export default {
     font-size: 1.3em;
     font-weight: 300;
     margin-bottom: 10px;
+  }
+
+  .cardTitle {
+    font-size: calc(12px + 1.1vw);
+    font-weight: 300;
+    font-family: 'Aileron', sans-serif;
+    /* font-family: AileronBold; */
   }
 </style>
