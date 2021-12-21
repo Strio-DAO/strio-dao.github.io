@@ -3,8 +3,7 @@
 line="\n#######################################################################\n";
 build_folder=dist
 
-g#it branch -D gh-pages
-
+#git branch -D gh-pages
 #git checkout --orphan gh-pages
 
 git checkout  gh-pages
