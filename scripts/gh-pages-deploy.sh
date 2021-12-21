@@ -8,6 +8,7 @@ build_folder=dist
 
 git checkout  gh-pages
 
+npm run install
 npm run build
 
 # add CNAME file to dist/
