@@ -22,5 +22,5 @@ git push origin HEAD:gh-pages --force
 
 rm -f $build_folder
 
-git checkout -f master
+#git checkout -f master
 #git branch -D gh-pages
