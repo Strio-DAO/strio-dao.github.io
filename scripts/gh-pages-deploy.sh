@@ -3,10 +3,12 @@
 line="\n#######################################################################\n";
 build_folder=dist
 
-git branch -D gh-pages
+#git branch -D gh-pages
+#git checkout --orphan gh-pages
 
-git checkout --orphan gh-pages
+git checkout  gh-pages
 
+npm run install
 npm run build
 
 # add CNAME file to dist/
@@ -21,5 +23,5 @@ git push origin HEAD:gh-pages --force
 
 rm -f $build_folder
 
-git checkout -f master
-git branch -D gh-pages
+#git checkout -f master
+#git branch -D gh-pages
