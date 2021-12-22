@@ -16,6 +16,7 @@ strio project
 │   └───views
 │   └───router
 │   └───plugin
+│   └───store
 │   
 └───dist
     │   builds...
