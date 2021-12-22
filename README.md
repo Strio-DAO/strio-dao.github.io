@@ -38,6 +38,11 @@ strio project
     <li>dist: Built folder with static files ready for deployment</li>
 </ul>
 
+## Contributer guide line
+
+For each ticket we must created a branch that refers a ticket and exented that branch from master to make sure that is updated with the must recent version of code.
+
+
 ## Deploy landing page
 
 ### Production
