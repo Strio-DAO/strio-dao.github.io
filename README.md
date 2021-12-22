@@ -3,8 +3,8 @@
 ```
 strio project
 │   README.md
-│   file001.txt    
-│
+│   CNAME
+│   vue.config.js
 └───src
 │   │   App.vue
 │   │   main.js
@@ -18,7 +18,7 @@ strio project
 │   └───plugin
 │   
 └───dist
-    │   file021.txt
+    │   builds...
 ```
 
 
