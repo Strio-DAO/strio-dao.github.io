@@ -1,3 +1,27 @@
+# Project structure
+
+```
+strio project
+│   README.md
+│   file001.txt    
+│
+└───src
+│   │   App.vue
+│   │   main.js
+│   │
+│   └───assets
+│       │   ...
+│   └───components
+│       │   ...
+│   └───views
+│   └───router
+│   └───plugin
+│   
+└───dist
+    │   file021.txt
+```
+
+
 # landing-page
 ...
 
