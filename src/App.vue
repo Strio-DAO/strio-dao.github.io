@@ -44,7 +44,8 @@
           <v-btn @click.stop="drawer = !drawer" class="d-flex d-sm-none">
             <v-img
                 contain
-                src="@/assets/images/mobile/menuMobile.png"
+                width="30px"
+                src="@/assets/images/mobile/menuMobile2.png"
             />
           </v-btn>
         </div>
@@ -92,10 +93,13 @@
     <v-main>
       <router-view ref="home"/>
     </v-main>
-
+    
+    
+    
     <v-divider color="gray" style="margin-right:10%; margin-left: 10%; height:3px;"></v-divider>
     <!-- <div id="divider" style="background-color:#404040; height: 0.02px; margin-right:10%; margin-left: 10%"></div> -->
     <Footer ref="porto"></Footer>
+    
     
   </v-app>
 </template>
@@ -105,6 +109,7 @@ import Footer from './components/Footer.vue'
 import Menu from './components/mobile/Menu.vue'
 import NavDrawer from './components/mobile/NavDrawer.vue'
 
+
 export default {
   name: 'App',
 
@@ -112,6 +117,7 @@ export default {
     Footer,
     Menu,
     NavDrawer,
+    
   },
 
   data: () => ({
