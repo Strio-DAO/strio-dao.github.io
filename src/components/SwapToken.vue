@@ -10,14 +10,15 @@
                         </div>
                     </v-col>
                     <v-col>
-                            <v-btn
+                            <!-- <v-btn
                             
                             color="transparent"
                             class="connect-wallet-button"
                             @click="connectWallet">
                                 Connect Wallet 
                                 <v-icon dark right> mdi-checkbox-marked-circle </v-icon>
-                            </v-btn>
+                            </v-btn> -->
+                            <WalletConnect />
                     </v-col>
                     
         </v-row>
@@ -98,6 +99,8 @@
 </template>
 
 <script>
+  import WalletConnect from './WalletConnect.vue';
+
   export default {
     data: () => ({
         items: ['Weenus', 'Zeenus', 'Dai'],
@@ -113,7 +116,10 @@
         connectWallet (){
             
         },
-    }
+    },
+    components: {
+      WalletConnect
+  }
   }
 </script>
 
