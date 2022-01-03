@@ -5,17 +5,21 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const state = {
+    ative_stable : ['weenus', 'xeenus'],
     strio_token : {
         address: strio_token_meta.address,
-        abi: strio_token_meta.abi
+        abi: strio_token_meta.abi,
+        balance : 0
     },
     weenus_token : {
         address: weenus_token_meta.address,
-        abi: weenus_token_meta.abi
+        abi: weenus_token_meta.abi,
+        balance : 0
     },
     xeenus_token : {
         address: xeenus_token_meta.address,
-        abi: xeenus_token_meta.abi
+        abi: xeenus_token_meta.abi,
+        balance : 0
     }
 }
   

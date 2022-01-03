@@ -2,7 +2,6 @@
    
     <v-row>
         <v-col>
-            {{count}}
          <div v-if="isConnected" style="" class="add_container">
               <div class="ether_place" style="padding-left:3%;padding-right:3%;flex-shrink: 0;">{{balance}} DAI</div>
               <input disabled class="address"  v-model="reducedWa" value="..." >
@@ -20,12 +19,8 @@
             </v-btn>
 
         </v-col>
-     
-
     </v-row>
-  
-        
-  
+
 </template>
 
 <script>
@@ -38,6 +33,17 @@ import { mapState } from 'vuex'
 
 
 export default {
+ async mounted() {
+	
+    let self = this;
+    console.log('Mounted for [WalletConnect] ');
+		setTimeout(() => {
+     
+    }, 400);
+     self.checkConnection();
+   
+
+	},
   computed: {
     count () {
       
@@ -62,9 +68,17 @@ export default {
         currentAccount : '',
         reducedWa : '...',
         balance : 2,
+        chain :  0,
+        chainId:  0
     }
   },
   methods : {
+   
+   checkConnection : async function(){
+       
+      this.connectWallet();  
+     
+    },
     getBalance : async function(account)
     {
       const balance = await ethereum.request({ method: 'eth_getBalance', params: [
@@ -91,43 +105,46 @@ export default {
         await this.getBalance(accounts[0]);
         this.currentAccount = accounts[0];
     
-        console.log('store output test 1212 ', this.$store.account.state.chainIdConncted  )
+        console.log('store output test 1212 ', this.$store.account.state.chainIdConncted )
         this.$store.account.commit('setAddress', accounts[0])
         this.reducedWa =  this.currentAccount.slice(0, 6) + '...' + this.currentAccount.slice(36, 40)
         this.isConnected = true;
         this.chainId = await ethereum.request({ method: 'eth_chainId' });
-        console.log('ChainID : ', this.chainId);
+        console.log('ChainID 1 : ', this.chainId);
         if ( !(this.chainId  ==  this.$store.account.state.chainIdConncted ) )
         {
             console.error('ChainID is not connected!')
             return;
         }
 
-        
         // LOAD ACCOUNT SSTRIO BALANCE
-        const _this = this;
-
+       const _this = this;
        console.log('user address ', this.$store.account.state.address)
+      
 
         const StrioToken = new Contract(
           this.$store.contracts.state.strio_token.abi,
-          this.$store.contracts.state.strio_token.address
+          this.$store.contracts.state.strio_token.address,{
+             
+          }
         )
-        console.log('BalanceOf ', this.$store.contracts.state.strio_token.address)
-
-
+        
+       //Contract.setProvider(this.provider);
+     
         ethereum.request({
           method: 'eth_call',
           params: [{
+           
             to: this.$store.contracts.state.strio_token.address,
-            data: StrioToken.methods.totalSupply().encodeABI()
+            data: StrioToken.methods.balanceOf(this.$store.account.state.address).encodeABI()
           }]
         })
         .then(result => 
         { 
             console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
-            _this.$store.account.commit('setStrioBalance',Web3Utils.hexToNumberString(result) )
-            console.log('Strio balance : ', _this.$store.account.balance )
+            let strioBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+            _this.$store.account.commit('setStrioBalance', strioBalance  )
+            console.log('Strio balance : ', _this.$store.account.state.strioBalance )
         })
         .catch(err => {
           console.error('Error when call balanceOF ', err)
@@ -147,11 +164,19 @@ export default {
       console.log(' Is metamask ', ethereum.isMetaMask );
       console.log(' Is connected ', ethereum.isConnected() );
 
+      ethereum.on('accountsChanged', (accounts) => {
+      // Handle the new accounts, or lack thereof.
+      // "accounts" will always be an array, but it can be empty.
+        console.log('Account change  [1] ');
+        window.location.reload();
+
+      });
+
       ethereum.on('chainChanged', (chainId) => {
         // Handle the new chain.
         // Correctly handling chain changes can be complicated.
         // We recommend reloading the page unless you have good reason not to.
-        console.log('Account change  [2] ');
+        console.log('Account change  [2] ', chainId);
         window.location.reload();
       });
       ethereum.on('connect', (info) =>{
@@ -166,7 +191,7 @@ export default {
       */
       ethereum
         .request({ method: 'eth_requestAccounts' })
-        .then(this.handleAccountsChanged)
+        .then(await this.handleAccountsChanged)
         .catch((error) => {
           if (error.code === 4001) {
             // EIP-1193 userRejectedRequest error
@@ -175,6 +200,7 @@ export default {
             console.error(error);
           }
         });
+
     },
     connectWallet : async function()
     {

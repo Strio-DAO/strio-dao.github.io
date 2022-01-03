@@ -29,6 +29,7 @@
                     <v-col></v-col>
                     <v-row class="swapInput">
                         <v-col>
+                            
                             <v-row>
                                 <v-col justify-center>
                                     <v-select
@@ -40,7 +41,6 @@
                                     ></v-select>
                                 </v-col>
                                 <v-col>
-
                                     <v-text-field 
                                     id="stableInput" 
                                     type="number"
@@ -50,6 +50,19 @@
                                     label = "Min 2000"
                                     v-model = "stableAmount"
                                     ></v-text-field>
+                                </v-col>
+                            </v-row>
+                        </v-col>
+                    </v-row>
+                    <v-row class="swapInput">
+                        <v-col>
+                            
+                            <v-row>
+                                <v-col justify-center>
+                                 <p> balance stable: </p>
+                                </v-col>
+                                <v-col>
+                                    <p> balance strio : {{this.$store.account.state.strioBalance}}</p>
                                 </v-col>
                             </v-row>
                         </v-col>
@@ -102,8 +115,21 @@
   import WalletConnect from './WalletConnect.vue';
 
   export default {
+    mounted() {
+        console.log('Mounted for [SwapToken] ');
+
+        let self = this;
+        setTimeout(function() {
+            console.log('ative stable ', self.$store.contracts.state.ative_stable);
+            self.items = self.$store.contracts.state.ative_stable;
+        }, 1000)
+	},
+       
+    computed: {
+           
+    },
     data: () => ({
-        items: ['Weenus', 'Zeenus', 'Dai'],
+        items:  ['weenus', 'xeenus'],
         stableAmount: 0,
         strioAmount: 0,
         stableSelected: '',
@@ -113,9 +139,6 @@
             
         },
 
-        connectWallet (){
-            
-        },
     },
     components: {
       WalletConnect

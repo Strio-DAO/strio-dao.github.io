@@ -1044,8 +1044,8 @@
         ]
     },
     "strio_token_meta" : {  
-        "address": "0xdf80aaf176bb1b71176215a78ff3e65e6d7f4ded",
-        "abi" : [
+        "address": "0xDF80aaF176Bb1b71176215A78Ff3E65E6d7f4deD",
+        "abi": [
             {
                 "inputs": [
                     {
