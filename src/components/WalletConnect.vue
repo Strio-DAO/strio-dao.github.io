@@ -2,8 +2,7 @@
    
     <v-row>
         <v-col>
-
-            
+            {{count}}
          <div v-if="isConnected" style="" class="add_container">
               <div class="ether_place" style="padding-left:3%;padding-right:3%;flex-shrink: 0;">{{balance}} DAI</div>
               <input disabled class="address"  v-model="reducedWa" value="..." >
@@ -16,11 +15,12 @@
                 color="transparent"
                 class="connect-wallet-button"
                 @click="connectWallet">
-                    Connect Wallet
+                    Connect 
                     <v-icon dark right> mdi-checkbox-marked-circle </v-icon>
             </v-btn>
 
         </v-col>
+     
 
     </v-row>
   
@@ -33,8 +33,22 @@ import detectEthereumProvider from '@metamask/detect-provider';
 import Web3Utils from "web3-utils";
 import Contract from 'web3-eth-contract';
 import Web3ABI from 'web3-eth-abi';
+import { mapMutations } from 'vuex'
+import { mapState } from 'vuex'
+
 
 export default {
+  computed: {
+    count () {
+      
+      console.log('todo 1 : ', this.$store.todo.state.title)
+      this.$store.todo.commit('changeTitle', 'isto é que é o titulo...')
+      console.log('todo 2 : ', this.$store.todo.state.title)
+      console.log('chainIdConncted :  ', this.$store.account.state.chainIdConncted)
+
+      return this.$store.account.state.chainIdConncted ;
+    }
+  },
     name:"WalletConnect",
     props: [
         "title",
@@ -76,30 +90,48 @@ export default {
         console.log('Current Account ', accounts[0] );
         await this.getBalance(accounts[0]);
         this.currentAccount = accounts[0];
-        this.$store.commit('account/setAddress', accounts[0])
+    
+        console.log('store output test 1212 ', this.$store.account.state.chainIdConncted  )
+        this.$store.account.commit('setAddress', accounts[0])
         this.reducedWa =  this.currentAccount.slice(0, 6) + '...' + this.currentAccount.slice(36, 40)
         this.isConnected = true;
         this.chainId = await ethereum.request({ method: 'eth_chainId' });
-        this.isMaticConnected =  !(this.chainId  ==  this.$store.state.account.chainIdConncted ) 
         console.log('ChainID : ', this.chainId);
+        if ( !(this.chainId  ==  this.$store.account.state.chainIdConncted ) )
+        {
+            console.error('ChainID is not connected!')
+            return;
+        }
 
         
         // LOAD ACCOUNT SSTRIO BALANCE
         const _this = this;
 
+       console.log('user address ', this.$store.account.state.address)
+
         const StrioToken = new Contract(
-          this.$store.state.contracts.strio_token.abi,
-          this.$store.state.contracts.strio_token.address
+          this.$store.contracts.state.strio_token.abi,
+          this.$store.contracts.state.strio_token.address
         )
+        console.log('BalanceOf ', this.$store.contracts.state.strio_token.address)
+
 
         ethereum.request({
           method: 'eth_call',
           params: [{
-            to: this.$store.state.contracts.strio_token.address,
-            data: StrioToken.methods.balanceOf(this.$store.state.account.address).encodeABI()
+            to: this.$store.contracts.state.strio_token.address,
+            data: StrioToken.methods.totalSupply().encodeABI()
           }]
         })
-        .then(result => _this.$store.commit('account/setStrioBalance',Web3Utils.hexToNumberString(result)))
+        .then(result => 
+        { 
+            console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+            _this.$store.account.commit('setStrioBalance',Web3Utils.hexToNumberString(result) )
+            console.log('Strio balance : ', _this.$store.account.balance )
+        })
+        .catch(err => {
+          console.error('Error when call balanceOF ', err)
+        })
       }
     },
     startApp : async function(provider)

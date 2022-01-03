@@ -1,23 +1,26 @@
-import { xeenus_token_meta, weenus_token_meta, strio_token_meta } from '../bd/erc20_metadata.json';
+import { xeenus_token_meta, weenus_token_meta, strio_token_meta } from '../../bd/erc20_metadata.json';
+import Vue from "vue";
+import Vuex from "vuex";
 
-export const state = () => ({
+Vue.use(Vuex);
+
+const state = {
     strio_token : {
         address: strio_token_meta.address,
-        abi: strio_token_meta.abi.abi
+        abi: strio_token_meta.abi
     },
     weenus_token : {
         address: weenus_token_meta.address,
-        abi: weenus_token_meta.abi.abi
+        abi: weenus_token_meta.abi
     },
     xeenus_token : {
         address: xeenus_token_meta.address,
-        abi: xeenus_token_meta.abi.abi
-    },
-   
-})
+        abi: xeenus_token_meta.abi
+    }
+}
   
-export const mutations = {
-   
+const mutations = {
+
     getStrioMetadata(state) {
         return {
             address: state.strio_token.address,
@@ -37,3 +40,9 @@ export const mutations = {
         }
     }
 }
+
+export default new Vuex.Store({
+    state : state,
+    mutations : mutations
+  })
+  
