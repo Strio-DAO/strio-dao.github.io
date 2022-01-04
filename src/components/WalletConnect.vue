@@ -25,6 +25,7 @@
 
 <script>
 import detectEthereumProvider from '@metamask/detect-provider';
+const {ethereum} =window;
 import Web3Utils from "web3-utils";
 import Contract from 'web3-eth-contract';
 import Web3ABI from 'web3-eth-abi';
@@ -34,7 +35,7 @@ import {strio_token_meta} from '../../bd/erc20_metadata.json'
 
 
 export default {
- async mounted() {
+ async created() {
 	
     let self = this;
     console.log('Mounted for [WalletConnect] ');
@@ -152,6 +153,7 @@ export default {
         .catch(err => {
           console.error('Error when call balanceOF ', err)
         })
+
       }
     },
     startApp : async function(provider)
@@ -209,7 +211,7 @@ export default {
     {
         // console.log('hello ', await this.hello()  );
         this.provider = await detectEthereumProvider();
-        if (this.provider) {
+        if (this.provider) {          
           await this.startApp(this.provider); // Initialize your app
         } else {
           console.log('Please install MetaMask!');

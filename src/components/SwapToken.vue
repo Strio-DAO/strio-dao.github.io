@@ -92,9 +92,8 @@
                     <v-row >
                     <v-col></v-col>
                     <v-col>
-                        
-                        <v-btn block @click="getStrio">Get sStrio</v-btn>
-                        
+                        <v-btn v-if="!isAproved" block @click="toApprove">Approve</v-btn>
+                        <v-btn v-else block @click="getStrio">Swap Token</v-btn>
                     </v-col>
                     <v-col></v-col>
                     
@@ -111,12 +110,10 @@
 
 <script>
   import WalletConnect from './WalletConnect.vue';
-  import {xeenus_token_meta, weenus_token_meta } from '../../bd/erc20_metadata.json'
+  import {xeenus_token_meta, weenus_token_meta, strio_token_meta } from '../../bd/erc20_metadata.json'
   import Web3Utils from "web3-utils";
   import Contract from 'web3-eth-contract';
   const  {ethereum} = window;
-
-
 
   export default {
     mounted() {
@@ -139,12 +136,22 @@
         totalStableAmount : 0,
         strioAmount: 0,
         stableSelected: 'weenus',
+        approveAmount : 600000000000000000000000,
+        allowanceBalance : -1,
+        isAproved : false,
+        minSwap : 2000,
+        maxSwap : 10000,
         
     }),
     methods: {
+        toApprove () 
+        {
+            console.log('...... Approve Token ...... ')    
 
-        getStrio (){
-            
+        },
+        getStrio ()
+        {
+            console.log('...... Swap Strio Token ...... ')    
         },
         changeStable ()
         {
@@ -212,9 +219,68 @@
                 //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
                 let weenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
                 self.stableAmount = Number(weenusBalance).toFixed(2)
-                self.totalStableAmount = Number(xeenusBalance).toFixed(2)
+                self.totalStableAmount = Number(weenusBalance).toFixed(2)
 
                 console.log('weenus balance : ', weenusBalance )
+                return weenusBalance;
+            })
+            .catch(err => {
+                console.error('Error when call balanceOF ', err)
+            })
+
+        },
+        _prepareApproveTransaction (contractMeta)
+        {
+            const StableContract = new Contract(contractMeta.abi, contractMeta.address)
+            var txData = StableContract.methods.approve(strio_token_meta.address, this.approveAmount).encodeABI()
+            return txData;
+        },
+        approveToken(contractAddress){
+
+            let txData = this._prepareApproveTransaction(xeenus_token_meta);
+
+            ethereum.request({
+					method: 'eth_sendTransaction',
+					params: [{
+						from: this.account_address,
+						to: contractAddress,
+						gasLimit: '0x88b8',
+						data: txData
+					}]
+				})
+
+        },
+        async allowance(){
+
+            console.log('+ + + + Allowance Method + + + + ');
+            
+            let stableMeta = {};
+            let self = this;
+            if(this.stableSelected == 'weenus'){
+                stableMeta = weenus_token_meta;
+            }else if(this.stableSelected == 'xeenus'){
+                stableMeta = xeenus_token_meta;
+            }
+
+            const StableToken = new Contract(
+                stableMeta.abi,
+                stableMeta.address,{
+            })
+            
+            ethereum.request({
+                method: 'eth_call',
+                params: [{
+                to: stableMeta.address,
+                data: StableToken.methods.allowance(this.$store.account.state.address, strio_token_meta.address ).encodeABI()
+                }]
+            })
+            .then(result => 
+            {
+                //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+                let allowanceBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+                self.allowanceBalance = allowanceBalance;
+                self.isAproved = allowanceBalance > 0 ? true : false;
+                console.log('allowanceBalance  : ', allowanceBalance )
                 return weenusBalance;
             })
             .catch(err => {
