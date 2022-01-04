@@ -30,6 +30,7 @@ import Contract from 'web3-eth-contract';
 import Web3ABI from 'web3-eth-abi';
 import { mapMutations } from 'vuex'
 import { mapState } from 'vuex'
+import {strio_token_meta} from '../../bd/erc20_metadata.json'
 
 
 export default {
@@ -75,9 +76,7 @@ export default {
   methods : {
    
    checkConnection : async function(){
-       
-      this.connectWallet();  
-     
+      this.connectWallet();
     },
     getBalance : async function(account)
     {
@@ -120,22 +119,26 @@ export default {
         // LOAD ACCOUNT SSTRIO BALANCE
        const _this = this;
        console.log('user address ', this.$store.account.state.address)
+       console.log('Abi ; ', strio_token_meta.address)
       
 
+        // const StrioToken = new Contract(
+        //   this.$store.contracts.state.strio_token.abi,
+        //   this.$store.contracts.state.strio_token.address,{
+        // })
+
         const StrioToken = new Contract(
-          this.$store.contracts.state.strio_token.abi,
-          this.$store.contracts.state.strio_token.address,{
-             
-          }
-        )
+          strio_token_meta.abi,
+          strio_token_meta.address,{
+        })
+        
         
        //Contract.setProvider(this.provider);
      
         ethereum.request({
           method: 'eth_call',
           params: [{
-           
-            to: this.$store.contracts.state.strio_token.address,
+            to: strio_token_meta.address,
             data: StrioToken.methods.balanceOf(this.$store.account.state.address).encodeABI()
           }]
         })

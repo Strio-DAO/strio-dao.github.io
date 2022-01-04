@@ -20,7 +20,6 @@
                             </v-btn> -->
                             <WalletConnect />
                     </v-col>
-                    
         </v-row>
         
         <v-layout justify-center>
@@ -34,10 +33,9 @@
                                 <v-col justify-center>
                                     <v-select
                                     :items="items"
-                                    
                                     v-model= "stableSelected"
                                     label = "MAX 10,000"
-                                    
+                                    v-on:change="changeStable()"
                                     ></v-select>
                                 </v-col>
                                 <v-col>
@@ -54,12 +52,12 @@
                             </v-row>
                         </v-col>
                     </v-row>
-                    <v-row class="swapInput">
+                    <v-row class="" style="padding:0px;margin-top:0px;" >
                         <v-col>
                             
                             <v-row>
                                 <v-col justify-center>
-                                 <p> balance stable: </p>
+                                 <p> balance stable: {{totalStableAmount}}</p>
                                 </v-col>
                                 <v-col>
                                     <p> balance strio : {{this.$store.account.state.strioBalance}}</p>
@@ -113,6 +111,12 @@
 
 <script>
   import WalletConnect from './WalletConnect.vue';
+  import {xeenus_token_meta, weenus_token_meta } from '../../bd/erc20_metadata.json'
+  import Web3Utils from "web3-utils";
+  import Contract from 'web3-eth-contract';
+  const  {ethereum} = window;
+
+
 
   export default {
     mounted() {
@@ -122,6 +126,7 @@
         setTimeout(function() {
             console.log('ative stable ', self.$store.contracts.state.ative_stable);
             self.items = self.$store.contracts.state.ative_stable;
+
         }, 1000)
 	},
        
@@ -131,13 +136,92 @@
     data: () => ({
         items:  ['weenus', 'xeenus'],
         stableAmount: 0,
+        totalStableAmount : 0,
         strioAmount: 0,
-        stableSelected: '',
+        stableSelected: 'weenus',
+        
     }),
     methods: {
+
         getStrio (){
             
         },
+        changeStable ()
+        {
+
+            console.log('Stable changed : ', this.stableSelected);
+            console.log('user address ', this.$store.account.state.address)
+            if(this.stableSelected == 'weenus')
+            {
+                this.getWeenusBalance(this.$store.account.state.address)
+            }else if(this.stableSelected == 'xeenus'){
+                this.getXeenusBalance(this.$store.account.state.address)
+            }
+        },
+        getXeenusBalance( owner )
+        {
+            let self = this;
+
+            console.log('Etherum provider ', ethereum );
+
+            const XeenusToken = new Contract(
+                xeenus_token_meta.abi,
+                xeenus_token_meta.address,{
+            })
+            
+            ethereum.request({
+                method: 'eth_call',
+                params: [{
+                to: xeenus_token_meta.address,
+                data: XeenusToken.methods.balanceOf(owner).encodeABI()
+                }]
+            })
+            .then(result => 
+            { 
+                //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+                let xeenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+                self.stableAmount = Number(xeenusBalance).toFixed(2)
+                self.totalStableAmount = Number(xeenusBalance).toFixed(2)
+                console.log('xeenus balance : ', xeenusBalance )
+                return xeenusBalance;
+            })
+            .catch(err => {
+                console.error('Error when call balanceOF ', err)
+            })
+
+        },
+        getWeenusBalance( owner )
+        {
+            let self = this;
+            console.log('Etherum provider ', ethereum );
+
+            const WeenusToken = new Contract(
+                weenus_token_meta.abi,
+                weenus_token_meta.address,{
+            })
+            
+            ethereum.request({
+                method: 'eth_call',
+                params: [{
+                to: weenus_token_meta.address,
+                data: WeenusToken.methods.balanceOf(owner).encodeABI()
+                }]
+            })
+            .then(result => 
+            { 
+                //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+                let weenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+                self.stableAmount = Number(weenusBalance).toFixed(2)
+                self.totalStableAmount = Number(xeenusBalance).toFixed(2)
+
+                console.log('weenus balance : ', weenusBalance )
+                return weenusBalance;
+            })
+            .catch(err => {
+                console.error('Error when call balanceOF ', err)
+            })
+
+        }
 
     },
     components: {

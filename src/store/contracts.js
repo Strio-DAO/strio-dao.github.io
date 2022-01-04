@@ -20,7 +20,7 @@ const state = {
         address: xeenus_token_meta.address,
         abi: xeenus_token_meta.abi,
         balance : 0
-    }
+    },
 }
   
 const mutations = {
@@ -42,6 +42,33 @@ const mutations = {
             address: state.xeenus_token.address,
             abi: state.xeenus_token.abi
         }
+    },
+    async getXeenusBalance(state, owner )
+    {
+        const XeenusToken = new Contract(
+            xeenus_token_meta.abi,
+            xeenus_token_meta.address,{
+          })
+          
+          ethereum.request({
+            method: 'eth_call',
+            params: [{
+              to: xeenus_token_meta.address,
+              data: XeenusToken.methods.balanceOf(owner).encodeABI()
+            }]
+          })
+          .then(result => 
+          { 
+              //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+              let xeenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+              state.xeenus_token.balance = xeenusBalance;
+              console.log('Strio balance : ', xeenusBalance )
+              return xeenusBalance;
+          })
+          .catch(err => {
+            console.error('Error when call balanceOF ', err)
+          })
+
     }
 }
 
