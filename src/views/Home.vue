@@ -532,6 +532,135 @@
             </v-row>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col style="color:white;">
+            <v-row style="margin-top: 100px;">
+              <v-col cols="2"></v-col>
+              <v-col cols="8" style="background: #181818; background-image: linear-gradient(to right, #181818,#000000,#181818);  border-radius: 30px;">
+                <v-row align="center" justify="center" style="margin-top: 20px; margin-bottom: 20px;">
+                  <div class="title2">Get Strio Token</div>
+                </v-row>
+                <v-row align="center" justify="center" style="margin-bottom: 30px;">
+                  <v-btn  style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em;">Staking</v-btn>
+                </v-row>
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
+            
+            <v-row align="center" justify="center" style="margin-top: 50px; margin-bottom: 50px;">
+              <h1>What are sStrio tokens?</h1>
+            </v-row>
+            <v-row>
+              <v-col cols="2"></v-col>
+              <v-col>
+                <v-img
+                style="margin-top: 40px;"
+                src="@/assets/images/StrioS.png"
+                width="200px"
+                />
+              </v-col>
+              <v-col>
+                <span>
+                  sStrio Tokens are a pre-seed ERC-20 token <br>
+                  deployed on the Ethereum mainnet that will be <br>
+                  used to fund the DAO treasury before the IDO, to <br>
+                  reward contributors or creators and to decentralize <br>
+                  the decision-making process of the DAO through <br>
+                  voting based on token holdings. They have no <br>
+                  commercial value and will be burnt to claim the <br>
+                  future Strio tokens deployed on the IDO
+                </span>
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+        <v-row style="background: white;">
+          <v-col>
+            <v-row align="center" justify="center">
+              <h1>Why are we launching a pre-seed token?</h1>
+            </v-row>
+            <v-row>
+              <v-col cols="2"></v-col>
+              <v-col align="center">
+                  <v-img
+                  contain
+                  src="@/assets/images/DecisionMaking1.png"
+                  width="200px"
+                  />
+                  <h3>
+                    To distribute the<br>
+                    decision-making power
+                  </h3>
+              </v-col>
+              <v-col align="center">
+                <v-img
+                src="@/assets/images/DAO-01.png"
+                width="200px"
+                />
+                <h3>
+                  To setup Strio as full- <br>
+                  blown DAO fully owned by <br>
+                  it's supporters
+                </h3>
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
+            <v-row>
+              <v-col align="center" justify="center" >
+                <v-img
+                src="@/assets/images/Treasury-03.png"
+                width="200px"
+                />
+                <h3>To fund our treasury</h3>
+              </v-col>
+            </v-row>
+            <v-row align="center" justify="center" style="margin-top: 150px;">
+              <h2>
+                What do o get from <br>
+                holding sStrio tokens?
+              </h2>
+            </v-row>
+            <v-row style="margin-top: 80px;">
+              <v-col cols="2"></v-col>
+              <v-col>
+                <v-img
+                src="@/assets/images/Treasury-03.png"
+                width="200px"
+                />
+              </v-col>
+              <v-col>
+                <h3>
+                  <span style="font-weight: bold">Decision power over the <br> DAO</span>
+                  - The most important <br>
+                  decisions are held in public and <br>
+                  voted on Snapshot proposals <br>
+                  by the token holders.
+                </h3>
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="2"></v-col>
+              <v-col>
+                <h3>
+                  <span style="font-weight: bold">Decision power over the <br> DAO</span>
+                  - The most important <br>
+                  decisions are held in public and <br>
+                  voted on Snapshot proposals <br>
+                  by the token holders.
+                </h3>
+              </v-col>
+              <v-col>
+                <v-img
+                src="@/assets/images/Treasury-03.png"
+                width="200px"
+                />
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
+          </v-col>
+        </v-row>
         <v-row id="page7" style="background: black; color: white">
           <v-col></v-col>
           <v-col cols="4">
@@ -553,7 +682,6 @@
             />
           </v-col>
           <v-col></v-col>
-          
         </v-row>
       </v-col>
 </template>
