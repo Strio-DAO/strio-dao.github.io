@@ -35,14 +35,24 @@ import {strio_token_meta} from '../../bd/erc20_metadata.json'
 
 
 export default {
- async created() {
-	
+ async mounted() {
+
     let self = this;
-    console.log('Mounted for [WalletConnect] ');
+    this.$nextTick(function () {
+       console.log('Mounted for [WalletConnect] ');
+       self.checkConnection();
+    });
+	
+
+    //https://v3.vuejs.org/api/options-lifecycle-hooks.html#mounted
+    //Note that mounted does not guarantee that all child components have also been mounted.
+   
+
 		setTimeout(() => {
+      console.log('timeout call!');
      
     }, 400);
-     self.checkConnection();
+     
    
 
 	},

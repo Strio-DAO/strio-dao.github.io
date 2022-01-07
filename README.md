@@ -1,3 +1,11 @@
+#Ropsten
+
+sstrio : 0xbF858e46F3aB2067864FeEc0a82131BCD1a5FFA3
+https://ropsten.etherscan.io/token/0xbF858e46F3aB2067864FeEc0a82131BCD1a5FFA3
+
+https://github.com/zlayine/epic-game-buildspace/tree/master/frontend
+
+
 # Project structure
 
 ```

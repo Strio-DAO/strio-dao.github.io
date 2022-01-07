@@ -1,6 +1,6 @@
 {
     "xeenus_token_meta" : {  
-        "address": "0x022E292b44B5a146F2e8ee36Ff44D3dd863C915c",
+        "address": "0x7E0480Ca9fD50EB7A3855Cf53c347A1b4d6A2FF5",
         "abi" : [
             {
                 "inputs": [
@@ -522,7 +522,7 @@
         ]
     },
     "weenus_token_meta" : {  
-        "address": "0xaFF4481D10270F50f203E0763e2597776068CBc5",
+        "address": "0x101848D5C5bBca18E6b4431eEdF6B95E9ADF82FA",
         "abi" : [
             {
                 "inputs": [
@@ -1044,7 +1044,7 @@
         ]
     },
     "strio_token_meta" : {  
-        "address": "0xDF80aaF176Bb1b71176215A78Ff3E65E6d7f4deD",
+        "address": "0xbF858e46F3aB2067864FeEc0a82131BCD1a5FFA3",
         "abi": [
             {
                 "inputs": [

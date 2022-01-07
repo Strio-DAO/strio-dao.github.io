@@ -4,6 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const main = '0x1';
+const ropsten = '0x3';
 const rinkeby = '0x4';
 const MaticMain = '0x89';
 const MaticMumbai = '0x13881';
@@ -15,7 +16,7 @@ export default new Vuex.Store({
         balance: 0,
         totalBuy : 0,
         strioBalance: 0,
-        chainIdConncted : rinkeby //rinkeby,
+        chainIdConncted : ropsten //rinkeby,
     },
 
     mutations : {

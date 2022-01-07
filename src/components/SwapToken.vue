@@ -117,12 +117,21 @@
 
   export default {
     mounted() {
-        console.log('Mounted for [SwapToken] ');
-
-        let self = this;
-        setTimeout(function() {
+         let self = this;
+         this.$nextTick(function () {
+            // Code that will run only after the
+            // entire view has been rendered
+            console.log('mounted next ticket [SwapToken]');
             console.log('ative stable ', self.$store.contracts.state.ative_stable);
             self.items = self.$store.contracts.state.ative_stable;
+
+            self.changeStable();
+
+        })
+        console.log('Mounted for [SwapToken] ');
+
+        setTimeout(function() {
+            console.log('ative stable ', self.$store.contracts.state.ative_stable);
 
         }, 1000)
 	},
@@ -144,17 +153,22 @@
         
     }),
     methods: {
-        toApprove () 
+        async toApprove () 
         {
-            console.log('...... Approve Token ...... ')    
+            console.log('...... Approve Token ...... ')
+            // this.changeStable()
+            let approve = await this.allowance()    
+            console.log('alloance 1 ', approve);
 
         },
         getStrio ()
         {
             console.log('...... Swap Strio Token ...... ')    
         },
-        changeStable ()
+        changeStable()
         {
+            // let provider = await detectEthereumProvider();
+
 
             console.log('Stable changed : ', this.stableSelected);
             console.log('user address ', this.$store.account.state.address)
@@ -164,6 +178,7 @@
             }else if(this.stableSelected == 'xeenus'){
                 this.getXeenusBalance(this.$store.account.state.address)
             }
+            // this.allowance();
         },
         getXeenusBalance( owner )
         {
@@ -252,8 +267,9 @@
         },
         async allowance(){
 
-            console.log('+ + + + Allowance Method + + + + ');
-            
+            console.log('+ + + + Allowance Method + + + + ', ethereum);
+            // let provider = await detectEthereumProvider();
+
             let stableMeta = {};
             let self = this;
             if(this.stableSelected == 'weenus'){
@@ -266,12 +282,20 @@
                 stableMeta.abi,
                 stableMeta.address,{
             })
+
+            console.log('stable address ', stableMeta.address );
+            console.log('stable abi ', stableMeta.abi );
+
+            console.log('user address ', this.$store.account.state.address);
+            console.log('strio address ', strio_token_meta.address);
+
             
             ethereum.request({
                 method: 'eth_call',
                 params: [{
-                to: stableMeta.address,
-                data: StableToken.methods.allowance(this.$store.account.state.address, strio_token_meta.address ).encodeABI()
+                    from: this.$store.account.state.address,    
+                    to: stableMeta.address,
+                    data: StableToken.methods.allowance(this.$store.account.state.address, strio_token_meta.address ).encodeABI()
                 }]
             })
             .then(result => 
@@ -281,10 +305,10 @@
                 self.allowanceBalance = allowanceBalance;
                 self.isAproved = allowanceBalance > 0 ? true : false;
                 console.log('allowanceBalance  : ', allowanceBalance )
-                return weenusBalance;
+                return allowanceBalance;
             })
             .catch(err => {
-                console.error('Error when call balanceOF ', err)
+                console.error('Error when call allowance ', err)
             })
 
         }
