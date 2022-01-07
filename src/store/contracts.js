@@ -20,7 +20,7 @@ const state = {
         address: xeenus_token_meta.address,
         abi: xeenus_token_meta.abi,
         balance : 0
-    },
+    }
 }
   
 const mutations = {

@@ -115,17 +115,21 @@
   import Contract from 'web3-eth-contract';
   const  {ethereum} = window;
   import Web3 from "web3";
+  const BN = Web3Utils.BN;
+  const EtherUnit = Web3Utils.toWei('1');
+
+  export const MINIMUM_GAS_PRICE = 40;
 
   export default {
-    mounted() {
+    async mounted() {
          let self = this;
-         this.$nextTick(function () {
+         this.$nextTick( async function () {
             // Code that will run only after the
             // entire view has been rendered
             console.log('mounted next ticket [SwapToken]');
             console.log('ative stable ', self.$store.contracts.state.ative_stable);
+            await self.init();
             self.items = self.$store.contracts.state.ative_stable;
-
             self.changeStable();
 
         })
@@ -146,22 +150,99 @@
         totalStableAmount : 0,
         strioAmount: 0,
         stableSelected: 'weenus',
-        approveAmount : 600000000000000000000000,
+        approveAmount : 2000000,
         allowanceBalance : -1,
         isAproved : false,
         minSwap : 2000,
         maxSwap : 10000,
-        web3 : {}
+        web3 : {},
+        strioInstance : {},
+        weenusInstance : {},
+        xeenusInstance : {},
         
     }),
     methods: {
+        async estimate(incr) {
+            const e = await this.web3.eth.getGasPrice();
+            console.log('gas price from ether ', e , ' *  ', incr);
+            let gasPrice = e ? Number(e) * incr : undefined;
+            const minimum = MINIMUM_GAS_PRICE * 1000000000;
+            if (!gasPrice || gasPrice < minimum) {
+            gasPrice = minimum;
+            }
+            console.log('Gas price is ', { gasPrice });
+            return gasPrice;
+        },
+        async init()
+        {
+            console.log('init method ');
+            const { ethereum } = window;
+            this.web3 = new Web3(ethereum);
+
+            this.strioInstance = new this.web3.eth.Contract(
+                strio_token_meta.abi,
+                strio_token_meta.address
+            );
+            this.weenusInstance = new this.web3.eth.Contract(
+                weenus_token_meta.abi,
+                weenus_token_meta.address
+            );
+            this.xeenusInstance = new this.web3.eth.Contract(
+                xeenus_token_meta.abi,
+                xeenus_token_meta.address
+            );
+
+            return  true;
+        },
         async toApprove () 
         {
             console.log('...... Approve Token ...... ')
-            // this.changeStable()
-            // let approve = await this.allowance()    
-            console.log('NoT implmented yet ');
 
+            let token = {};
+            let tokenAddres = 0;
+            let self = this;
+            if(this.stableSelected == 'weenus'){
+                token = this.weenusInstance;
+                tokenAddres = weenus_token_meta.address
+            }else if(this.stableSelected == 'xeenus'){
+                token = this.xeenusInstance;
+                tokenAddres = xeenus_token_meta.address
+            }
+           
+           let result = 
+            await new Promise(async (resolve, reject) => {
+                const gasPrice = await this.estimate();
+                const transValue = 0
+
+                const approveAmount = new BN(self.approveAmount).mul(new BN(EtherUnit))
+                console.log('Approve amount : ',  approveAmount);
+
+                token.methods
+                    .approve(strio_token_meta.address, approveAmount )
+                    .send({
+                        from: this.$store.account.state.address,
+                        transValue,
+                        to: tokenAddres,
+                        gasPrice,
+                    })
+                    .on("error", function (error) {
+                        console.log('error : ', { error });
+                        reject(error);
+                    })
+                    .on("transactionHash", function (transactionHash) {
+                        console.log('transactionHash : ', { transactionHash });
+                    })
+                    .on("receipt", async function (receipt) {
+                        console.log('receipt : ', { receipt });
+                        resolve(receipt);
+                    });
+            });
+
+            // WE SHOULD PUT WAITING SPINNER HERE!!
+            // FOR EACH TIME WE WAITING FOR A TRANSACTION
+            console.log('Result from approve ', result )
+            this.changeStable();
+            
         },
         getStrio ()
         {
@@ -184,69 +265,86 @@
             
             this.isAproved = await this.allowance() > 0 ? true :false;
         },
-        getXeenusBalance( owner )
+        async getXeenusBalance( owner )
         {
             let self = this;
 
             console.log('Etherum provider ', ethereum );
 
-            const XeenusToken = new Contract(
-                xeenus_token_meta.abi,
-                xeenus_token_meta.address,{
-            })
+            // const XeenusToken = new Contract(
+            //     xeenus_token_meta.abi,
+            //     xeenus_token_meta.address,{
+            // })
             
-            ethereum.request({
-                method: 'eth_call',
-                params: [{
-                to: xeenus_token_meta.address,
-                data: XeenusToken.methods.balanceOf(owner).encodeABI()
-                }]
-            })
-            .then(result => 
-            { 
-                //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
-                let xeenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
-                self.stableAmount = Number(xeenusBalance).toFixed(2)
-                self.totalStableAmount = Number(xeenusBalance).toFixed(2)
-                console.log('xeenus balance : ', xeenusBalance )
-                return xeenusBalance;
-            })
-            .catch(err => {
-                console.error('Error when call balanceOF ', err)
-            })
+            // ethereum.request({
+            //     method: 'eth_call',
+            //     params: [{
+            //     to: xeenus_token_meta.address,
+            //     data: XeenusToken.methods.balanceOf(owner).encodeABI()
+            //     }]
+            // })
+            // .then(result => 
+            // { 
+            //     //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+            //     let xeenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+            //     self.stableAmount = Number(xeenusBalance).toFixed(2)
+            //     self.totalStableAmount = Number(xeenusBalance).toFixed(2)
+            //     console.log('xeenus balance : ', xeenusBalance )
+            //     return xeenusBalance;
+            // })
+            // .catch(err => {
+            //     console.error('Error when call balanceOF ', err)
+            // })
+
+            let rawBalance = await this.xeenusInstance.methods
+                .balanceOf(owner)
+                .call({ from:this.$store.account.state.address });
+            const balance = this.web3.utils.fromWei(rawBalance.toString());
+            self.stableAmount = Number(balance).toFixed(2)
+            self.totalStableAmount = Number(balance).toFixed(2)
+            console.log('xeenus balance : ', balance )
+            return balance;
 
         },
-        getWeenusBalance( owner )
+        async getWeenusBalance( owner )
         {
             let self = this;
             console.log('Etherum provider ', ethereum );
 
-            const WeenusToken = new Contract(
-                weenus_token_meta.abi,
-                weenus_token_meta.address,{
-            })
+            // const WeenusToken = new Contract(
+            //     weenus_token_meta.abi,
+            //     weenus_token_meta.address,{
+            // })
             
-            ethereum.request({
-                method: 'eth_call',
-                params: [{
-                to: weenus_token_meta.address,
-                data: WeenusToken.methods.balanceOf(owner).encodeABI()
-                }]
-            })
-            .then(result => 
-            { 
-                //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
-                let weenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
-                self.stableAmount = Number(weenusBalance).toFixed(2)
-                self.totalStableAmount = Number(weenusBalance).toFixed(2)
+            // ethereum.request({
+            //     method: 'eth_call',
+            //     params: [{
+            //     to: weenus_token_meta.address,
+            //     data: WeenusToken.methods.balanceOf(owner).encodeABI()
+            //     }]
+            // })
+            // .then(result => 
+            // { 
+            //     //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+            //     let weenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+            //     self.stableAmount = Number(weenusBalance).toFixed(2)
+            //     self.totalStableAmount = Number(weenusBalance).toFixed(2)
 
-                console.log('weenus balance : ', weenusBalance )
-                return weenusBalance;
-            })
-            .catch(err => {
-                console.error('Error when call balanceOF ', err)
-            })
+            //     console.log('weenus balance : ', weenusBalance )
+            //     return weenusBalance;
+            // })
+            // .catch(err => {
+            //     console.error('Error when call balanceOF ', err)
+            // })
 
+            let rawBalance = await this.weenusInstance.methods
+                .balanceOf(owner)
+                .call({ from:this.$store.account.state.address });
+            const balance = this.web3.utils.fromWei(rawBalance.toString());
+            self.stableAmount = Number(balance).toFixed(2)
+            self.totalStableAmount = Number(balance).toFixed(2)
+            console.log('weenus balance : ', balance )
+            return balance;
         },
         _prepareApproveTransaction (contractMeta)
         {
@@ -271,27 +369,20 @@
         },
         async allowance(){
 
-            console.log('**** new Allowance ***** ')
+            console.log('**** Allowance ***** ')
 
-            let stableMeta = {};
+            let token = {};
             let self = this;
             if(this.stableSelected == 'weenus'){
-                stableMeta = weenus_token_meta;
+                token = this.weenusInstance;
             }else if(this.stableSelected == 'xeenus'){
-                stableMeta = xeenus_token_meta;
+                token = this.xeenusInstance;
             }
-
-            const { ethereum } = window;
-            this.web3 = new Web3(ethereum);
 
             console.log('Abi ',  weenus_token_meta.abi);
             console.log('addr ',  weenus_token_meta.address);
             console.log('user addres ',  this.$store.account.state.address);
-
-            let token  = new this.web3.eth.Contract(
-                stableMeta.abi,
-                stableMeta.address
-            );
+            console.log('token contract instance ', token)
 
             let rawBalance = await token.methods
                 .allowance(this.$store.account.state.address, strio_token_meta.address)
