@@ -42,7 +42,7 @@
                                     <v-text-field 
                                     id="stableInput" 
                                     type="number"
-                                    
+                                    @change="changeStableAmount"
                                     min="2000" 
                                     max="10000"
                                     label = "Min 2000"
@@ -92,7 +92,7 @@
                     <v-row >
                     <v-col></v-col>
                     <v-col>
-                        <v-btn v-if="isAproved" block @click="getStrio">Swap</v-btn>
+                        <v-btn v-if="isAproved" block @click="getStrio" :disabled="!ableToSwap" >Swap</v-btn>
                         <v-btn v-else block @click="toApprove">Approve </v-btn>
                     </v-col>
                     <v-col></v-col>
@@ -115,10 +115,12 @@
   import Contract from 'web3-eth-contract';
   const  {ethereum} = window;
   import Web3 from "web3";
+
   const BN = Web3Utils.BN;
   const EtherUnit = Web3Utils.toWei('1');
 
-  export const MINIMUM_GAS_PRICE = 40;
+  export const MINIMUM_GAS_PRICE = 20;
+  export const STABLE_RATE = 0.1;
 
   export default {
     async mounted() {
@@ -137,7 +139,7 @@
 
         setTimeout(function() {
             console.log('ative stable ', self.$store.contracts.state.ative_stable);
-
+            self.changeStable();
         }, 1000)
 	},
        
@@ -153,15 +155,25 @@
         approveAmount : 2000000,
         allowanceBalance : -1,
         isAproved : false,
-        minSwap : 2000,
-        maxSwap : 10000,
+        minSwap : 10000,
+        maxSwap : 20000000,
         web3 : {},
         strioInstance : {},
         weenusInstance : {},
         xeenusInstance : {},
+        ableToSwap : true
         
     }),
     methods: {
+        async changeStableAmount()
+        {
+            this.strioAmount = this.stableAmount / STABLE_RATE;
+            if( this.strioAmount  >= this.minSwap && this.strioAmount <= this.maxSwap){
+                this.ableToSwap = true;
+            } else{
+                this.ableToSwap = false;
+            }
+        },
         async estimate(incr) {
             const e = await this.web3.eth.getGasPrice();
             console.log('gas price from ether ', e , ' *  ', incr);
@@ -192,7 +204,26 @@
                 xeenus_token_meta.address
             );
 
+            this.changeStable()
+
             return  true;
+        },
+        async getStableRate()
+        {
+            let token = {};
+            let self = this;
+            if(this.stableSelected == 'weenus'){
+                token = this.weenusInstance;
+            }else if(this.stableSelected == 'xeenus'){
+                token = this.xeenusInstance;
+            }
+
+            let rawBalance = await token.methods
+                            .getNominalRate()
+                            .call({ from:this.$store.account.state.address });
+            const rate = this.web3.utils.fromWei(rawBalance.toString());
+            console.log('Get nominal rate ', rate );
+            return rate;
         },
         async toApprove () 
         {
@@ -244,12 +275,64 @@
             this.changeStable();
             
         },
-        getStrio ()
+        async getStrio ()
         {
-            console.log('...... Swap Strio Token ...... ')    
+            console.log('...... Swap Strio Token ...... ') 
+            let tokenAddres = 0;
+            let self = this;
 
-            console.log('...... Not implmented yet ! ...... ')    
+            if(this.strioAmount < this.minSwap ){
+                console.error('[LESS_THEN_MIN] Amount is : ', this.stableAmount, ' min is : ',  this.minSwap );
+                return ;
+            }
+            if(this.strioAmount > this.maxSwap ){
+                console.error('[MORE_THEN_MAX] Amount is : ', this.stableAmount, ' max is : ',  this.maxSwap );
+                return;
+            }
+            
+            if(this.stableSelected == 'weenus'){
+                // token = this.weenusInstance;
+                tokenAddres = weenus_token_meta.address
+            }else if(this.stableSelected == 'xeenus'){
+                // token = this.xeenusInstance;
+                tokenAddres = xeenus_token_meta.address
+            }
+           
+           let result = 
+            await new Promise(async (resolve, reject) => {
+                const gasPrice = await this.estimate();
+                const transValue = 0
 
+                console.log('Strio amount before cals ',  this.strioAmount);
+                const amountToBuy = new BN(this.strioAmount).mul(new BN(EtherUnit))
+                console.log('Stable amount to buy : ',  amountToBuy);
+
+                this.strioInstance.methods
+                    .mintStable(tokenAddres,  amountToBuy )
+                    .send({
+                        from: this.$store.account.state.address,
+                        transValue,
+                        to: tokenAddres,
+                        gasPrice,
+                    })
+                    .on("error", function (error) {
+                        console.log('error : ', { error });
+                        reject(error);
+                    })
+                    .on("transactionHash", function (transactionHash) {
+                        console.log('transactionHash : ', { transactionHash });
+                    })
+                    .on("receipt", async function (receipt) {
+                        console.log('transfer receipt : ', { receipt });
+                        resolve(receipt);
+                    });
+            });
+
+            // WE SHOULD PUT WAITING SPINNER HERE!!
+            // FOR EACH TIME WE WAITING FOR A TRANSACTION
+            console.log('Result tokens buy:  ', result )
+            this.changeStable();
+            
         },
         async changeStable()
         {
@@ -269,32 +352,7 @@
         {
             let self = this;
 
-            console.log('Etherum provider ', ethereum );
-
-            // const XeenusToken = new Contract(
-            //     xeenus_token_meta.abi,
-            //     xeenus_token_meta.address,{
-            // })
-            
-            // ethereum.request({
-            //     method: 'eth_call',
-            //     params: [{
-            //     to: xeenus_token_meta.address,
-            //     data: XeenusToken.methods.balanceOf(owner).encodeABI()
-            //     }]
-            // })
-            // .then(result => 
-            // { 
-            //     //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
-            //     let xeenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
-            //     self.stableAmount = Number(xeenusBalance).toFixed(2)
-            //     self.totalStableAmount = Number(xeenusBalance).toFixed(2)
-            //     console.log('xeenus balance : ', xeenusBalance )
-            //     return xeenusBalance;
-            // })
-            // .catch(err => {
-            //     console.error('Error when call balanceOF ', err)
-            // })
+            console.log('Etherum provider ', ethereum );       
 
             let rawBalance = await this.xeenusInstance.methods
                 .balanceOf(owner)
@@ -302,6 +360,7 @@
             const balance = this.web3.utils.fromWei(rawBalance.toString());
             self.stableAmount = Number(balance).toFixed(2)
             self.totalStableAmount = Number(balance).toFixed(2)
+            self.strioAmount = this.stableAmount / STABLE_RATE;
             console.log('xeenus balance : ', balance )
             return balance;
 
@@ -311,38 +370,14 @@
             let self = this;
             console.log('Etherum provider ', ethereum );
 
-            // const WeenusToken = new Contract(
-            //     weenus_token_meta.abi,
-            //     weenus_token_meta.address,{
-            // })
-            
-            // ethereum.request({
-            //     method: 'eth_call',
-            //     params: [{
-            //     to: weenus_token_meta.address,
-            //     data: WeenusToken.methods.balanceOf(owner).encodeABI()
-            //     }]
-            // })
-            // .then(result => 
-            // { 
-            //     //console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
-            //     let weenusBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
-            //     self.stableAmount = Number(weenusBalance).toFixed(2)
-            //     self.totalStableAmount = Number(weenusBalance).toFixed(2)
-
-            //     console.log('weenus balance : ', weenusBalance )
-            //     return weenusBalance;
-            // })
-            // .catch(err => {
-            //     console.error('Error when call balanceOF ', err)
-            // })
-
             let rawBalance = await this.weenusInstance.methods
                 .balanceOf(owner)
                 .call({ from:this.$store.account.state.address });
             const balance = this.web3.utils.fromWei(rawBalance.toString());
             self.stableAmount = Number(balance).toFixed(2)
             self.totalStableAmount = Number(balance).toFixed(2)
+            self.strioAmount = this.stableAmount / STABLE_RATE;
+
             console.log('weenus balance : ', balance )
             return balance;
         },
@@ -449,7 +484,7 @@
                 } else {
                     return 0;
                 }
-            }
+        }
     },
     components: {
       WalletConnect
