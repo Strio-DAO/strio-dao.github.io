@@ -5,6 +5,8 @@ https://ropsten.etherscan.io/token/0xbF858e46F3aB2067864FeEc0a82131BCD1a5FFA3
 
 https://github.com/zlayine/epic-game-buildspace/tree/master/frontend
 
+https://medium.com/0xcode/interacting-with-smart-contracts-using-web3-js-part-ii-c1ef7566d1c5
+
 
 # Project structure
 

@@ -92,8 +92,8 @@
                     <v-row >
                     <v-col></v-col>
                     <v-col>
-                        <v-btn v-if="!isAproved" block @click="toApprove">Approve</v-btn>
-                        <v-btn v-else block @click="getStrio">Swap Token</v-btn>
+                        <v-btn v-if="isAproved" block @click="getStrio">Swap</v-btn>
+                        <v-btn v-else block @click="toApprove">Approve </v-btn>
                     </v-col>
                     <v-col></v-col>
                     
@@ -114,6 +114,7 @@
   import Web3Utils from "web3-utils";
   import Contract from 'web3-eth-contract';
   const  {ethereum} = window;
+  import Web3 from "web3";
 
   export default {
     mounted() {
@@ -150,6 +151,7 @@
         isAproved : false,
         minSwap : 2000,
         maxSwap : 10000,
+        web3 : {}
         
     }),
     methods: {
@@ -157,18 +159,19 @@
         {
             console.log('...... Approve Token ...... ')
             // this.changeStable()
-            let approve = await this.allowance()    
-            console.log('alloance 1 ', approve);
+            // let approve = await this.allowance()    
+            console.log('NoT implmented yet ');
 
         },
         getStrio ()
         {
             console.log('...... Swap Strio Token ...... ')    
-        },
-        changeStable()
-        {
-            // let provider = await detectEthereumProvider();
 
+            console.log('...... Not implmented yet ! ...... ')    
+
+        },
+        async changeStable()
+        {
 
             console.log('Stable changed : ', this.stableSelected);
             console.log('user address ', this.$store.account.state.address)
@@ -178,7 +181,8 @@
             }else if(this.stableSelected == 'xeenus'){
                 this.getXeenusBalance(this.$store.account.state.address)
             }
-            // this.allowance();
+            
+            this.isAproved = await this.allowance() > 0 ? true :false;
         },
         getXeenusBalance( owner )
         {
@@ -267,6 +271,38 @@
         },
         async allowance(){
 
+            console.log('**** new Allowance ***** ')
+
+            let stableMeta = {};
+            let self = this;
+            if(this.stableSelected == 'weenus'){
+                stableMeta = weenus_token_meta;
+            }else if(this.stableSelected == 'xeenus'){
+                stableMeta = xeenus_token_meta;
+            }
+
+            const { ethereum } = window;
+            this.web3 = new Web3(ethereum);
+
+            console.log('Abi ',  weenus_token_meta.abi);
+            console.log('addr ',  weenus_token_meta.address);
+            console.log('user addres ',  this.$store.account.state.address);
+
+            let token  = new this.web3.eth.Contract(
+                stableMeta.abi,
+                stableMeta.address
+            );
+
+            let rawBalance = await token.methods
+                .allowance(this.$store.account.state.address, strio_token_meta.address)
+                .call({ from:this.$store.account.state.address });
+            const balance = this.web3.utils.fromWei(rawBalance.toString());
+
+            console.log('Alloance balance :  ',  balance)
+            return balance;
+        },
+        async OLD_allowance(){
+            const { ethereum } = window;
             console.log('+ + + + Allowance Method + + + + ', ethereum);
             // let provider = await detectEthereumProvider();
 
@@ -311,8 +347,18 @@
                 console.error('Error when call allowance ', err)
             })
 
-        }
-
+        },
+        async checkIfConnected(){
+             const { ethereum } = window;
+                const accounts = await ethereum.request({ method: "eth_accounts" });
+                if (accounts.length !== 0) {
+                    console.log('Account :' , accounts[0] );
+                    // commit("setAccount", accounts[0]);
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
     },
     components: {
       WalletConnect
