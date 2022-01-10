@@ -97,8 +97,9 @@
     
     
     <v-divider color="gray" style="margin-right:10%; margin-left: 10%; height:3px;"></v-divider>
-    <!-- <div id="divider" style="background-color:#404040; height: 0.02px; margin-right:10%; margin-left: 10%"></div> -->
-    <Footer ref="porto"></Footer>
+
+    <Footer class="d-none d-sm-flex" ref="porto"></Footer>
+    <FooterMobile class="d-flex d-sm-none" ref="porto"></FooterMobile>
     
     
   </v-app>
@@ -106,6 +107,7 @@
 
 <script>
 import Footer from './components/Footer.vue'
+import FooterMobile from './components/mobile/FooterMobile.vue'
 import Menu from './components/mobile/Menu.vue'
 import NavDrawer from './components/mobile/NavDrawer.vue'
 
@@ -115,6 +117,7 @@ export default {
 
   components: {
     Footer,
+    FooterMobile,
     Menu,
     NavDrawer,
     
