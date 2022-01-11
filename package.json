@@ -7,15 +7,24 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@metamask/detect-provider": "^1.2.0",
+    "human-standard-token-abi": "^2.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vuetify": "^2.4.0"
+    "vue-web3": "^2.1.0",
+    "vuetify": "^2.4.0",
+    "vuex": "^3.6.2",
+    "web3": "^1.6.1",
+    "web3-eth-abi": "^1.6.1",
+    "web3-eth-contract": "^1.6.1",
+    "web3-utils": "^1.6.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "node-sass": "^7.0.1",
     "sass": "~1.32.0",
-    "sass-loader": "^10.0.0",
+    "sass-loader": "^10.2.0",
     "vue-cli-plugin-vuetify": "~2.4.4",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.0"

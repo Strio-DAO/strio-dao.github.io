@@ -7,7 +7,7 @@
       style="position:fixed;"
     >
       <v-col>
-        <div class="d-flex align-center">
+        <div  class="d-flex align-center">
           <a style="color:white; text-decoration:none !important; margin-right: 50px" @click="scrollMeTo('topPage')">
             <v-img
               alt="Strio Logo"
@@ -16,6 +16,7 @@
               src="./assets/images/StrioLogo1.png"
               transition="scale-transition"
               width="100"
+              
             />
           </a>
         </div>
@@ -23,14 +24,17 @@
       <v-col cols="7" align="center" justify="center" class="d-none d-sm-flex" >
         <v-row align="center" justify="center">
           <div align="center">
-            <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
+            <!-- <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
             <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('becomeMember')">Become a member</a>
-            <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('strioDAO')">DAO</a>
+            <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('strioDAO')">DAO</a> -->
+            <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">RoadMap</router-link>
+            <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">Become a member</router-link>
+            <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Swap Page</router-link>
           </div>
         </v-row>
       </v-col>
-      <v-col>
-        <div align="right">
+      <v-col >
+        <div align="right" >
           <v-btn class="d-none d-sm-flex" href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px; width: 150px;">
             <span style="margin-right:10px; font-family: 'Aileron', sans-serif; font-size: 15px;">Strio Wiki</span>
             <v-icon small>mdi-arrow-right</v-icon>
@@ -41,7 +45,8 @@
           <v-btn @click.stop="drawer = !drawer" class="d-flex d-sm-none">
             <v-img
                 contain
-                src="@/assets/images/mobile/menuMobile.png"
+                width="30px"
+                src="@/assets/images/mobile/menuMobile2.png"
             />
           </v-btn>
         </div>
@@ -89,26 +94,34 @@
     <v-main>
       <router-view ref="home"/>
     </v-main>
-
+    
+    
+    
     <v-divider color="gray" style="margin-right:10%; margin-left: 10%; height:3px;"></v-divider>
-    <!-- <div id="divider" style="background-color:#404040; height: 0.02px; margin-right:10%; margin-left: 10%"></div> -->
-    <Footer ref="porto"></Footer>
+
+    <Footer class="d-none d-sm-flex" ref="porto"></Footer>
+    <FooterMobile class="d-flex d-sm-none" ref="porto"></FooterMobile>
+    
     
   </v-app>
 </template>
 
 <script>
 import Footer from './components/Footer.vue'
+import FooterMobile from './components/mobile/FooterMobile.vue'
 import Menu from './components/mobile/Menu.vue'
 import NavDrawer from './components/mobile/NavDrawer.vue'
+
 
 export default {
   name: 'App',
 
   components: {
     Footer,
+    FooterMobile,
     Menu,
     NavDrawer,
+    
   },
 
   data: () => ({

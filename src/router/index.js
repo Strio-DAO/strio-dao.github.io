@@ -26,6 +26,13 @@ const routes = [
     component: function () {
       return import('../views/Roadmap.vue')
     }
+  },
+  {
+    path: '/swapPage',
+    name: 'SwapPage',
+    component: function () {
+      return import('../views/SwapPage.vue')
+    }
   }
 ]
 

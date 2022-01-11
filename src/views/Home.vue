@@ -31,32 +31,6 @@
                 </h2>
               </v-col>
             </v-row>
-            <!-- <v-row style="margin-top: 50px;" justify="center" align="center">
-              <v-col style="color: white;" align="center" justify="center">
-                <v-row style="background: grey; width: 20%; border-radius: 30px; padding: 0px; margin-right: 4%">
-                  <v-col cols="10" style="margin: 0px; padding: 0px;">
-                    <input placeholder="Insert your mail" type="text" style="height:50px; margin:0px; margin-left: 20px; width:90%; color: white">
-                  </v-col>
-                  <v-col cols="2" style="margin: 0px; padding: 0px;" align="right">
-                    <v-btn style="color: white; width:130px; height: 50px; font-size: 0.8em; margin: 0px; border-radius: 30px; background-color: #EF4423;">
-                      Join waitlist
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row> -->
-            <!-- <v-row justify="center" align="center" style="margin-top: 100px;">
-              <v-col justify="center" align="center">
-                <span style="color: white;">
-                  We are creating a new way for Video Creators to strive. <br>
-                  By enabling them to issue their own tokens, <br>
-                  they become able to monetize their careers and build <br>
-                  an index pool for their content NFT <br>
-                  Throug Strio, Creators can deploy  content as NFTs, sharing fractions of the <br>
-                  Intellectual Property (IP) with their supporters. <br>
-                </span>
-              </v-col>
-            </v-row> -->
             <v-row justify="center" align="center" style="margin-top: 100px;">
               <v-btn class="d-none d-sm-flex" style="background: none; outline: none; border:none;">
                 <v-img
@@ -234,7 +208,6 @@
           <v-col id="page4">
             <v-row class="d-none d-sm-flex" justify="center" align="center">
               <div>
-
               <v-img
                 contain
                 src="../assets/images/CirclePageImage.png"
@@ -250,154 +223,6 @@
                 ></v-img>
               </v-col>
             </v-row>
-            <!-- Piece of code if we are not using image -->
-            <!-- <v-row justify="center" align="center">
-              <div style="width: 650px;">
-                <v-img
-                  id="img1"
-                  contain
-                  src="../assets/images/page4circle.png"
-                ></v-img>
-                <label for="img1" style="color:white; position: relative; top:-350px; left: 33%; font-size: 40px; font-weight: 500; font-family: aileronregular ">How it works</label>
-                <v-sheet
-                  max-width="350"
-                  class="rounded-pill mx-auto transition-swing secondary"
-                  elevation="12"
-                  height="128"
-                  width="100%"
-                  style="color:white; position: relative; top:-500px; left: -350px; opacity: 0.9"
-                >
-                  <v-row justify="center" align="center">
-                    <v-col cols="3" style="margin-top: 30px;">
-                      <v-img containt width="45" style="margin-left: 20px;" src="../assets/images/iconsHIW/pallete.png"></v-img>
-                      <v-divider vertical></v-divider>
-                    </v-col>
-                    <v-col>
-                      <span style="float:left; margin-left: 10px;">
-                        Creators issue their own <br>
-                        ERC-20 tokens and<br>
-                        upload their video<br>
-                        content as NFTs.
-                      </span>
-                    </v-col>
-                  </v-row>
-                </v-sheet>
-                <v-sheet
-                  max-width="350"
-                  class="rounded-pill mx-auto transition-swing secondary"
-                  elevation="12"
-                  height="128"
-                  width="100%"
-                  style="color:white; position: relative; top:-470px; left: -330px; opacity: 0.9;"
-                >
-                  <v-row justify="center" align="center">
-                    <v-col cols="3" style="margin-top: 30px;">
-                      <v-img contain width="45" style="margin-left: 20px;" src="../assets/images/iconsHIW/2-User.png"></v-img>
-                      <v-divider vertical></v-divider>
-                    </v-col>
-                    <v-col>
-                      <span style="float:left; margin-left: 10px;">
-                        Supporters invest in <br>
-                        their favourite creators<br>
-                        by buying their<br>
-                        personal tokens or NFTs.
-                      </span>
-                    </v-col>
-                  </v-row>
-                </v-sheet>
-                <v-sheet
-                  max-width="350"
-                  class="rounded-pill mx-auto transition-swing secondary"
-                  elevation="12"
-                  height="128"
-                  width="100%"
-                  style="color:white; position: relative; top:-440px; left: -300px; opacity: 0.9"
-                >
-                  <v-row justify="center" align="center">
-                    <v-col cols="3" style="margin-top: 30px;">
-                      <v-img contain width="45" style="margin-left: 20px;" src="../assets/images/iconsHIW/Paper-Download.png"></v-img>
-                      <v-divider vertical></v-divider>
-                    </v-col>
-                    <v-col>
-                      <span style="float:left; margin-left: 10px;">
-                        NFT holders keep a share <br>
-                        of their content IP, profiting <br>
-                        from market success and <br>
-                        secondary market sales.
-                      </span>
-                    </v-col>
-                  </v-row>
-                </v-sheet>
-                <v-sheet
-                  max-width="350"
-                  class="rounded-pill mx-auto transition-swing secondary"
-                  elevation="12"
-                  height="128"
-                  width="100%"
-                  style="color:white; position: relative; top: -850px; left: 350px; opacity: 0.9"
-                >
-                  <v-row justify="center" align="center">
-                    <v-col cols="3" style="margin-top: 30px;">
-                      <v-img contain width="45" style="margin-left: 20px;" src="../assets/images/iconsHIW/Arrow.png"></v-img>
-                      <v-divider vertical></v-divider>
-                    </v-col>
-                    <v-col>
-                      <span style="float:left; margin-left: 10px;">
-                        Viewers access videos <br>
-                        for free through Strio <br>
-                        platform.
-                      </span>
-                    </v-col>
-                  </v-row>
-                </v-sheet>
-                <v-sheet
-                  max-width="350"
-                  class="rounded-pill mx-auto transition-swing secondary"
-                  elevation="12"
-                  height="128"
-                  width="100%"
-                  style="color:white; position: relative; top: -820px; left: 330px; opacity: 0.9"
-                >
-                  <v-row justify="center" align="center">
-                    <v-col cols="3" style="margin-top: 30px;">
-                      <v-img contain width="45" style="margin-left: 20px;" src="../assets/images/iconsHIW/Wallet.png"></v-img>
-                      <v-divider vertical></v-divider>
-                    </v-col>
-                    <v-col>
-                      <span style="float:left; margin-left: 10px;">
-                        Strio DAO Treasury collects <br>
-                        a fee over Creator Token<br>
-                        transactions and NFT mints<br>
-                      </span>
-                    </v-col>
-                  </v-row>
-                </v-sheet>
-                <v-sheet
-                  max-width="350"
-                  class="rounded-pill mx-auto transition-swing secondary"
-                  elevation="12"
-                  height="128"
-                  width="100%"
-                  style="color:white; position: relative; top: -790px; left: 300px; opacity: 0.9"
-                >
-                  <v-row justify="center" align="center">
-                    <v-col cols="3" style="margin-top: 30px;">
-                      <v-img contain width="45" style="margin-left: 20px;" src="../assets/images/iconsHIW/Star.png"></v-img>
-                      <v-divider vertical></v-divider>
-                    </v-col>
-                    <v-col>
-                      <span style="float:left; margin-left: 10px;">
-                        Supporters and Creators <br>
-                        are rewarded by Strio DAO <br>
-                        according to content success <br>
-                        and NFT ownership.
-                      </span>
-                    </v-col>
-                  </v-row>
-                </v-sheet>
-              </div>
-            </v-row> -->
-            <!-- style="margin-top:-600px;" -->
             <v-row class="d-none d-sm-flex" justify="center" align="center" style="margin-top: 100px;">  
               <div>
                 <v-img
@@ -425,9 +250,6 @@
               <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 20px; margin-right: 10px;">
                 Strio DAO Governance
               </v-btn>
-              <!-- <v-btn dark style="border: 1px solid #EF4423; color: white; height: 50px; font-size: 0.8em; padding: 20px; ">
-                <span style="margin-right:10px;">Get on the whitelist</span>
-              </v-btn> -->
             </v-row>
           </v-col>
         </v-row>
@@ -519,9 +341,6 @@
             </v-row>
             <v-row style="color: white; margin-top: 120px; margin-bottom: 150px;" justify="center" align="center">
               <v-col justify="center" align="center">
-                <!-- <div style="display: inline-block;">
-                  <h2 style="margin-right: 40px; color: gray;">Built on</h2>
-                </div> -->
                 <img
                   style="margin-top: 20px;"
                   contain
@@ -531,6 +350,80 @@
               </v-col>
             </v-row>
           </v-col>
+        </v-row>
+        <v-row>
+          <v-col style="color:white;">
+            <v-row style="margin-top: 4em;">
+              <v-col cols="2"></v-col>
+              <v-col cols="8" style="background: #181818; background-image: linear-gradient(to right, #181818,#000000,#181818);  border-radius: 30px;">
+                <v-row align="center" justify="center" style="margin-top: 20px; margin-bottom: 20px;">
+                  <div class="title2">Get Strio Token</div>
+                </v-row>
+                <v-row align="center" justify="center" style="margin-bottom: 30px;">
+                  <v-btn  style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em;">Staking</v-btn>
+                </v-row>
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
+            
+            <v-row align="center" justify="center" style="margin-top: 50px; margin-bottom: 2em;">
+              <h1>What are sStrio tokens?</h1>
+            </v-row>
+            <v-row class="d-none d-sm-flex" style="margin-bottom: 3em;">
+              <v-col cols="3"></v-col>
+              <v-col cols="3" align="center">
+                <v-img
+                style="margin-top: 40px;"
+                src="@/assets/images/StrioS.png"
+                width="200px"
+                />
+              </v-col>
+              <v-col cols="4">
+                <span>
+                  sStrio Tokens are a pre-seed ERC-20 token <br>
+                  deployed on the Ethereum mainnet that will be <br>
+                  used to fund the DAO treasury before the IDO, to <br>
+                  reward contributors or creators and to decentralize <br>
+                  the decision-making process of the DAO through <br>
+                  voting based on token holdings. They have no <br>
+                  commercial value and will be burnt to claim the <br>
+                  future Strio tokens deployed on the IDO
+                </span>
+              </v-col>
+              <v-col cols="2"></v-col>
+            </v-row>
+            <v-row class="d-flex d-sm-none">
+              <v-col align="center" justify="center">
+                <v-row align="center" justify="center" style="margin-bottom: 2em;">
+                  <span>
+                    sStrio Tokens are a pre-seed ERC-20 token <br>
+                    deployed on the Ethereum mainnet that will be <br>
+                    used to fund the DAO treasury before the IDO, to <br>
+                    reward contributors or creators and to decentralize <br>
+                    the decision-making process of the DAO through <br>
+                    voting based on token holdings. They have no <br>
+                    commercial value and will be burnt to claim the <br>
+                    future Strio tokens deployed on the IDO
+                  </span>
+                </v-row>
+                <v-row align="center" justify="center" style="margin-bottom: 2em;">
+                  <v-col>
+                    <v-img
+                    contain
+                    src="@/assets/images/StrioS.png"
+                    width="40%"
+                    />
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+        <v-row class="d-none d-sm-flex" style="background: white;">
+          <WhitePage/>
+        </v-row>
+        <v-row class="d-flex d-sm-none" style="background: white;">
+          <WhitePageMobile/>
         </v-row>
         <v-row id="page7" style="background: black; color: white">
           <v-col></v-col>
@@ -560,6 +453,8 @@
 <script>
 import RoadmapCard from '../components/RoadmapCard.vue';
 import Avatar from '../components/Avatar.vue';
+import WhitePage from '../components/WhitePage.vue';
+import WhitePageMobile from '../components//mobile/WhitePageMobile.vue';
   export default {
     name: 'Home',
 
@@ -656,6 +551,8 @@ import Avatar from '../components/Avatar.vue';
     components: {
       RoadmapCard,
       Avatar,
+      WhitePage,
+      WhitePageMobile,
     },
 
     methods: {
@@ -759,7 +656,7 @@ import Avatar from '../components/Avatar.vue';
   }
 
   h1 {
-    font-size: calc(12px + 1.5vw);
+    font-size: calc(12px + 1.7vw);
 
     font-weight: 500;
     font-family: 'Aileron', sans-serif;
@@ -767,14 +664,14 @@ import Avatar from '../components/Avatar.vue';
   }
 
   h2 {
-    font-size: calc(12px + 1.5vw);
+    font-size: calc(10px + 1.5vw);
     font-weight: 300;
     font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
   }
 
   h3 {
-    font-size: 20px;
+    font-size: calc(8px + 1.2vw);
     font-weight: 500;
     font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
