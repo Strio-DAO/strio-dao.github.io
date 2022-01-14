@@ -40,7 +40,7 @@
                                 <v-col>
                                     <v-row>
                                         <v-col cols="1">
-                                            <img width="50px" height="50px" src="..\assets\images\daiLogo.png" >
+                                            <img width="50px" height="50px" src="@/assets/images/daiLogo.png" >
                                         </v-col>
                                         <v-col  cols = '3' offset='1'>
                                             <v-select
@@ -86,7 +86,7 @@
                                 <v-col>
                                     <v-row>
                                         <v-col cols= '0' xs="0" sm="0" md="0">
-                                            <img width="75px" height="75px" contain src="..\assets\images\StrioS.png">
+                                            <img width="75px" height="75px" contain src="@/assets/images/StrioS.png">
                                     
                                                                                </v-col>
                                         <v-col cols = '3' >
