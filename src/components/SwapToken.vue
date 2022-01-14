@@ -1,111 +1,134 @@
 <template>
-    <v-card dark>
-      <v-col></v-col>
-      <v-col>
-         <v-row >
-                    <v-col></v-col>
-                    <v-col>
-                        <div style="text-align:center;">
-                            <h4>Get sStrio Tokens</h4>
-                        </div>
-                    </v-col>
-                    <v-col>
-                            <!-- <v-btn
-                            
-                            color="transparent"
-                            class="connect-wallet-button"
-                            @click="connectWallet">
-                                Connect Wallet 
-                                <v-icon dark right> mdi-checkbox-marked-circle </v-icon>
-                            </v-btn> -->
-                            <WalletConnect />
-                    </v-col>
-        </v-row>
-        
-        <v-layout justify-center>
-            <v-form class="px-50">
-                <v-container>
-                    <v-col></v-col>
-                    <v-row class="swapInput">
-                        <v-col>
-                            
-                            <v-row>
-                                <v-col justify-center>
-                                    <v-select
-                                    :items="items"
-                                    v-model= "stableSelected"
-                                    label = "MAX 10,000"
-                                    v-on:change="changeStable()"
-                                    ></v-select>
-                                </v-col>
-                                <v-col>
-                                    <v-text-field 
-                                    id="stableInput" 
-                                    type="number"
-                                    @change="changeStableAmount"
-                                    min="2000" 
-                                    max="10000"
-                                    label = "Min 2000"
-                                    v-model = "stableAmount"
-                                    ></v-text-field>
-                                </v-col>
-                            </v-row>
-                        </v-col>
-                    </v-row>
-                    <v-row class="" style="padding:0px;margin-top:0px;" >
-                        <v-col>
-                            
-                            <v-row>
-                                <v-col justify-center>
-                                 <p> balance stable: {{totalStableAmount}}</p>
-                                </v-col>
-                                <v-col>
-                                    <p> balance strio : {{this.$store.account.state.strioBalance}}</p>
-                                </v-col>
-                            </v-row>
-                        </v-col>
-                    </v-row>
-                    <v-row class="swapInput">    
-                        <v-col>
-                            <v-row>
-                                <v-col>
-                                    <v-img
-                                    alt="Vuetify Logo"
-                                    class="mx-auto swapImage"
-                                    contain
-                                    src="../assets/images/StrioLogo1.png"
-                                    
-                                />
-                                </v-col>
-                                <v-col>
-                                    <v-text-field 
-                                    id="sstrioInput" 
-                                    type="number"
-                                    label="1 DAI = 10 STRIO"
-                                    v-model = "strioAmount"
-                                    ></v-text-field>
-                                </v-col>
-                            </v-row>
-                        </v-col>
-                        
-                    </v-row>
-                    <v-row >
-                    <v-col></v-col>
-                    <v-col>
-                        <v-btn v-if="isAproved" block @click="getStrio" :disabled="!ableToSwap" >Swap</v-btn>
-                        <v-btn v-else block @click="toApprove">Approve </v-btn>
-                    </v-col>
-                    <v-col></v-col>
+    <v-row style="color:white; padding:1em;">
+        <v-col>
+            <v-row >
                     
-                    </v-row>
-                </v-container>
-            </v-form>
-        </v-layout>
+                <v-col xs="6" sm="6" md="6" offset-md="3" offset-sm="3" align="center" >
+                    <div>
+                        <h2>Get sStrio Tokens</h2>
+                    </div>
+                </v-col>
+                <v-col  xs="3" sm="3" md="3" offset-md="0" offset-sm="0"  align="center" >
+                        <!-- <v-btn
+                        
+                        color="transparent"
+                        class="connect-wallet-button"
+                        @click="connectWallet">
+                            Connect Wallet 
+                            <v-icon dark right> mdi-checkbox-marked-circle </v-icon>
+                        </v-btn> -->
+                        <WalletConnect />
+                </v-col>
+            </v-row>
+        
+            <v-row>
+                <v-col xs="12" sm="8" md="6" offset-md="3" offset-sm="2" offset-xs="" class="swapForm">
+                    <v-form>
+                        <v-row dense>
+                                <v-col>
+                                    <div>From</div>
+                                </v-col>
+                                <v-col  align="right">
+                                    <div class="text-caption">
+                                        Balance: {{totalStableAmount}} 
+                                        <v-btn x-small dark plain> HALF</v-btn>
+                                        <v-btn x-small dark plain> MAX</v-btn>
+                                    </div>
+                                </v-col>
+                            </v-row>
+                        <v-row class="swapInput">
+                                <v-col>
+                                    <v-row>
+                                        <v-col cols="1">
+                                            <img width="50px" height="50px" src="..\assets\images\daiLogo.png" >
+                                        </v-col>
+                                        <v-col  cols = '3' offset='1'>
+                                            <v-select
+                                            :items="items"
+                                            dark
+                                            v-model= "stableSelected"
+                                            label = "MAX 10,000"
+                                            v-on:change="changeStable()"
+                                            class="d-flex"
+                                            ></v-select>
+                                        </v-col>
+                                        <v-col>
+                                            <v-text-field 
+                                            id="stableInput" 
+                                            type="number"
+                                            rounded
+                                            dark
+                                            reverse
+                                            @change="changeStableAmount"
+                                            min="2000" 
+                                            max="10000"
+                                            label = "Min 2000"
+                                            v-model = "stableAmount"
+                                            ></v-text-field>
+                                        </v-col>
+                                    </v-row>
+                                </v-col>
+                            </v-row>
+                        <v-row  dense >
+                                <v-col  dense>
+                                    <div>To</div>
+                                </v-col>
 
-      </v-col>
-      <v-col></v-col>
-       
-    </v-card>
+                                 <v-col align="right">
+                                    <div class="text-caption">
+                                        Balance: {{this.$store.account.state.strioBalance}}
+                                        <v-btn x-small dark plain> HALF</v-btn>
+                                        <v-btn x-small dark plain> MAX</v-btn>
+                                    </div>
+                                </v-col>
+                            </v-row>
+                            <v-row class="swapInput">    
+                                <v-col>
+                                    <v-row>
+                                        <v-col cols= '0' xs="0" sm="0" md="0">
+                                            <img width="75px" height="75px" contain src="..\assets\images\StrioS.png">
+                                    
+                                                                               </v-col>
+                                        <v-col cols = '3' >
+                                            <h3 style="margin-top:10px;">sStrio</h3>
+                                        </v-col>
+                                        <v-col>
+                                            <v-text-field 
+                                            id="sstrioInput" 
+                                            rounded
+                                            dark
+                                            reverse
+                                            type="number"
+                                            min='0'
+                                            v-model = "strioAmount"
+                                            ></v-text-field>
+                                        </v-col>
+                                    </v-row>
+                                </v-col>
+
+                            </v-row>
+                            <v-row>
+                                <v-col align="right">
+                                    <div class="text-caption">
+                                        1 DAI = 10 sSTRIO
+                                    </div>
+                                </v-col>
+                            </v-row>
+
+                        </v-form>
+                    
+                                     </v-col>
+            
+            </v-row>
+            <v-row >
+                <v-col  xs="12" sm="8" md="6" offset-md="3" offset-sm="2" offset-xs="" class="swapButton">
+                    <v-btn dark color="#EF4423" v-if="isAproved" block @click="getStrio" :disabled="!ableToSwap" >Swap</v-btn>
+                    <v-btn dark color="#EF4423" v-else block @click="toApprove">Approve </v-btn>
+                </v-col>
+            </v-row>
+        </v-col>
+    
+    </v-row>
 </template>
 
 <script>
@@ -491,18 +514,33 @@
   }
   }
 </script>
+<style lang="scss">
+  .swapInput{
+    padding: 20px;
+    padding-bottom: 0px;
+    margin: auto;
+    
+    border-radius: 20px;
+    background: rgba(100, 100, 100, 0.5);
 
-<style>
- .swapInput{
-     padding: 5px;
-     margin: auto;
-     max-width: 800px;
  }
- .swapImage{
-     max-width: 150px;
- }
+.swapButton{
+    padding: 30px;
+   
 
+ }
+ .swapForm{
+    padding: 20px;
+    padding-bottom: 30px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(black,black), radial-gradient(circle at top left, #EF4423, #FAA31B);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin-bottom: 2em;
+ }
  .connect-wallet-button{
+    margin-top: 1em;
     position: absolute;
     top: 0px;
     right: 0px;

@@ -10,8 +10,11 @@
             </div>
           </div>
 
-            <v-btn v-else                  
-                color="transparent"
+            <v-btn v-else       
+                dark   
+                large        
+                color=""
+                elevation="0"
                 class="connect-wallet-button"
                 @click="connectWallet">
                     Connect 
