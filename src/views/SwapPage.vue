@@ -1,28 +1,27 @@
 <template>
-
- <v-card
-        class="mx-auto my-12"
-        dark
-        height="450"
-        max-width="800"
-        style="background-color: #404040; opacity: 0.9; border-radius: 15px;"
-    >
-    
-    <!-- <v-row>
-      <v-col>
-          <WalletConnect/>
-      </v-col>
-    </v-row> -->
-
+<v-container>
     <v-row>
-      <v-col>
-          <SwapToken/>
-      </v-col>
+      <SwapToken></SwapToken>
     </v-row>
     
+    <v-row  class="text-caption supplyInfo">
+      <v-col cols="3" offset="3" align="left" >
+        <p>Max Supply:</p>
+        <p>DAU Treasury Holdings:</p>
+        <p>Circulating Supply:</p>
+        <p>Available Supply:</p>
+      </v-col>
+      
+      <v-col cols="3" align="right" >
+        <p>{{maxSupply}}</p>
+        <p>{{treasuryHoldings}}</p>
+        <p>{{circulatingSupply}}</p>
+        <p>{{availableSupply}}</p>
+      </v-col>
+    </v-row>  
 
-    </v-card>
-
+    
+  </v-container>
 </template>
 
 <script>
@@ -31,17 +30,28 @@ import SwapToken from '../components/SwapToken.vue';
 
 export default 
 {
-  name: 'SwapPage',
-
-  components: {
-      SwapToken
+  data() {
+    return{
+      maxSupply: "100,000,000 SSTRIO",
+      treasuryHoldings: "60,000,000 SSTRIO",
+      circulatingSupply: "20,000,000 SSTRIO",
+      availableSupply: "20,000,000 SSTRIO",
+    }
   },
-
+   
+   components: {
+    SwapToken,
+  
+    
+  },
+  
 }
 
 
 </script>
 
 <style>
-
+.supplyInfo{
+  color: grey;
+}
 </style>
