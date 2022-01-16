@@ -247,7 +247,7 @@
               </span>
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 50px; margin-top: 50px;">
-              <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 20px; margin-right: 10px;">
+              <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 25px; margin-right: 10px;">
                 Strio DAO Governance
               </v-btn>
             </v-row>
@@ -360,7 +360,9 @@
                   <div class="title2">Get Strio Token</div>
                 </v-row>
                 <v-row align="center" justify="center" style="margin-bottom: 30px;">
-                  <v-btn  style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em;">Staking</v-btn>
+                  <v-btn  style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em;">
+                    <router-link style="color:white; text-decoration:none !important;font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Swap Page</router-link>
+                  </v-btn>
                 </v-row>
               </v-col>
               <v-col cols="2"></v-col>

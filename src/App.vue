@@ -23,11 +23,11 @@
       <v-col cols="7" align="center" justify="center" class="d-none d-sm-flex" >
         <v-row align="center" justify="center">
           <div align="center">
-            <!-- <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
-            <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('becomeMember')">Become a member</a>
-            <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('strioDAO')">DAO</a> -->
-            <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">RoadMap</router-link>
-            <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">Become a member</router-link>
+            <a v-if="getCurrentRoute()=='Home'" style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
+            <!-- <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('strioDAO')">DAO</a> -->
+            <router-link v-else style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">RoadMap</router-link>
+            <a v-if="getCurrentRoute()=='Home'" style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('becomeMember')">Become a member</a>
+            <router-link v-else style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">Become a member</router-link>
             <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Swap Page</router-link>
           </div>
         </v-row>
@@ -133,6 +133,11 @@ export default {
       var top = element.offsetTop;
       window.scrollTo(0, top);
       // element.scrollIntoView({ behavior: 'smooth' });
+    },
+    getCurrentRoute() {
+      const route = this.$route.name;
+      console.log(route);
+      return route;
     }
   }
 
