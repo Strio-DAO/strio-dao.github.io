@@ -31,10 +31,8 @@ import detectEthereumProvider from '@metamask/detect-provider';
 const {ethereum} =window;
 import Web3Utils from "web3-utils";
 import Contract from 'web3-eth-contract';
-import Web3ABI from 'web3-eth-abi';
-import { mapMutations } from 'vuex'
-import { mapState } from 'vuex'
 import {strio_token_meta} from '../../bd/erc20_metadata.json'
+import Web3 from "web3";
 
 
 export default {
@@ -105,6 +103,31 @@ export default {
       //this.$store.commit('account/setBalance', Web3Utils.hexToNumberString(balance))
      
     },
+    async getStrioBalance()
+    {
+       let self = this;
+       console.log('Get strio balance method ********* ');
+       console.log('user address ', this.$store.account.state.address)
+       console.log('Abi ; ', strio_token_meta.address)
+
+       const { ethereum } = window;
+        this.web3 = new Web3(ethereum);
+
+       let strioInstance = new this.web3.eth.Contract(
+              strio_token_meta.abi,
+              strio_token_meta.address
+            );      
+
+        let rawBalance = await strioInstance.methods
+            .balanceOf(this.$store.account.state.address)
+            .call({ from:this.$store.account.state.address });
+
+        const balance = this.web3.utils.fromWei(rawBalance.toString());
+        this.$store.account.commit('setStrioBalance', balance  )
+        console.log('Strio balance : ', this.$store.account.state.strioBalance )
+
+
+    },
     handleAccountsChanged : async function (accounts)
     {
       console.log('handleAccountsChanged ');
@@ -147,25 +170,26 @@ export default {
         })
         
         
-       //Contract.setProvider(this.provider);
+        //Contract.setProvider(this.provider);
      
-        ethereum.request({
-          method: 'eth_call',
-          params: [{
-            to: strio_token_meta.address,
-            data: StrioToken.methods.balanceOf(this.$store.account.state.address).encodeABI()
-          }]
-        })
-        .then(result => 
-        { 
-            console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
-            let strioBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
-            _this.$store.account.commit('setStrioBalance', strioBalance  )
-            console.log('Strio balance : ', _this.$store.account.state.strioBalance )
-        })
-        .catch(err => {
-          console.error('Error when call balanceOF ', err)
-        })
+        // ethereum.request({
+        //   method: 'eth_call',
+        //   params: [{
+        //     to: strio_token_meta.address,
+        //     data: StrioToken.methods.balanceOf(this.$store.account.state.address).encodeABI()
+        //   }]
+        // })
+        // .then(result => 
+        // { 
+        //     console.log('Result from ethcall balanceOf strio Token ', Web3Utils.hexToNumberString(result) )
+        //     let strioBalance = Web3Utils.fromWei(Web3Utils.hexToNumberString(result), 'ether');
+        //     _this.$store.account.commit('setStrioBalance', strioBalance  )
+        //     console.log('Strio balance : ', _this.$store.account.state.strioBalance )
+        // })
+        // .catch(err => {
+        //   console.error('Error when call balanceOF ', err)
+        // })
+        this.getStrioBalance();
 
       }
     },

@@ -31,8 +31,8 @@
                                 <v-col  align="right">
                                     <div class="text-caption">
                                         Balance: {{totalStableAmount}} 
-                                        <v-btn x-small dark plain> HALF</v-btn>
-                                        <v-btn x-small dark plain> MAX</v-btn>
+                                        <v-btn x-small dark plain v-on:click="halfStable"> HALF</v-btn>
+                                        <v-btn x-small dark plain v-on:click="maxStable"> MAX</v-btn>
                                     </div>
                                 </v-col>
                             </v-row>
@@ -188,6 +188,20 @@
         
     }),
     methods: {
+        async halfStable()
+        {
+            if(this.totalStableAmount  > 0){
+                this.stableAmount = this.totalStableAmount / 2;
+                this.changeStableAmount();
+            }
+        },
+        async maxStable()
+        {
+            if(this.totalStableAmount  > 0){
+                this.stableAmount = this.totalStableAmount ;
+                this.changeStableAmount();
+            }
+        },
         async changeStableAmount()
         {
             this.strioAmount = this.stableAmount / STABLE_RATE;
