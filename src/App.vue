@@ -38,9 +38,6 @@
             <span style="margin-right:10px; font-family: 'Aileron', sans-serif; font-size: 15px;">Strio Wiki</span>
             <v-icon small>mdi-arrow-right</v-icon>
           </v-btn>
-          <!-- <v-btn class="d-flex d-sm-none">
-            <Menu></Menu>
-          </v-btn> -->
           <v-btn @click.stop="drawer = !drawer" class="d-flex d-sm-none">
             <v-img
                 contain

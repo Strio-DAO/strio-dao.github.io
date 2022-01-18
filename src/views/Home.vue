@@ -25,7 +25,7 @@
             <v-row style="color: white; margin-top: 7%" justify="center" align="center">
               <v-col justify="center" align="center">
                 <h2>
-                  Launch Creator Token and issue<br>
+                  Launch a creator token and issue<br>
                   video content as NFTs to grow together<br>
                   with your supporters.
                 </h2>
@@ -52,7 +52,6 @@
             <v-row class="d-none d-sm-flex" id="cardPanel" ref="cardPanel" justify="center" align="center" style="margin-top: 100px; padding-top: 200px;">
               <v-col cols="1"></v-col>
               <v-col cols="4">
-                <!-- <iframe width="500" height="300" src="https://www.youtube.com/embed?v=ujGSt-93qZo"></iframe> -->
                 <v-img
                   src="../assets/images/girlImage.png"
                   alt="image loading..."
@@ -142,7 +141,6 @@
                 Apply for season one
               </v-btn>
             </v-row>
-
             <v-row class="d-flex d-sm-none">
               <v-col style="padding:10%">
                 <v-img
@@ -151,7 +149,6 @@
                 ></v-img>
               </v-col>
             </v-row>
-            
             <v-row class="d-flex d-sm-none" style="margin-bottom: 10px; color: white" justify="center" align="center">
               <h1>For the community</h1>
             </v-row>
@@ -170,8 +167,6 @@
                 Join our discord
               </v-btn>
             </v-row>
-
-            
           </v-col>
         </v-row>
         
@@ -267,7 +262,7 @@
             <v-row class="d-none d-sm-flex">
               <v-col cols="2"></v-col>
               <v-col>
-                <roadmap-card style="border: 3px solid #EF4423;" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
+                <roadmap-card style="border: 3px solid #EF4423" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
               </v-col>
               <v-col>
                 <roadmap-card :items="launchpadSeasonCard.items" :title="launchpadSeasonCard.title"></roadmap-card>
@@ -651,7 +646,7 @@ import WhitePageMobile from '../components//mobile/WhitePageMobile.vue';
   }
 
   .title2 {
-    font-size: 5vw;
+    font-size: calc(15px + 3vw);;
     font-weight: 600;
     font-family: 'Aileron', sans-serif;
     /* font-family: AileronBold; */
