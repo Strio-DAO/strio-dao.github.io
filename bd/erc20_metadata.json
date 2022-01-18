@@ -1,6 +1,6 @@
 {
     "xeenus_token_meta" : {  
-        "address": "0x7E0480Ca9fD50EB7A3855Cf53c347A1b4d6A2FF5",
+        "address": "0x022E292b44B5a146F2e8ee36Ff44D3dd863C915c",
         "abi" : [
             {
                 "inputs": [
@@ -522,7 +522,7 @@
         ]
     },
     "weenus_token_meta" : {  
-        "address": "0x101848D5C5bBca18E6b4431eEdF6B95E9ADF82FA",
+        "address": "0xaFF4481D10270F50f203E0763e2597776068CBc5",
         "abi" : [
             {
                 "inputs": [
@@ -1044,8 +1044,27 @@
         ]
     },
     "strio_token_meta" : {  
-        "address": "0xbF858e46F3aB2067864FeEc0a82131BCD1a5FFA3",
+        "address": "0xCD6bBa1Cb1A9d742611e4EfA37A9BbD1559Bb337",
         "abi": [
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "contract_",
+                        "type": "address"
+                    }
+                ],
+                "name": "addStableToMint",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
             {
                 "inputs": [
                     {
@@ -1098,87 +1117,6 @@
                 "type": "event"
             },
             {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": true,
-                        "internalType": "address",
-                        "name": "from",
-                        "type": "address"
-                    },
-                    {
-                        "indexed": true,
-                        "internalType": "address",
-                        "name": "to",
-                        "type": "address"
-                    },
-                    {
-                        "indexed": false,
-                        "internalType": "uint256",
-                        "name": "value",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "Transfer",
-                "type": "event"
-            },
-            {
-                "inputs": [],
-                "name": "_onSale",
-                "outputs": [
-                    {
-                        "internalType": "bool",
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "address",
-                        "name": "contract_",
-                        "type": "address"
-                    }
-                ],
-                "name": "addStableToMint",
-                "outputs": [
-                    {
-                        "internalType": "bool",
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "address",
-                        "name": "owner",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "spender",
-                        "type": "address"
-                    }
-                ],
-                "name": "allowance",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
                 "inputs": [
                     {
                         "internalType": "address",
@@ -1203,36 +1141,23 @@
                 "type": "function"
             },
             {
+                "anonymous": false,
                 "inputs": [
                     {
+                        "indexed": true,
                         "internalType": "address",
-                        "name": "account",
+                        "name": "owner",
                         "type": "address"
-                    }
-                ],
-                "name": "balanceOf",
-                "outputs": [
+                    },
                     {
+                        "indexed": false,
                         "internalType": "uint256",
-                        "name": "",
+                        "name": "amount",
                         "type": "uint256"
                     }
                 ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "decimals",
-                "outputs": [
-                    {
-                        "internalType": "uint8",
-                        "name": "",
-                        "type": "uint8"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
+                "name": "BurnToken",
+                "type": "event"
             },
             {
                 "inputs": [
@@ -1260,7 +1185,7 @@
             },
             {
                 "inputs": [],
-                "name": "getNominalRate",
+                "name": "fullBurn",
                 "outputs": [
                     {
                         "internalType": "uint256",
@@ -1268,39 +1193,7 @@
                         "type": "uint256"
                     }
                 ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "getStableRate",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "address",
-                        "name": "contract_",
-                        "type": "address"
-                    }
-                ],
-                "name": "getStableToMint",
-                "outputs": [
-                    {
-                        "internalType": "address",
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "stateMutability": "view",
+                "stateMutability": "nonpayable",
                 "type": "function"
             },
             {
@@ -1328,19 +1221,6 @@
                 "type": "function"
             },
             {
-                "inputs": [],
-                "name": "maxSupply",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
                 "inputs": [
                     {
                         "internalType": "address",
@@ -1365,19 +1245,6 @@
                 "type": "function"
             },
             {
-                "inputs": [],
-                "name": "name",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
                 "inputs": [
                     {
                         "internalType": "address",
@@ -1386,6 +1253,25 @@
                     }
                 ],
                 "name": "removeStableToMint",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "newState",
+                        "type": "bool"
+                    }
+                ],
+                "name": "setBurnState",
                 "outputs": [
                     {
                         "internalType": "bool",
@@ -1442,32 +1328,6 @@
                 "type": "function"
             },
             {
-                "inputs": [],
-                "name": "symbol",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "totalSupply",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
                 "inputs": [
                     {
                         "internalType": "address",
@@ -1490,6 +1350,31 @@
                 ],
                 "stateMutability": "nonpayable",
                 "type": "function"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "from",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": true,
+                        "internalType": "address",
+                        "name": "to",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "internalType": "uint256",
+                        "name": "value",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "Transfer",
+                "type": "event"
             },
             {
                 "inputs": [
@@ -1561,6 +1446,211 @@
                 "name": "withdrawTokenBalance",
                 "outputs": [],
                 "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "_maxAmount",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "_minAmount",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "_onSale",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "owner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "spender",
+                        "type": "address"
+                    }
+                ],
+                "name": "allowance",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "account",
+                        "type": "address"
+                    }
+                ],
+                "name": "balanceOf",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "burnState",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "decimals",
+                "outputs": [
+                    {
+                        "internalType": "uint8",
+                        "name": "",
+                        "type": "uint8"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getNominalRate",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getStableRate",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "contract_",
+                        "type": "address"
+                    }
+                ],
+                "name": "getStableToMint",
+                "outputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "maxSupply",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "name",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "symbol",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "totalSupply",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
                 "type": "function"
             }
         ]

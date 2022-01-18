@@ -16,7 +16,7 @@ export default new Vuex.Store({
         balance: 0,
         totalBuy : 0,
         strioBalance: 0,
-        chainIdConncted : ropsten //rinkeby,
+        chainIdConncted : rinkeby //rinkeby,
     },
 
     mutations : {
