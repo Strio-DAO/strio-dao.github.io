@@ -55,14 +55,14 @@
                                         <v-col>
                                             <v-text-field 
                                             id="stableInput" 
-                                            type="number"
+                                            
                                             rounded
                                             dark
                                             reverse
                                             @change="changeStableAmount"
-                                            min="2000" 
+                                            min="1000" 
                                             max="10000"
-                                            label = "Min 2000"
+                                            label = "Min 1000"
                                             v-model = "stableAmount"
                                             ></v-text-field>
                                         </v-col>
@@ -98,7 +98,7 @@
                                             rounded
                                             dark
                                             reverse
-                                            type="number"
+                                            
                                             min='0'
                                             v-model = "strioAmount"
                                             ></v-text-field>
@@ -120,10 +120,10 @@
                                      </v-col>
             
             </v-row>
-            <v-row >
-                <v-col  xs="12" sm="8" md="6" offset-md="3" offset-sm="2" offset-xs="" class="swapButton">
-                    <v-btn dark color="#EF4423" v-if="isAproved" block @click="getStrio" :disabled="!ableToSwap" >Swap</v-btn>
-                    <v-btn dark color="#EF4423" v-else block @click="toApprove">Approve </v-btn>
+            <v-row align="center" justify="center">
+                <v-col  xs="6" sm="4" md="3"  class="swapButton">
+                    <v-btn style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 25px; margin-right: 10px;"  v-if="isAproved" block @click="getStrio" :disabled="!ableToSwap" >Swap</v-btn>
+                    <v-btn style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 25px; margin-right: 10px;"  v-else block @click="toApprove">Approve </v-btn>
                 </v-col>
             </v-row>
         </v-col>
