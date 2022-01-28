@@ -9,13 +9,13 @@
               <h2 style="color:gray;">Owned by you and the community</h2>
             </v-row>
             <v-row class=" d-sm-flex" justify="center" align="center">
-              <v-col cols="8"  md="2" style="margin: 0px; padding: 0px;" align="center">
+              <v-col cols="8" sm="2" style="margin: 0px; padding: 0px;" align="center">
                 <v-btn block href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" min-width="130px" target="_blank" style="color: white; height: 50px; font-size: 0.8em; background-color: #EF4423;">
                   Apply
                 </v-btn>
               </v-col>
-              <v-col cols="0" md="1"></v-col>
-              <v-col cols="8"  md="2" style="margin: 0px; padding: 0px;" align="center">
+              <v-col cols="0" sm="1"></v-col>
+              <v-col cols="8" sm="2" style="margin: 0px; padding: 0px;" align="center">
                 <v-btn block outlined to="swapPage" min-width="150px" style="color: white; height: 50px; font-size: 0.8em;">
                   sStrio Token
                 </v-btn>
@@ -32,14 +32,14 @@
               </v-col>
             </v-row>
             <v-row justify="center" align="center" style="margin-top: 100px;">
-              
+              <v-btn class="d-none d-sm-flex" style="background: none; outline: none; border:none;">
                 <v-img
                   alt="arrow"
                   src="../assets/images/ArrowDown.png"
                   width="10"
                   @click="scroll($refs.cardPanel)"
                 />
-              
+              </v-btn>
               <v-btn class="d-flex d-sm-none" style="background: none; outline: none; border:none;">
                 <v-img
                   alt="arrow"
@@ -85,9 +85,9 @@
               </v-col>
               <v-col cols="1"></v-col>
             </v-row>
-            <v-row  class="d-none d-sm-flex" justify="center" align="center" style="margin-bottom: 200px; margin-top: 100px;">
-              <v-col sm="1"></v-col>
-              <v-col  style="color: white;" cols="5">
+            <v-row class="d-none d-sm-flex" justify="center" align="center" style="margin-bottom: 200px; margin-top: 100px;">
+              <v-col cols="1"></v-col>
+              <v-col style="color: white;" cols="5">
                 <v-row style="margin-bottom: 10px;">
                   <h1>For the community</h1>
                 </v-row>

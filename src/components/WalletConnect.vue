@@ -2,19 +2,30 @@
    
     <v-row>
         <v-col>
-         <div v-if="isConnected" style="" class="add_container">
-              <div class="ether_place" style="padding-left:3%;padding-right:3%;flex-shrink: 0;">{{balance}} DAI</div>
-              <input disabled class="address"  v-model="reducedWa" value="..." >
-              <div class="wa_ico" style="padding-right:2%;" >
-                <div class="sc-gGBfsJ gLyupU"><div style="border-radius: 50px; overflow: hidden; padding: 0px; margin: 0px; width: 16px; height: 16px; display: inline-block;"><svg height="100" version="1.1" width="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#2362e1" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#1897f2" stroke="none" transform="matrix(0.0423,-0.9991,0.9991,0.0423,-1.1516,16.1943)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#c8144a" stroke="none" transform="matrix(0.9999,0.0113,-0.0113,0.9999,4.9636,-6.633)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#f94301" stroke="none" transform="matrix(0.7978,0.6029,-0.6029,0.7978,17.6356,1.9986)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect></svg></div></div>
+         <div v-if="isConnected" style="" class="addressContainer">
+              <!--<div class="ether_place" style="padding-left:3%;padding-right:3%;flex-shrink: 0;">{{balance}} DAI</div> 
+              <input  disabled class="address"  v-model="reducedWa" value="..." >-->
+              <v-text-field
+              readonly
+              dark
+              background-color="rgba(255, 255, 255, 0.12)"
+              dense
+              outlined
+              rounded
+              hide-details
+              v-model="reducedWa" value="..." 
+          ></v-text-field>
+              <!--<div class="wa_ico" style="padding-right:2%;" >
+                <div class="sc-gGBfsJ gLyupU"><div style="border-radius: 50px; overflow: hidden; padding: 0px; margin: 0px; width: 16px; height: 16px; display: inline-block;"><svg height="100" version="1.1" width="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#2362e1" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#1897f2" stroke="none" transform="matrix(0.0423,-0.9991,0.9991,0.0423,-1.1516,16.1943)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#c8144a" stroke="none" transform="matrix(0.9999,0.0113,-0.0113,0.9999,4.9636,-6.633)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="0" y="0" width="16" height="16" rx="0" ry="0" fill="#f94301" stroke="none" transform="matrix(0.7978,0.6029,-0.6029,0.7978,17.6356,1.9986)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect></svg></div></div>-->
             </div>
           </div>
 
             <v-btn v-else       
                 dark   
                 large        
+                
                 color=""
-                elevation="0"
+                elevation="5"
                 class="connect-wallet-button"
                 @click="connectWallet">
                     Connect 
@@ -367,5 +378,17 @@ export default {
     font-family: Roboto;
     color: #424242 !important;
 }
+.dispalyAddress {
 
+}
+.addressContainer{
+    width:160px;
+ 
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 5px;
+    border: none;
+    
+}
 </style>
