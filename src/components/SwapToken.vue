@@ -17,7 +17,7 @@
                             Connect Wallet 
                             <v-icon dark right> mdi-checkbox-marked-circle </v-icon>
                         </v-btn> -->
-                        <WalletConnect />
+                        <WalletConnect class="walletButton" />
                 </v-col>
             </v-row>
         
@@ -540,7 +540,7 @@
  }
 .swapButton{
     padding: 30px;
-   
+    
 
  }
  .swapForm{
@@ -562,5 +562,6 @@
     border: none;
     cursor: pointer;
  }
+
 
 </style>
