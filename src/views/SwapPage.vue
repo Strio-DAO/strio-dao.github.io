@@ -1,5 +1,7 @@
 <template>
 <v-container>
+<div class="color-flare1"></div>
+    <div class="color-flare2"></div>
     <v-row>
       <SwapToken></SwapToken>
     </v-row>
@@ -54,4 +56,25 @@ export default
 .supplyInfo{
   color: grey;
 }
+.color-flare1{
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(27, 156, 250, 0.4) 0%, rgba(196, 196, 196, 0) 100%);
+ 
+  position: absolute;
+  top:20%;
+  left:-10%;
+  opacity: .4;
+}
+.color-flare2{
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(250, 27, 188, 0.18) 0%, rgba(196, 196, 196, 0) 80%);
+  
+  position: absolute;
+  top:-400px;
+  left:50%;
+  opacity: 1;
+}
+
 </style>

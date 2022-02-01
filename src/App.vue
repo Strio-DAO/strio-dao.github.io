@@ -6,7 +6,7 @@
       dark
       style="position:fixed;"
     >
-      <v-col>
+      <v-col cols="2">
         <div class="d-flex align-center">
           <a style="color:white; text-decoration:none !important; margin-right: 50px" @click="scrollMeTo('topPage')">
             <v-img
@@ -20,8 +20,9 @@
           </a>
         </div>
       </v-col>
-      <v-col cols="7" align="center" justify="center" class="d-none d-sm-flex" >
+      <v-col cols="8" align="center" justify="center" class="d-none d-md-flex" >
         <v-row align="center" justify="center">
+        
           <div align="center">
             <a v-if="getCurrentRoute()=='Home'" style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
             <!-- <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('strioDAO')">DAO</a> -->
@@ -32,16 +33,17 @@
           </div>
         </v-row>
       </v-col>
-      <v-col>
+      <v-col md="2" sm="10">
         <div align="right">
-          <v-btn class="d-none d-sm-flex" href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px; width: 150px;">
+          
+          <v-btn class="d-none d-md-flex" href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px; ">
             <span style="margin-right:10px; font-family: 'Aileron', sans-serif; font-size: 15px;">Strio Wiki</span>
             <v-icon small>mdi-arrow-right</v-icon>
           </v-btn>
-          <v-btn @click.stop="drawer = !drawer" class="d-flex d-sm-none">
+          <v-btn depressed plain @click.stop="drawer = !drawer" class="d-flex d-md-none"style="background: none; outline: none; border:none;">
             <v-img
                 contain
-                width="30px"
+                width="25px"
                 src="@/assets/images/mobile/menuMobile2.png"
             />
           </v-btn>
@@ -50,9 +52,9 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      class="d-flex d-sm-none"
+      class="d-flex d-md-none"
       v-model="drawer"
-      absolute
+      fixed
       left
       temporary
       style="background: #EF4423; opacity: 0.7"
@@ -67,19 +69,22 @@
         >
           <v-list-item style="margin-top: 20%;">
             <v-list-item-title>
-              <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
+              <a v-if="getCurrentRoute()=='Home'" style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
+            
+            <router-link v-else style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">RoadMap</router-link>
             </v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-title>
-              <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('becomeMember')">Become a member</a>
+              <a v-if="getCurrentRoute()=='Home'" style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('becomeMember')">Become a member</a>
+            <router-link v-else style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">Become a member</router-link>
             </v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-title>
-              <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('strioDAO')">DAO</a>
+              <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Swap Page</router-link>
             </v-list-item-title>
           </v-list-item>
 

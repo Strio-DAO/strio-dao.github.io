@@ -8,20 +8,20 @@
             <v-row style="margin-top: 0px; margin-bottom: 30px;" justify="center" align="center">
               <h2 style="color:gray;">Owned by you and the community</h2>
             </v-row>
-            <v-row class="d-none d-sm-flex" justify="center" align="center">
-              <v-col cols="2" style="margin: 0px; padding: 0px;" align="center">
-                <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="color: white; width:130px; height: 50px; font-size: 0.8em; background-color: #EF4423;">
+            <v-row class=" d-sm-flex" justify="center" align="center">
+              <v-col cols="8" sm="2" style="margin: 0px; padding: 0px;" align="center">
+                <v-btn block href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" min-width="130px" target="_blank" style="color: white; height: 50px; font-size: 0.8em; background-color: #EF4423;">
                   Apply
                 </v-btn>
               </v-col>
-            </v-row>
-            <v-row class="d-flex d-sm-none" justify="center" align="center">
-              <v-col align="center">
-                <v-btn href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="color: white; width:100px; height: 35px; font-size: 1em; background-color: #EF4423;">
-                  Apply
+              <v-col cols="0" sm="1"></v-col>
+              <v-col cols="8" sm="2" style="margin: 0px; padding: 0px;" align="center">
+                <v-btn block outlined to="swapPage" min-width="150px" style="color: white; height: 50px; font-size: 0.8em;">
+                  sStrio Token
                 </v-btn>
               </v-col>
             </v-row>
+            
             <v-row style="color: white; margin-top: 7%" justify="center" align="center">
               <v-col justify="center" align="center">
                 <h2>
