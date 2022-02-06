@@ -45,23 +45,20 @@
                                         <v-col  cols = '3' offset='1'>
                                             <v-select
                                             :items="items"
-                                            dark
+                                            dark       
                                             v-model= "stableSelected"
                                             label = "MAX 10,000"
                                             v-on:change="changeStable()"
-                                            class="d-flex"
                                             ></v-select>
                                         </v-col>
                                         <v-col>
                                             <v-text-field 
                                             id="stableInput" 
-                                            
                                             rounded
                                             dark
                                             reverse
                                             @change="changeStableAmount"
-                                            min="1000" 
-                                            max="10000"
+                                            
                                             label = "Min 1000"
                                             v-model = "stableAmount"
                                             ></v-text-field>
@@ -99,7 +96,7 @@
                                             dark
                                             reverse
                                             
-                                            min='0'
+                                            
                                             v-model = "strioAmount"
                                             ></v-text-field>
                                         </v-col>
@@ -554,13 +551,14 @@
     margin-bottom: 2em;
  }
  .connect-wallet-button{
-    margin-top: 1em;
-    position: absolute;
+    z-index: 5;
     top: 0px;
-    right: 0px;
+    right: 5.5em;
+    margin: 10px;
     padding: 5px;
     border: none;
     cursor: pointer;
+    
  }
 
 
