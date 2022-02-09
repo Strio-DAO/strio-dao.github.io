@@ -1,14 +1,14 @@
 <template>
-  <v-app style="background:black;">
+  <v-app dark style="background:black;">
     <v-app-bar
       app
-      color="dark"
       dark
-      style="position:fixed;"
+      color="transparent" 
+      fixed
     >
       <v-col cols="2">
         <div class="d-flex align-center">
-          <a style="color:white; text-decoration:none !important; margin-right: 50px" @click="scrollMeTo('topPage')">
+          <router-link style="" to="/">
             <v-img
               alt="Strio Logo"
               class="shrink mr-2"
@@ -17,26 +17,31 @@
               transition="scale-transition"
               width="100"
             />
-          </a>
+          </router-link>
         </div>
       </v-col>
       <v-col cols="8" align="center" justify="center" class="d-none d-md-flex" >
         <v-row align="center" justify="center">
         
           <div align="center">
+          <!-- v-else-if="getCurrentRoute()=='SwapPage'" -->
             <a v-if="getCurrentRoute()=='Home'" style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('roadmap')">Roadmap</a>
-            <!-- <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('strioDAO')">DAO</a> -->
-            <router-link v-else style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">RoadMap</router-link>
+            
+            <router-link v-else style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">Roadmap</router-link>
+            
             <a v-if="getCurrentRoute()=='Home'" style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" @click="scrollMeTo('becomeMember')">Become a member</a>
             <router-link v-else style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="/">Become a member</router-link>
-            <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Swap Page</router-link>
+            
+            <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">sStrio Tokens</router-link>
           </div>
+          
         </v-row>
       </v-col>
-      <v-col md="2" sm="10">
-        <div align="right">
+      <v-col>
+      
+        <div  align="right">
           
-          <v-btn class="d-none d-md-flex" href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px; ">
+          <v-btn v-if="getCurrentRoute()=='Home'" class="d-none d-md-flex" href="https://www.notion.so/Strio-Wiki-cf0ef9581f8a47ae83496c79fb09da5a" target="_blank" dark style="border: 1px solid #EF4423; margin-top: 30px; margin-bottom: 30px; ">
             <span style="margin-right:10px; font-family: 'Aileron', sans-serif; font-size: 15px;">Strio Wiki</span>
             <v-icon small>mdi-arrow-right</v-icon>
           </v-btn>
@@ -84,10 +89,21 @@
 
           <v-list-item>
             <v-list-item-title>
-              <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Swap Page</router-link>
+              <router-link style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">sStrio Tokens</router-link>
             </v-list-item-title>
           </v-list-item>
 
+          <v-list-item>
+            <v-list-item-title>
+              <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;"href="https://github.com/Strio-DAO//"target="_blank"><v-icon dark right> mdi-github</v-icon>Github</a>
+            </v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>
+              <a style="color:white; text-decoration:none !important; margin-right: 50px; font-family: 'Aileron', sans-serif; font-size: 20px;"href="https://discord.gg/TKDRXsVz"target="_blank"><v-icon dark right> mdi-discord</v-icon>  Discord </a>
+            </v-list-item-title>
+          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>

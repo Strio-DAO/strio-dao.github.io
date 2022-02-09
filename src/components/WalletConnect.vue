@@ -6,7 +6,7 @@
               <!--<div class="ether_place" style="padding-left:3%;padding-right:3%;flex-shrink: 0;">{{balance}} DAI</div> 
               <input  disabled class="address"  v-model="reducedWa" value="..." >-->
               <v-text-field
-              readonly
+              disabled
               dark
               background-color="rgba(255, 255, 255, 0.12)"
               dense
@@ -21,11 +21,13 @@
           </div>
 
             <v-btn v-else       
-                dark   
-                large        
+                rounded
+                medium        
+                fixed
                 
                 color=""
                 elevation="5"
+                style="background-color:rgba(255, 255, 255, 0.12);color:white;"
                 class="connect-wallet-button"
                 @click="connectWallet">
                     Connect 
@@ -383,12 +385,12 @@ export default {
 }
 .addressContainer{
     width:160px;
- 
-    position: absolute;
+    margin: 5px;
+    position: fixed;
     top: 0px;
-    right: 0px;
+    right: 5em;
     padding: 5px;
     border: none;
-    
+    z-index:5;
 }
 </style>

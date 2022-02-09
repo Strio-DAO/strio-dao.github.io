@@ -356,7 +356,7 @@
                 </v-row>
                 <v-row align="center" justify="center" style="margin-bottom: 30px;">
                   <v-btn  style="background-color: #EF4423; color: white; height: 50px; font-size: 0.8em;">
-                    <router-link style="color:white; text-decoration:none !important;font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Swap Page</router-link>
+                    <router-link style="color:white; text-decoration:none !important;font-family: 'Aileron', sans-serif; font-size: 20px;" to="swapPage">Get sStrios</router-link>
                   </v-btn>
                 </v-row>
               </v-col>
