@@ -73,9 +73,6 @@ export default {
   computed: {
     count () {
       
-      console.log('todo 1 : ', this.$store.todo.state.title)
-      this.$store.todo.commit('changeTitle', 'isto é que é o titulo...')
-      console.log('todo 2 : ', this.$store.todo.state.title)
       console.log('chainIdConncted :  ', this.$store.account.state.chainIdConncted)
 
       return this.$store.account.state.chainIdConncted ;
@@ -159,8 +156,9 @@ export default {
         this.reducedWa =  this.currentAccount.slice(0, 6) + '...' + this.currentAccount.slice(36, 40)
         this.isConnected = true;
         this.chainId = await ethereum.request({ method: 'eth_chainId' });
+        this.$store.account.commit('setChainId', this.chainId )
         console.log('ChainID 1 : ', this.chainId);
-        if ( !(this.chainId  ==  this.$store.account.state.chainIdConncted ) )
+        if ( !(this.$store.account.state.chainIdSupported.includes(this.chainId)) )
         {
             console.error('ChainID is not connected!')
             return;

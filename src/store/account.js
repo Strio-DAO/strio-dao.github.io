@@ -16,10 +16,14 @@ export default new Vuex.Store({
         balance: 0,
         totalBuy : 0,
         strioBalance: 0,
-        chainIdConncted : rinkeby //rinkeby,
+        chainIdSupported : [rinkeby],
+        chainIdConnected : rinkeby //rinkeby,
     },
 
     mutations : {
+        setChainId(state, chainId) {
+            state.chainIdConnected = chainId;
+        },
         setAddress(state, addr) {
             state.address = addr;
         },

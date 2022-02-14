@@ -1,7 +1,37 @@
 <template>
+
     <v-row style="color:white; padding:1em;">
         <v-col>
             <v-row >
+
+                <v-dialog
+                v-model="dialog"
+                width="500"
+                >
+                <v-card>
+                    <v-card-title class="text-h5 grey lighten-2">
+                    Wrong network
+                    </v-card-title>
+
+                    <v-card-text>
+                    <br>
+                    Please connect to Rinkbey network!
+                    </v-card-text>
+
+                    <v-divider></v-divider>
+
+                    <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="primary"
+                        text
+                        @click="dialog = false"
+                    >
+                        Ok
+                    </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
                     
                 <v-col xs="6" sm="6" md="6" offset-md="3" offset-sm="3" align="center" >
                     <div>
@@ -169,6 +199,8 @@
     data: () => ({
         items:  ['weenus', 'xeenus'],
         stableAmount: 0,
+        dialog : false,
+        chainId : 0,
         totalStableAmount : 0,
         strioAmount: 0,
         stableSelected: 'weenus',
@@ -263,51 +295,70 @@
         {
             console.log('...... Approve Token ...... ')
 
-            let token = {};
-            let tokenAddres = 0;
-            let self = this;
-            if(this.stableSelected == 'weenus'){
-                token = this.weenusInstance;
-                tokenAddres = weenus_token_meta.address
-            }else if(this.stableSelected == 'xeenus'){
-                token = this.xeenusInstance;
-                tokenAddres = xeenus_token_meta.address
-            }
-           
-           let result = 
-            await new Promise(async (resolve, reject) => {
-                const gasPrice = await this.estimate();
-                const transValue = 0
-
-                const approveAmount = new BN(self.approveAmount).mul(new BN(EtherUnit))
-                console.log('Approve amount : ',  approveAmount);
-
-                token.methods
-                    .approve(strio_token_meta.address, approveAmount )
-                    .send({
-                        from: this.$store.account.state.address,
-                        transValue,
-                        to: tokenAddres,
-                        gasPrice,
-                    })
-                    .on("error", function (error) {
-                        console.log('error : ', { error });
-                        reject(error);
-                    })
-                    .on("transactionHash", function (transactionHash) {
-                        console.log('transactionHash : ', { transactionHash });
-                    })
-                    .on("receipt", async function (receipt) {
-                        console.log('receipt : ', { receipt });
-                        resolve(receipt);
-                    });
-            });
-
-            // WE SHOULD PUT WAITING SPINNER HERE!!
-            // FOR EACH TIME WE WAITING FOR A TRANSACTION
-            console.log('Result from approve ', result )
-            this.changeStable();
+            if(await this.checkChainSupported()){
+               
+                let token = {};
+                let tokenAddres = 0;
+                let self = this;
+                if(this.stableSelected == 'weenus'){
+                    token = this.weenusInstance;
+                    tokenAddres = weenus_token_meta.address
+                }else if(this.stableSelected == 'xeenus'){
+                    token = this.xeenusInstance;
+                    tokenAddres = xeenus_token_meta.address
+                }
             
+            let result = 
+                await new Promise(async (resolve, reject) => {
+                    const gasPrice = await this.estimate();
+                    const transValue = 0
+
+                    const approveAmount = new BN(self.approveAmount).mul(new BN(EtherUnit))
+                    console.log('Approve amount : ',  approveAmount);
+
+                    token.methods
+                        .approve(strio_token_meta.address, approveAmount )
+                        .send({
+                            from: this.$store.account.state.address,
+                            transValue,
+                            to: tokenAddres,
+                            gasPrice,
+                        })
+                        .on("error", function (error) {
+                            console.log('error : ', { error });
+                            reject(error);
+                        })
+                        .on("transactionHash", function (transactionHash) {
+                            console.log('transactionHash : ', { transactionHash });
+                        })
+                        .on("receipt", async function (receipt) {
+                            console.log('receipt : ', { receipt });
+                            resolve(receipt);
+                        });
+                });
+
+                // WE SHOULD PUT WAITING SPINNER HERE!!
+                // FOR EACH TIME WE WAITING FOR A TRANSACTION
+                console.log('Result from approve ', result )
+                this.changeStable();
+            }
+            
+        },
+        async checkChainSupported (){
+            this.chainId = await ethereum.request({ method: 'eth_chainId' });
+
+            console.log('ChainID user :', this.chainId, ' supported chains ', this.$store.account.state.chainIdSupported );
+            if ( !(this.$store.account.state.chainIdSupported.includes(this.chainId)) )
+            {
+                this.dialog = true;
+                console.log('Chain isnt supported')
+                //throw new Error('ChainId not supported');
+                return false;
+            }
+            else{
+                console.log('Chain is supported')
+                return true;
+            }
         },
         async getStrio ()
         {
@@ -315,57 +366,61 @@
             let tokenAddres = 0;
             let self = this;
 
-            if(this.strioAmount < this.minSwap ){
-                console.error('[LESS_THEN_MIN] Amount is : ', this.stableAmount, ' min is : ',  this.minSwap );
-                return ;
-            }
-            if(this.strioAmount > this.maxSwap ){
-                console.error('[MORE_THEN_MAX] Amount is : ', this.stableAmount, ' max is : ',  this.maxSwap );
-                return;
-            }
+            if(await this.checkChainSupported()){
+               
+
+                if(this.strioAmount < this.minSwap ){
+                    console.error('[LESS_THEN_MIN] Amount is : ', this.stableAmount, ' min is : ',  this.minSwap );
+                    return ;
+                }
+                if(this.strioAmount > this.maxSwap ){
+                    console.error('[MORE_THEN_MAX] Amount is : ', this.stableAmount, ' max is : ',  this.maxSwap );
+                    return;
+                }
+                
+                if(this.stableSelected == 'weenus'){
+                    // token = this.weenusInstance;
+                    tokenAddres = weenus_token_meta.address
+                }else if(this.stableSelected == 'xeenus'){
+                    // token = this.xeenusInstance;
+                    tokenAddres = xeenus_token_meta.address
+                }
             
-            if(this.stableSelected == 'weenus'){
-                // token = this.weenusInstance;
-                tokenAddres = weenus_token_meta.address
-            }else if(this.stableSelected == 'xeenus'){
-                // token = this.xeenusInstance;
-                tokenAddres = xeenus_token_meta.address
+            let result = 
+                await new Promise(async (resolve, reject) => {
+                    const gasPrice = await this.estimate();
+                    const transValue = 0
+
+                    console.log('Strio amount before cals ',  this.strioAmount);
+                    const amountToBuy = new BN(this.strioAmount).mul(new BN(EtherUnit))
+                    console.log('Stable amount to buy : ',  amountToBuy);
+
+                    this.strioInstance.methods
+                        .mintStable(tokenAddres,  amountToBuy )
+                        .send({
+                            from: this.$store.account.state.address,
+                            transValue,
+                            to: tokenAddres,
+                            gasPrice,
+                        })
+                        .on("error", function (error) {
+                            console.log('error : ', { error });
+                            reject(error);
+                        })
+                        .on("transactionHash", function (transactionHash) {
+                            console.log('transactionHash : ', { transactionHash });
+                        })
+                        .on("receipt", async function (receipt) {
+                            console.log('transfer receipt : ', { receipt });
+                            resolve(receipt);
+                        });
+                });
+
+                // WE SHOULD PUT WAITING SPINNER HERE!!
+                // FOR EACH TIME WE WAITING FOR A TRANSACTION
+                console.log('Result tokens buy:  ', result )
+                this.changeStable();
             }
-           
-           let result = 
-            await new Promise(async (resolve, reject) => {
-                const gasPrice = await this.estimate();
-                const transValue = 0
-
-                console.log('Strio amount before cals ',  this.strioAmount);
-                const amountToBuy = new BN(this.strioAmount).mul(new BN(EtherUnit))
-                console.log('Stable amount to buy : ',  amountToBuy);
-
-                this.strioInstance.methods
-                    .mintStable(tokenAddres,  amountToBuy )
-                    .send({
-                        from: this.$store.account.state.address,
-                        transValue,
-                        to: tokenAddres,
-                        gasPrice,
-                    })
-                    .on("error", function (error) {
-                        console.log('error : ', { error });
-                        reject(error);
-                    })
-                    .on("transactionHash", function (transactionHash) {
-                        console.log('transactionHash : ', { transactionHash });
-                    })
-                    .on("receipt", async function (receipt) {
-                        console.log('transfer receipt : ', { receipt });
-                        resolve(receipt);
-                    });
-            });
-
-            // WE SHOULD PUT WAITING SPINNER HERE!!
-            // FOR EACH TIME WE WAITING FOR A TRANSACTION
-            console.log('Result tokens buy:  ', result )
-            this.changeStable();
             
         },
         async changeStable()
