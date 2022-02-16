@@ -9,14 +9,14 @@
               <h2 style="color:gray;">Owned by you and the community</h2>
             </v-row>
             <v-row class=" d-sm-flex" justify="center" align="center">
-              <v-col cols="8" sm="2" style="margin: 0px; padding: 0px;" align="center">
-                <v-btn block href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" min-width="130px" target="_blank" style="color: white; height: 50px; font-size: 0.8em; background-color: #EF4423;">
+              <v-col cols="8" sm="2" style="margin: 0px;margin-left:15px; margin-top:15px; padding: 0px;" align="center">
+                <v-btn block href="https://0mukgaq1vrn.typeform.com/to/t8MAICvb" target="_blank" style="color: white; height: 50px; font-size: 0.8em; background-color: #EF4423;">
                   Apply
                 </v-btn>
               </v-col>
-              <v-col cols="0" sm="1"></v-col>
-              <v-col cols="8" sm="2" style="margin: 0px; padding: 0px;" align="center">
-                <v-btn block outlined to="swapPage" min-width="150px" style="color: white; height: 50px; font-size: 0.8em;">
+              <v-col cols="0" sm="0"></v-col>
+              <v-col cols="8" sm="2" style="margin: 0px;margin-left:15px; margin-top:15px; padding: 0px;" align="center">
+                <v-btn block outlined to="swapPage"  style="color: white; height: 50px; font-size: 0.8em;">
                   sStrio Token
                 </v-btn>
               </v-col>
@@ -243,7 +243,7 @@
             </v-row>
             <v-row justify="center" align="center" style="margin-bottom: 50px; margin-top: 50px;">
               <v-btn href="https://www.notion.so/Governance-c1b6b84c72f34409b691102902d60634" target="_blank" style="background-color: #EF4423; color: white; height: 35px; font-size: 1em; padding: 25px; margin-right: 10px;">
-                Strio DAO Governance
+                Know all about our DAO
               </v-btn>
             </v-row>
           </v-col>
@@ -259,18 +259,18 @@
             <v-row justify="center" align="center" style="color: white">
               <h2 style="margin-top: 30px; color: gray">Here is a sneak peak into our roadmap ahead</h2>
             </v-row>
-            <v-row class="d-none d-sm-flex">
-              <v-col cols="2"></v-col>
-              <v-col>
+            <v-row dense class="d-none d-sm-flex" justify="center" align="center">
+              
+              <v-col cols="7" md="4"  justify="center" align="center">
                 <roadmap-card style="border: 3px solid #EF4423" :items="preSeasonCard.items" :title="preSeasonCard.title"></roadmap-card>
               </v-col>
-              <v-col>
+              <v-col cols="7" md="4">
                 <roadmap-card :items="launchpadSeasonCard.items" :title="launchpadSeasonCard.title"></roadmap-card>
               </v-col>
-              <v-col>
+              <v-col cols="7" md="4">
                 <roadmap-card :items="streamingSeasonCard.items" :title="streamingSeasonCard.title"></roadmap-card>
               </v-col>
-              <v-col cols="2"></v-col>
+              
             </v-row>
             <!-- Mobile -->
             <v-row class="d-flex d-sm-none">
